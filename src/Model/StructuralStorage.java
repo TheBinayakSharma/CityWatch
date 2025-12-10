@@ -5,6 +5,9 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 
 /**
  *
@@ -13,4 +16,10 @@ import java.util.ArrayList;
 public class StructuralStorage {
     public static ArrayList<Civilian> civilianArrayList = new ArrayList<>();
     public static ArrayList<Organization> organizationArrayList = new ArrayList<>();
+    public static Queue<Task> taskLinkedList = new LinkedList<>();
+    public static LinkedList<Notice> noticeLinkedList = new LinkedList<>();
+    
+    
+    
+    
 }

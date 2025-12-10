@@ -10,23 +10,6 @@ import java.util.HashMap;
  * @author binay
  */
 public class LoginCredentials {
-    protected static HashMap<String,String> civLoginCred = new HashMap<>();
-    protected static HashMap<String,String> orgLoginCred = new HashMap<>();
-    
-    public static void addCivLoginCred(String username, String password){
-        civLoginCred.put(username, password);
-    }
-    
-    public static void addOrgLoginCred(String username, String password){
-        orgLoginCred.put(username, password);
-    }   
-    
-    public static String getOrgLoginCred(String username){
-        return orgLoginCred.get(username);
-    }
-    
-    public static String getCivLoginCred(String username){
-        return civLoginCred.get(username);
-    }
-    
+    public static HashMap<String,String> civLoginCred = new HashMap<>();
+    public static HashMap<String,String> orgLoginCred = new HashMap<>();
 }

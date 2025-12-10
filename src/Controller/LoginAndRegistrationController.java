@@ -15,7 +15,6 @@ import Model.Organization;
 import Model.Task;
 import Model.LoginCredentials;
 
-
 public class LoginAndRegistrationController {
     
     public static boolean adminAuthenticate(String username, String password){
@@ -28,21 +27,33 @@ public class LoginAndRegistrationController {
     
     
     public static boolean orgAuthenticate(String username, String password){
-        LoginCredentials lc = new LoginCredentials();
-        if((lc.getOrgLoginCred(username)).equals(password)){
+        if((getOrgLoginCred(username)).equals(password)){
           return true;  
         }
-        return false;
-        
-        
+        return false;  
     }
     
     public static boolean civAuthenticate(String username, String password){
-        LoginCredentials lc = new LoginCredentials();
-        if((lc.getCivLoginCred(username)).equals(password)){
+        if((getCivLoginCred(username)).equals(password)){
           return true;  
         }
         return false;
+    }
+    
+    public static void addCivLoginCred(String username, String password){
+        LoginCredentials.civLoginCred.put(username, password);
+    }
+    
+    public static void addOrgLoginCred(String username, String password){
+        LoginCredentials.orgLoginCred.put(username, password);
+    }   
+    
+    public static String getOrgLoginCred(String username){
+        return LoginCredentials.orgLoginCred.get(username);
+    }
+    
+    public static String getCivLoginCred(String username){
+        return LoginCredentials.civLoginCred.get(username);
     }
     
 }

@@ -6,8 +6,12 @@ package View;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import Controller.LoginAndRegistrationController;
-import Controller.AddCivilianController;
-import Controller.AddOrganizationController;
+import Controller.CiviliansController;
+import Controller.OrganizationsController;
+import Model.Civilian;
+import Model.Organization;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +19,8 @@ import Controller.AddOrganizationController;
  */
 public class Menu extends javax.swing.JFrame {
     public CardLayout mpLayout;
+    public CardLayout adcLayout;
+    private String sessionUser;
     
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
@@ -25,6 +31,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         mpLayout = (CardLayout) mainPanel.getLayout();
+        adcLayout = (CardLayout) adminCards.getLayout();
     }
 
     /**
@@ -38,6 +45,20 @@ public class Menu extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         acTypeButtonGroup = new javax.swing.ButtonGroup();
+        updateUserPanel = new javax.swing.JPanel();
+        updateUserForm = new javax.swing.JPanel();
+        rfRegisterButton2 = new javax.swing.JButton();
+        rePhoneLabel2 = new javax.swing.JLabel();
+        rfRegisterLabel2 = new javax.swing.JLabel();
+        rfAddressLabel2 = new javax.swing.JLabel();
+        rfNameLabel2 = new javax.swing.JLabel();
+        rfEmailLabel2 = new javax.swing.JLabel();
+        updateUserNameTextField = new javax.swing.JTextField();
+        updateUserPhonetextField = new javax.swing.JTextField();
+        updateUserAddressTextField = new javax.swing.JTextField();
+        updateUserEmailTextField = new javax.swing.JTextField();
+        updateUserIDTextField = new javax.swing.JTextField();
+        rfNameLabel3 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         loginForm = new javax.swing.JPanel();
@@ -92,30 +113,26 @@ public class Menu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jButton12 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
         adminCiviliansCard = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        adminOrgTable2 = new javax.swing.JTable();
+        adminCivTable = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
         jButton23 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
         jButton24 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
         adminTasksCard = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -126,7 +143,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox8 = new javax.swing.JComboBox<>();
         jButton30 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jButton31 = new javax.swing.JButton();
@@ -142,7 +158,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jComboBox9 = new javax.swing.JComboBox<>();
-        jComboBox10 = new javax.swing.JComboBox<>();
         jButton35 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jButton36 = new javax.swing.JButton();
@@ -155,7 +170,24 @@ public class Menu extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jTextField6 = new javax.swing.JTextField();
         jButton39 = new javax.swing.JButton();
-        adminHome2 = new javax.swing.JPanel();
+        adminAddUserCard = new javax.swing.JPanel();
+        registerForm1 = new javax.swing.JPanel();
+        rfRegisterButton1 = new javax.swing.JButton();
+        rePhoneLabel1 = new javax.swing.JLabel();
+        rfRegisterLabel1 = new javax.swing.JLabel();
+        rfAddressLabel1 = new javax.swing.JLabel();
+        rfNameLabel1 = new javax.swing.JLabel();
+        rfEmailLabel1 = new javax.swing.JLabel();
+        rfNameTextField1 = new javax.swing.JTextField();
+        rfPhonetextField1 = new javax.swing.JTextField();
+        rfAddressTextField1 = new javax.swing.JTextField();
+        rfEmailTextField1 = new javax.swing.JTextField();
+        rfRoleLabel1 = new javax.swing.JLabel();
+        radioButtonsPanel1 = new javax.swing.JPanel();
+        ngoRadioButton1 = new javax.swing.JRadioButton();
+        civilianRadioButton1 = new javax.swing.JRadioButton();
+        rfPasswordLabel1 = new javax.swing.JLabel();
+        rfPasswordField1 = new javax.swing.JPasswordField();
         adminHome3 = new javax.swing.JPanel();
         adminHome4 = new javax.swing.JPanel();
         adminHome1 = new javax.swing.JPanel();
@@ -171,6 +203,160 @@ public class Menu extends javax.swing.JFrame {
         adminDashboard1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         civilianPanel = new javax.swing.JPanel();
+
+        updateUserPanel.setBackground(new java.awt.Color(102, 153, 255));
+        updateUserPanel.setLayout(new java.awt.GridBagLayout());
+
+        updateUserForm.setBackground(new java.awt.Color(38, 50, 56));
+        updateUserForm.setPreferredSize(new java.awt.Dimension(500, 360));
+        updateUserForm.setLayout(new java.awt.GridBagLayout());
+
+        rfRegisterButton2.setBackground(new java.awt.Color(102, 153, 255));
+        rfRegisterButton2.setText("Update");
+        rfRegisterButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rfRegisterButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 150, 0, 150);
+        updateUserForm.add(rfRegisterButton2, gridBagConstraints);
+
+        rePhoneLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel2.setText("Phone");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        updateUserForm.add(rePhoneLabel2, gridBagConstraints);
+
+        rfRegisterLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRegisterLabel2.setForeground(new java.awt.Color(102, 153, 225));
+        rfRegisterLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rfRegisterLabel2.setText("Update");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 150, 0, 150);
+        updateUserForm.add(rfRegisterLabel2, gridBagConstraints);
+
+        rfAddressLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfAddressLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        rfAddressLabel2.setText("Address");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 51;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        updateUserForm.add(rfAddressLabel2, gridBagConstraints);
+
+        rfNameLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel2.setText("Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        updateUserForm.add(rfNameLabel2, gridBagConstraints);
+
+        rfEmailLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfEmailLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        rfEmailLabel2.setText("Email");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        updateUserForm.add(rfEmailLabel2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        updateUserForm.add(updateUserNameTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        updateUserForm.add(updateUserPhonetextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        updateUserForm.add(updateUserAddressTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        updateUserForm.add(updateUserEmailTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        updateUserForm.add(updateUserIDTextField, gridBagConstraints);
+
+        rfNameLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel3.setText("Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        updateUserForm.add(rfNameLabel3, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(100, 150, 40, 150);
+        updateUserPanel.add(updateUserForm, gridBagConstraints);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CityWatch");
@@ -540,6 +726,11 @@ public class Menu extends javax.swing.JFrame {
         admOrganizationsButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
         admOrganizationsButton.setMinimumSize(new java.awt.Dimension(80, 20));
         admOrganizationsButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admOrganizationsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admOrganizationsButtonActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(admOrganizationsButton);
 
         admCiviliansButton.setBackground(new java.awt.Color(102, 153, 255));
@@ -549,6 +740,11 @@ public class Menu extends javax.swing.JFrame {
         admCiviliansButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
         admCiviliansButton.setMinimumSize(new java.awt.Dimension(80, 20));
         admCiviliansButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admCiviliansButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admCiviliansButtonActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(admCiviliansButton);
 
         admTasksButton.setBackground(new java.awt.Color(102, 153, 255));
@@ -558,6 +754,11 @@ public class Menu extends javax.swing.JFrame {
         admTasksButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
         admTasksButton.setMinimumSize(new java.awt.Dimension(80, 20));
         admTasksButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admTasksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admTasksButtonActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(admTasksButton);
 
         admNoticesButton.setBackground(new java.awt.Color(102, 153, 255));
@@ -567,6 +768,11 @@ public class Menu extends javax.swing.JFrame {
         admNoticesButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
         admNoticesButton.setMinimumSize(new java.awt.Dimension(80, 20));
         admNoticesButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admNoticesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admNoticesButtonActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(admNoticesButton);
 
         admCompletedTasksButton.setBackground(new java.awt.Color(102, 153, 255));
@@ -576,6 +782,11 @@ public class Menu extends javax.swing.JFrame {
         admCompletedTasksButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
         admCompletedTasksButton.setMinimumSize(new java.awt.Dimension(80, 20));
         admCompletedTasksButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admCompletedTasksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admCompletedTasksButtonActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(admCompletedTasksButton);
 
         orgCompletedTasksButton1.setBackground(new java.awt.Color(102, 153, 255));
@@ -585,6 +796,11 @@ public class Menu extends javax.swing.JFrame {
         orgCompletedTasksButton1.setMargin(new java.awt.Insets(10, 0, 0, 0));
         orgCompletedTasksButton1.setMinimumSize(new java.awt.Dimension(80, 20));
         orgCompletedTasksButton1.setPreferredSize(new java.awt.Dimension(100, 30));
+        orgCompletedTasksButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgCompletedTasksButton1ActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(orgCompletedTasksButton1);
 
         orgCompletedTasksButton2.setBackground(new java.awt.Color(102, 153, 255));
@@ -594,6 +810,11 @@ public class Menu extends javax.swing.JFrame {
         orgCompletedTasksButton2.setMargin(new java.awt.Insets(10, 0, 0, 0));
         orgCompletedTasksButton2.setMinimumSize(new java.awt.Dimension(80, 20));
         orgCompletedTasksButton2.setPreferredSize(new java.awt.Dimension(100, 30));
+        orgCompletedTasksButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgCompletedTasksButton2ActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(orgCompletedTasksButton2);
 
         orgCompletedTasksButton3.setBackground(new java.awt.Color(102, 153, 255));
@@ -603,6 +824,11 @@ public class Menu extends javax.swing.JFrame {
         orgCompletedTasksButton3.setMargin(new java.awt.Insets(10, 0, 0, 0));
         orgCompletedTasksButton3.setMinimumSize(new java.awt.Dimension(80, 20));
         orgCompletedTasksButton3.setPreferredSize(new java.awt.Dimension(100, 30));
+        orgCompletedTasksButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgCompletedTasksButton3ActionPerformed(evt);
+            }
+        });
         adminMenuPanel.add(orgCompletedTasksButton3);
 
         orgCompletedTasksButton5.setBackground(new java.awt.Color(102, 153, 255));
@@ -620,7 +846,7 @@ public class Menu extends javax.swing.JFrame {
 
         adminHome.setBackground(new java.awt.Color(102, 153, 255));
         adminHome.setLayout(new java.awt.GridBagLayout());
-        adminCards.add(adminHome, "card2");
+        adminCards.add(adminHome, "ahomecard");
 
         adminOrganizationCard.setBackground(new java.awt.Color(102, 153, 255));
         adminOrganizationCard.setLayout(new java.awt.GridBagLayout());
@@ -638,17 +864,17 @@ public class Menu extends javax.swing.JFrame {
 
         adminOrgTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "OrgId", "Name", "Phone", "Email", "Volunteers", "TasksCompleted", "CurrentTask"
+                "OrgId", "Name", "Phone", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -694,9 +920,6 @@ public class Menu extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OrgId", "Name" }));
         jPanel4.add(jComboBox1);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AESC", "DESC" }));
-        jPanel4.add(jComboBox2);
-
         jButton12.setText("Sort");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -718,16 +941,28 @@ public class Menu extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(500, 80));
 
         jButton13.setText("Add New Organization");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton13);
 
         jButton14.setText("Update Organization Info");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton14);
 
         jButton15.setText("Remove Organization");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton15);
-
-        jButton16.setText("Remove Last Added Organization");
-        jPanel6.add(jButton16);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -736,7 +971,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
         adminOrganizationCard.add(jPanel6, gridBagConstraints);
 
-        adminCards.add(adminOrganizationCard, "card3");
+        adminCards.add(adminOrganizationCard, "aorgcard");
 
         adminCiviliansCard.setBackground(new java.awt.Color(102, 153, 255));
         adminCiviliansCard.setLayout(new java.awt.GridBagLayout());
@@ -752,28 +987,28 @@ public class Menu extends javax.swing.JFrame {
 
         jScrollPane3.setPreferredSize(new java.awt.Dimension(600, 200));
 
-        adminOrgTable2.setModel(new javax.swing.table.DefaultTableModel(
+        adminCivTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "CivId", "Name", "Address", "Email", "Phone", "Posts"
+                "CivId", "Name", "Address", "Email", "Phone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, false
+                false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        adminOrgTable2.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(adminOrgTable2);
-        adminOrgTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        adminCivTable.setColumnSelectionAllowed(true);
+        jScrollPane3.setViewportView(adminCivTable);
+        adminCivTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -810,9 +1045,6 @@ public class Menu extends javax.swing.JFrame {
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CivId", "Name" }));
         jPanel10.add(jComboBox5);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AESC", "DESC" }));
-        jPanel10.add(jComboBox6);
-
         jButton24.setText("Sort");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -834,21 +1066,28 @@ public class Menu extends javax.swing.JFrame {
         jPanel11.setPreferredSize(new java.awt.Dimension(500, 80));
 
         jButton25.setText("Add New Civilian");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jButton25);
 
         jButton26.setText("Update Civilian Info");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jButton26);
 
         jButton27.setText("Remove Civilian");
-        jPanel11.add(jButton27);
-
-        jButton28.setText("Remove Last Added Civilian");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                jButton27ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton28);
+        jPanel11.add(jButton27);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -857,7 +1096,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
         adminCiviliansCard.add(jPanel11, gridBagConstraints);
 
-        adminCards.add(adminCiviliansCard, "card3");
+        adminCards.add(adminCiviliansCard, "acivcard");
 
         adminTasksCard.setBackground(new java.awt.Color(102, 153, 255));
         adminTasksCard.setLayout(new java.awt.GridBagLayout());
@@ -931,9 +1170,6 @@ public class Menu extends javax.swing.JFrame {
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
         jPanel13.add(jComboBox7);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AESC", "DESC" }));
-        jPanel13.add(jComboBox8);
-
         jButton30.setText("Sort");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -975,7 +1211,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
         adminTasksCard.add(jPanel14, gridBagConstraints);
 
-        adminCards.add(adminTasksCard, "card3");
+        adminCards.add(adminTasksCard, "ataskcard");
 
         adminNoticeTask.setBackground(new java.awt.Color(102, 153, 255));
         adminNoticeTask.setLayout(new java.awt.GridBagLayout());
@@ -1048,9 +1284,6 @@ public class Menu extends javax.swing.JFrame {
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
         jPanel16.add(jComboBox9);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AESC", "DESC" }));
-        jPanel16.add(jComboBox10);
-
         jButton35.setText("Sort");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1092,7 +1325,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
         adminNoticeTask.add(jPanel17, gridBagConstraints);
 
-        adminCards.add(adminNoticeTask, "card3");
+        adminCards.add(adminNoticeTask, "anoticecard");
 
         adminCompletedTasksCard.setBackground(new java.awt.Color(102, 153, 255));
         adminCompletedTasksCard.setLayout(new java.awt.GridBagLayout());
@@ -1155,11 +1388,204 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
         adminCompletedTasksCard.add(jPanel18, gridBagConstraints);
 
-        adminCards.add(adminCompletedTasksCard, "card3");
+        adminCards.add(adminCompletedTasksCard, "acomtaskcard");
 
-        adminHome2.setBackground(new java.awt.Color(102, 153, 255));
-        adminHome2.setLayout(new java.awt.GridBagLayout());
-        adminCards.add(adminHome2, "card2");
+        adminAddUserCard.setBackground(new java.awt.Color(102, 153, 255));
+        adminAddUserCard.setLayout(new java.awt.GridBagLayout());
+
+        registerForm1.setBackground(new java.awt.Color(38, 50, 56));
+        registerForm1.setPreferredSize(new java.awt.Dimension(500, 360));
+        registerForm1.setLayout(new java.awt.GridBagLayout());
+
+        rfRegisterButton1.setBackground(new java.awt.Color(102, 153, 255));
+        rfRegisterButton1.setText("Register");
+        rfRegisterButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rfRegisterButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
+        registerForm1.add(rfRegisterButton1, gridBagConstraints);
+
+        rePhoneLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel1.setText("Phone");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rePhoneLabel1, gridBagConstraints);
+
+        rfRegisterLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRegisterLabel1.setForeground(new java.awt.Color(102, 153, 225));
+        rfRegisterLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rfRegisterLabel1.setText("Register");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 150, 0, 150);
+        registerForm1.add(rfRegisterLabel1, gridBagConstraints);
+
+        rfAddressLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfAddressLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rfAddressLabel1.setText("Address");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 51;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rfAddressLabel1, gridBagConstraints);
+
+        rfNameLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel1.setText("Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rfNameLabel1, gridBagConstraints);
+
+        rfEmailLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfEmailLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rfEmailLabel1.setText("Email");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rfEmailLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(rfNameTextField1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(rfPhonetextField1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(rfAddressTextField1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(rfEmailTextField1, gridBagConstraints);
+
+        rfRoleLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRoleLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rfRoleLabel1.setText("Role");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 82;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rfRoleLabel1, gridBagConstraints);
+
+        radioButtonsPanel1.setBackground(new java.awt.Color(38, 50, 56));
+
+        acTypeButtonGroup.add(ngoRadioButton1);
+        ngoRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        ngoRadioButton1.setText("NGO");
+        ngoRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngoRadioButton1ActionPerformed(evt);
+            }
+        });
+        radioButtonsPanel1.add(ngoRadioButton1);
+
+        acTypeButtonGroup.add(civilianRadioButton1);
+        civilianRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        civilianRadioButton1.setText("Civilian");
+        civilianRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civilianRadioButton1ActionPerformed(evt);
+            }
+        });
+        radioButtonsPanel1.add(civilianRadioButton1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(radioButtonsPanel1, gridBagConstraints);
+
+        rfPasswordLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfPasswordLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        rfPasswordLabel1.setText("Password");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 82;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        registerForm1.add(rfPasswordLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        registerForm1.add(rfPasswordField1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(100, 150, 40, 150);
+        adminAddUserCard.add(registerForm1, gridBagConstraints);
+
+        adminCards.add(adminAddUserCard, "aadducard");
 
         adminHome3.setBackground(new java.awt.Color(102, 153, 255));
         adminHome3.setLayout(new java.awt.GridBagLayout());
@@ -1168,11 +1594,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome4.setLayout(new java.awt.GridBagLayout());
         adminHome3.add(adminHome4, new java.awt.GridBagConstraints());
 
-        adminCards.add(adminHome3, "card2");
+        adminCards.add(adminHome3, "aaddtcard");
 
         adminHome1.setBackground(new java.awt.Color(102, 153, 255));
         adminHome1.setLayout(new java.awt.GridBagLayout());
-        adminCards.add(adminHome1, "card2");
+        adminCards.add(adminHome1, "aaddncard");
 
         adminPanel.add(adminCards, java.awt.BorderLayout.CENTER);
 
@@ -1258,7 +1684,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1275,7 +1701,7 @@ public class Menu extends javax.swing.JFrame {
         civilianPanel.setLayout(civilianPanelLayout);
         civilianPanelLayout.setHorizontalGroup(
             civilianPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
+            .addGap(0, 948, Short.MAX_VALUE)
         );
         civilianPanelLayout.setVerticalGroup(
             civilianPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1306,18 +1732,18 @@ public class Menu extends javax.swing.JFrame {
         String prefix = username.substring(0,3);
         if (prefix.equals("ADM") &&  Controller.LoginAndRegistrationController.adminAuthenticate(username, password) ){
             //if( Controller.LoginAndRegistrationController.adminAuthenticate(username, password)){
-                cl.show(mainPanel, "adminPanelCard");
+            sessionUser = username;    
+            cl.show(mainPanel, "adminPanelCard");
             //}
         }
         else if(prefix.equals("ORG") && Controller.LoginAndRegistrationController.orgAuthenticate(username, password)){
-            //if( Controller.LoginAndRegistrationController.orgAuthenticate(username, password)){
-                cl.show(mainPanel,"orgPanelCard");
-            //}
+            sessionUser = username;    
+            cl.show(mainPanel,"orgPanelCard");
+                
         }
         else if(prefix.equals("CIV") && Controller.LoginAndRegistrationController.civAuthenticate(username, password)){
-            //if( Controller.LoginAndRegistrationController.civAuthenticate(username, password)){
-                cl.show(mainPanel,"civPanelCard");
-            //}
+            sessionUser = username;
+            cl.show(mainPanel,"civPanelCard");
         }
         else{
             JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
@@ -1330,21 +1756,8 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lfLoginButtonActionPerformed
 
-    private void rfLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfLoginButtonActionPerformed
-        // TODO add your handling code here:
-        mpLayout.show(mainPanel,"loginPanelCard");
-    }//GEN-LAST:event_rfLoginButtonActionPerformed
-
-    private void rfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButtonActionPerformed
-    try{
-        String name = rfNameTextField.getText();
-        String phone = rfPhonetextField.getText();        
-        String email = rfEmailTextField.getText();
-        String address = rfAddressTextField.getText();
-        String role = String.valueOf(acTypeButtonGroup.getSelection());
-        String password = new String(rfPasswordField.getPassword());
-
-        
+    private void registerFunction(String name,String phone,String email,String address, String role,String password){
+        try{
         if(name.trim().isEmpty() || phone.trim().isEmpty()|| email.trim().isEmpty()
                 || address.trim().isEmpty() || role == null || password.trim().isEmpty()){
             throw new Exception("Make Sure the form is filled");
@@ -1372,18 +1785,18 @@ public class Menu extends javax.swing.JFrame {
             throw new Exception("Password Cannot Contail Spaces");
         }
         
-        if(civilianRadioButton.isSelected()){
-            AddCivilianController addCiv = new AddCivilianController();
+        if(civilianRadioButton.isSelected() || civilianRadioButton1.isSelected()){
+            CiviliansController addCiv = new CiviliansController();
             String civId = addCiv.setCivId(name,phone);
             addCiv.registerCivilian(civId, name, phone, email, address, password);
-            JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully. Your Username is: "+ civId, "Success",JOptionPane.INFORMATION_MESSAGE);
         }
         
-        if(ngoRadioButton.isSelected()){
-            AddOrganizationController addOrg = new AddOrganizationController();
+        if(ngoRadioButton.isSelected() || ngoRadioButton1.isSelected()){
+            OrganizationsController addOrg = new OrganizationsController();
             String orgId = addOrg.setOrgId(name,phone);
             addOrg.registerOrganization(orgId, name, phone, email, address, password);
-            JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(mainPanel, "Organization Added Successfully. Your Username is: "+ orgId, "Success",JOptionPane.INFORMATION_MESSAGE);
         }
         
         
@@ -1396,17 +1809,7 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
         
     }
-                // TODO add your handling code here:
-    }//GEN-LAST:event_rfRegisterButtonActionPerformed
-
-    private void civilianRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civilianRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_civilianRadioButtonActionPerformed
-
-    private void ngoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ngoRadioButtonActionPerformed
-
+    }
     private void lfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lfRegisterButtonActionPerformed
         // TODO add your handling code here:
         mpLayout.show(mainPanel,"regPanelCard");
@@ -1418,6 +1821,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void adminHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminHomeButtonActionPerformed
         // TODO add your handling code here:
+        adcLayout.show(adminCards,"ahomecard");
     }//GEN-LAST:event_adminHomeButtonActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1431,10 +1835,6 @@ public class Menu extends javax.swing.JFrame {
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton24ActionPerformed
-
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
         // TODO add your handling code here:
@@ -1451,6 +1851,243 @@ public class Menu extends javax.swing.JFrame {
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void admOrganizationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admOrganizationsButtonActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aorgcard");
+        DefaultTableModel model = (DefaultTableModel) adminOrgTable.getModel();
+        ArrayList<Organization> orgs = Controller.OrganizationsController.getOrganizationAL();
+        for (Organization o: orgs){
+            Object[] row = {o.getOrgId(), o.getName(), o.getPhone(), o.getEmail(), o.getAddress()};
+            model.addRow(row);
+        }
+        
+    }//GEN-LAST:event_admOrganizationsButtonActionPerformed
+
+    private void admCiviliansButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCiviliansButtonActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"acivcard");
+        DefaultTableModel model = (DefaultTableModel) adminCivTable.getModel();
+        ArrayList<Civilian> civs = Controller.OrganizationsController.getOrganizationAL();
+        for (Civilian c: civs){
+            Object[] row = {c.getCivId(), c.getName(), c.getAddress(), c.getEmail(), c.getPhone()};
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_admCiviliansButtonActionPerformed
+
+    private void admTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTasksButtonActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"ataskcard");
+    }//GEN-LAST:event_admTasksButtonActionPerformed
+
+    private void admNoticesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admNoticesButtonActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"anoticecard");
+    }//GEN-LAST:event_admNoticesButtonActionPerformed
+
+    private void admCompletedTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTasksButtonActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"acomtaskcard");
+    }//GEN-LAST:event_admCompletedTasksButtonActionPerformed
+
+    private void orgCompletedTasksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton1ActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aadducard");
+    }//GEN-LAST:event_orgCompletedTasksButton1ActionPerformed
+
+    private void orgCompletedTasksButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton2ActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aaddtcard");
+    }//GEN-LAST:event_orgCompletedTasksButton2ActionPerformed
+
+    private void orgCompletedTasksButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton3ActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aaddncard");
+    }//GEN-LAST:event_orgCompletedTasksButton3ActionPerformed
+
+    private void rfRegisterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton1ActionPerformed
+        // TODO add your handling code here: 
+        String name = rfNameTextField1.getText();
+        String phone = rfPhonetextField1.getText();        
+        String email = rfEmailTextField1.getText();
+        String address = rfAddressTextField1.getText();
+        String role = String.valueOf(acTypeButtonGroup.getSelection());
+        String password = new String(rfPasswordField1.getPassword());
+        registerFunction(name,phone,email,address,role,password);
+    }//GEN-LAST:event_rfRegisterButton1ActionPerformed
+
+    private void ngoRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoRadioButton1ActionPerformed
+
+    private void civilianRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civilianRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_civilianRadioButton1ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aadducard");
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void civilianRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civilianRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_civilianRadioButtonActionPerformed
+
+    private void ngoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ngoRadioButtonActionPerformed
+
+    private void rfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButtonActionPerformed
+        try{String name = rfNameTextField.getText();
+            String phone = rfPhonetextField.getText();
+            String email = rfEmailTextField.getText();
+            String address = rfAddressTextField.getText();
+            String role = String.valueOf(acTypeButtonGroup.getSelection());
+            String password = new String(rfPasswordField.getPassword());
+            registerFunction(name,phone,email,address,role,password);}
+        catch(Exception e){
+            
+            JOptionPane.showMessageDialog(mainPanel, "An Unexpected Error Occured", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rfRegisterButtonActionPerformed
+
+    private void rfLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfLoginButtonActionPerformed
+        // TODO add your handling code here:
+        mpLayout.show(mainPanel,"loginPanelCard");
+    }//GEN-LAST:event_rfLoginButtonActionPerformed
+
+    private void rfRegisterButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton2ActionPerformed
+        // TODO add your handling code here:
+        try{
+        String id = updateUserIDTextField.getText();
+        String name = updateUserNameTextField.getText();
+        String email= updateUserEmailTextField.getText();
+        String phone = updateUserPhonetextField.getText();
+        String address = updateUserAddressTextField.getText(); 
+        if(name.trim().isEmpty() || phone.trim().isEmpty()|| email.trim().isEmpty()
+                || address.trim().isEmpty()){
+            throw new Exception("Make Sure the form is filled");
+        }
+        
+        Long phonenum = Long.valueOf(phone);
+        
+        if(name.trim().length() <= 4){
+            throw new Exception("Name length must be greater than 4");
+        }
+        
+        if(phone.trim().length() != 10){
+            throw new Exception("Phone Number length must be 10");
+        }
+        
+        if(email.trim().length() < 10){
+            throw new Exception("Email length must be greater than 9");
+        }
+        
+        if(address.trim().length() < 10){
+            throw new Exception("Address length must be greater than 9");
+        }
+        if(updateUserIDTextField.getText().substring(0, 3).equals("CIV")){
+            CiviliansController.updateCivs(id,name,email,phone,address);
+        }
+        else if(updateUserIDTextField.getText().substring(0, 3).equals("ORG")){
+            OrganizationsController.updateOrgs(id, name, email, phone, address);
+        }
+        else{
+            throw new Exception("Check if the ID is correct");
+        }
+        JOptionPane.showMessageDialog(mainPanel, "User Details Updated Successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(mainPanel, "Use Numbers Only for Phone", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_rfRegisterButton2ActionPerformed
+    
+    private void updateUsers(){
+        String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
+        if (id.length()<4){
+            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        ArrayList<Civilian> civs = Controller.CiviliansController.getCivilianAL();
+        ArrayList<Organization> orgs = Controller.OrganizationsController.getOrganizationAL();
+        if (id.substring(0,3).equals("CIV")){
+            for(Civilian c: civs){
+            if(c.getCivId().equals(id)){
+                updateUserNameTextField.setText(c.getName());
+                updateUserEmailTextField.setText(c.getEmail());
+                updateUserPhonetextField.setText(c.getPhone());
+                updateUserAddressTextField.setText(c.getAddress());
+                updateUserIDTextField.setText(c.getCivId());
+                JOptionPane.showMessageDialog(mainPanel,updateUserPanel);
+            }
+        }}
+        else{  
+            for(Organization o: orgs){
+                if(o.getOrgId().equals(id)){
+                updateUserIDTextField.setText(o.getOrgId());
+                updateUserNameTextField.setText(o.getName());
+                updateUserEmailTextField.setText(o.getEmail());
+                updateUserPhonetextField.setText(o.getPhone());
+                updateUserAddressTextField.setText(o.getAddress());
+                JOptionPane.showMessageDialog(mainPanel,updateUserPanel);
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(mainPanel, "Invalid User Id", "Error",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        // TODO add your handling code here:
+        updateUsers();
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        updateUsers();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+        adcLayout.show(adminCards,"aadducard");
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void removeUser(){
+        String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
+        if (id.length()<4){
+            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try{
+        if (id.substring(0,3).equals("CIV")){
+            CiviliansController.removeOrg(id);
+        }
+        else if(id.substring(0,3).equals("ORG")){  
+            OrganizationsController.removeOrg(id);
+        }
+        else{
+            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
+        }}
+        catch(Exception e){
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        removeUser();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        // TODO add your handling code here:
+        removeUser();
+    }//GEN-LAST:event_jButton27ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1484,20 +2121,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton admNoticesButton;
     private javax.swing.JButton admOrganizationsButton;
     private javax.swing.JButton admTasksButton;
+    private javax.swing.JPanel adminAddUserCard;
     private javax.swing.JPanel adminCards;
+    private javax.swing.JTable adminCivTable;
     private javax.swing.JPanel adminCiviliansCard;
     private javax.swing.JPanel adminCompletedTasksCard;
     private javax.swing.JPanel adminDashboard1;
     private javax.swing.JPanel adminHome;
     private javax.swing.JPanel adminHome1;
-    private javax.swing.JPanel adminHome2;
     private javax.swing.JPanel adminHome3;
     private javax.swing.JPanel adminHome4;
     private javax.swing.JButton adminHomeButton;
     private javax.swing.JPanel adminMenuPanel;
     private javax.swing.JPanel adminNoticeTask;
     private javax.swing.JTable adminOrgTable;
-    private javax.swing.JTable adminOrgTable2;
     private javax.swing.JTable adminOrgTable3;
     private javax.swing.JTable adminOrgTable4;
     private javax.swing.JTable adminOrgTable5;
@@ -1506,19 +2143,18 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel adminTasksCard;
     public javax.swing.JPanel civilianPanel;
     private javax.swing.JRadioButton civilianRadioButton;
+    private javax.swing.JRadioButton civilianRadioButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
@@ -1535,12 +2171,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1588,6 +2220,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JRadioButton ngoRadioButton;
+    private javax.swing.JRadioButton ngoRadioButton1;
     private javax.swing.JPanel orgCards;
     private javax.swing.JButton orgCompletedTasksButton1;
     private javax.swing.JButton orgCompletedTasksButton2;
@@ -1596,21 +2229,50 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel orgMenuPanel;
     public javax.swing.JPanel orgPanel;
     private javax.swing.JPanel radioButtonsPanel;
+    private javax.swing.JPanel radioButtonsPanel1;
     private javax.swing.JLabel rePhoneLabel;
+    private javax.swing.JLabel rePhoneLabel1;
+    private javax.swing.JLabel rePhoneLabel2;
     private javax.swing.JPanel registerForm;
+    private javax.swing.JPanel registerForm1;
     private javax.swing.JPanel registerPanel;
     private javax.swing.JLabel rfAddressLabel;
+    private javax.swing.JLabel rfAddressLabel1;
+    private javax.swing.JLabel rfAddressLabel2;
     private javax.swing.JTextField rfAddressTextField;
+    private javax.swing.JTextField rfAddressTextField1;
     private javax.swing.JLabel rfEmailLabel;
+    private javax.swing.JLabel rfEmailLabel1;
+    private javax.swing.JLabel rfEmailLabel2;
     private javax.swing.JTextField rfEmailTextField;
+    private javax.swing.JTextField rfEmailTextField1;
     private javax.swing.JButton rfLoginButton;
     private javax.swing.JLabel rfNameLabel;
+    private javax.swing.JLabel rfNameLabel1;
+    private javax.swing.JLabel rfNameLabel2;
+    private javax.swing.JLabel rfNameLabel3;
     private javax.swing.JTextField rfNameTextField;
+    private javax.swing.JTextField rfNameTextField1;
     private javax.swing.JPasswordField rfPasswordField;
+    private javax.swing.JPasswordField rfPasswordField1;
     private javax.swing.JLabel rfPasswordLabel;
+    private javax.swing.JLabel rfPasswordLabel1;
     private javax.swing.JTextField rfPhonetextField;
+    private javax.swing.JTextField rfPhonetextField1;
     private javax.swing.JButton rfRegisterButton;
+    private javax.swing.JButton rfRegisterButton1;
+    private javax.swing.JButton rfRegisterButton2;
     private javax.swing.JLabel rfRegisterLabel;
+    private javax.swing.JLabel rfRegisterLabel1;
+    private javax.swing.JLabel rfRegisterLabel2;
     private javax.swing.JLabel rfRoleLabel;
+    private javax.swing.JLabel rfRoleLabel1;
+    private javax.swing.JTextField updateUserAddressTextField;
+    private javax.swing.JTextField updateUserEmailTextField;
+    private javax.swing.JPanel updateUserForm;
+    private javax.swing.JTextField updateUserIDTextField;
+    private javax.swing.JTextField updateUserNameTextField;
+    private javax.swing.JPanel updateUserPanel;
+    private javax.swing.JTextField updateUserPhonetextField;
     // End of variables declaration//GEN-END:variables
 }

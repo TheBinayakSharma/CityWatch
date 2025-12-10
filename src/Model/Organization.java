@@ -13,16 +13,15 @@ public class Organization {
     private String name;
     private String phone;
     private String email;
-    private int tasksCompleted;
-    private String currentTaskId;
+    private String address;
     
     public Organization(String orgId, String name, String phone, String email,
             String address){
         this.orgId = orgId;
         this.name = name;
         this.email = email; 
-        this.tasksCompleted = 0;
-        this.currentTaskId= null;        
+        this.phone = phone;
+        this.address = address;
     }
     
     public String getOrgId(){
@@ -41,14 +40,12 @@ public class Organization {
         return this.email;
     }
     
-    
-    public int getTasksCompleted(){
-        return this.tasksCompleted;
+    public String getAddress(){
+        return this.address;
     }
     
-    public String getCurrenttaskId(){
-        return this.currentTaskId;
-    }
+    
+
     
     public void setName(String name){
         this.name = name;
@@ -62,12 +59,8 @@ public class Organization {
         this.email = email;
     }
     
-    public void setTasksCompleted(int tasksCompleted){
-        this.tasksCompleted = tasksCompleted;
-    }
-    
-    public void setCurrentTaskId(String currentTaskId){
-        this.currentTaskId = currentTaskId;
+    public void setAddress(String address){
+        this.address = address;
     }
     
     public String createOrgId(String name, String phone){
