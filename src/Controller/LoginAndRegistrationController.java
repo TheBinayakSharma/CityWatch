@@ -16,10 +16,14 @@ import Model.Task;
 import Model.LoginCredentials;
 
 public class LoginAndRegistrationController {
+    public static String sessionUser;
+    
+    
     
     public static boolean adminAuthenticate(String username, String password){
         Admin a = new Admin();
         if(username.equals(a.getUsername()) && password.equals(a.getPassword())){
+            sessionUser = username;
             return true;
         }
         return false;
@@ -28,6 +32,7 @@ public class LoginAndRegistrationController {
     
     public static boolean orgAuthenticate(String username, String password){
         if((getOrgLoginCred(username)).equals(password)){
+            sessionUser = username;
           return true;  
         }
         return false;  
@@ -35,6 +40,7 @@ public class LoginAndRegistrationController {
     
     public static boolean civAuthenticate(String username, String password){
         if((getCivLoginCred(username)).equals(password)){
+            sessionUser = username;
           return true;  
         }
         return false;
@@ -56,4 +62,7 @@ public class LoginAndRegistrationController {
         return LoginCredentials.civLoginCred.get(username);
     }
     
+    public static void endUserSession(){
+        sessionUser = null;
+    }
 }

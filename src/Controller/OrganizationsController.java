@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import Model.Organization;
 import Model.StructuralStorage;
+import java.util.Iterator;
 
 /**
  *
@@ -16,11 +17,12 @@ public class OrganizationsController {
     public void registerOrganization(String orgId, String name, String phone, String email, String address, String password) throws Exception{
         for(Organization o: StructuralStorage.organizationArrayList){
             if (o.getPhone().equals(phone) ){
-                throw new Exception("An organization under the given phone number already exists");
+                throw new Exception("A User under the given phone number already exists");
             }
         }
         Organization org = new Organization(orgId,name,phone,email,address);
-        StructuralStorage.organizationArrayList.add(org);
+        StructuralStorage.organizationStack.push(org);
+        StructuralStorage.updateOrganizationArrayList();
         LoginAndRegistrationController.addOrgLoginCred(orgId, password);
     }
     
@@ -33,7 +35,7 @@ public class OrganizationsController {
     } 
     
     public static void updateOrgs(String id, String name, String email, String phone, String address){
-        for(Organization o: StructuralStorage.organizationArrayList){
+        for(Organization o: StructuralStorage.organizationStack){
             if(o.getOrgId().equals(id)){
                 o.setAddress(address);
                 o.setEmail(email);
@@ -41,14 +43,20 @@ public class OrganizationsController {
                 o.setPhone(phone);
             }
         }
+        StructuralStorage.updateOrganizationArrayList();
     }
     
     public static void removeOrg(String id) throws Exception{
-       for(Organization o: StructuralStorage.organizationArrayList){
-            if(o.getOrgId().equals(id)){
-                StructuralStorage.organizationArrayList.remove(o);
+        Iterator<Organization> iter = StructuralStorage.organizationStack.iterator();
+        while(iter.hasNext()) {
+            Organization o = iter.next();
+            if(o.getOrgId().equals(id)) {
+                iter.remove(); // safe removal
+                StructuralStorage.updateOrganizationArrayList();
+                return;
             }
-        } 
+        }
+       
        throw new Exception("Invalid User ID");
     }
 }

@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author binay
@@ -14,6 +16,8 @@ public class Organization {
     private String phone;
     private String email;
     private String address;
+    private ArrayList<Task> taskAssigned;
+    private ArrayList<Task> taskCompleted;
     
     public Organization(String orgId, String name, String phone, String email,
             String address){
@@ -22,6 +26,9 @@ public class Organization {
         this.email = email; 
         this.phone = phone;
         this.address = address;
+        taskAssigned = new ArrayList<>();
+        taskCompleted = new ArrayList<>();
+        
     }
     
     public String getOrgId(){
@@ -44,8 +51,13 @@ public class Organization {
         return this.address;
     }
     
-    
+    public ArrayList<Task> getTaskAssigned() {
+        return taskAssigned;
+    }
 
+    public ArrayList<Task> getTaskCompleted() {
+        return taskCompleted;
+    }
     
     public void setName(String name){
         this.name = name;
@@ -61,6 +73,14 @@ public class Organization {
     
     public void setAddress(String address){
         this.address = address;
+    }
+    
+    public void setTaskAssigned(ArrayList<Task> taskAssigned) {
+        this.taskAssigned = taskAssigned;
+    }
+    
+    public void setTaskCompleted(ArrayList<Task> taskCompleted) {
+        this.taskCompleted = taskCompleted;
     }
     
     public String createOrgId(String name, String phone){

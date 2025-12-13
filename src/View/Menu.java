@@ -8,8 +8,10 @@ import javax.swing.JOptionPane;
 import Controller.LoginAndRegistrationController;
 import Controller.CiviliansController;
 import Controller.OrganizationsController;
+import Controller.TaskController;
 import Model.Civilian;
 import Model.Organization;
+import Model.Task;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class Menu extends javax.swing.JFrame {
     public CardLayout mpLayout;
     public CardLayout adcLayout;
-    private String sessionUser;
     
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
@@ -59,6 +60,16 @@ public class Menu extends javax.swing.JFrame {
         updateUserEmailTextField = new javax.swing.JTextField();
         updateUserIDTextField = new javax.swing.JTextField();
         rfNameLabel3 = new javax.swing.JLabel();
+        UpdateTaskForm = new javax.swing.JPanel();
+        rfRegisterButton5 = new javax.swing.JButton();
+        rePhoneLabel5 = new javax.swing.JLabel();
+        rfRegisterLabel5 = new javax.swing.JLabel();
+        rfNameLabel6 = new javax.swing.JLabel();
+        updateTaskTitleTextField = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        updateTaskDescriptionTextArea = new javax.swing.JTextArea();
+        rePhoneLabel6 = new javax.swing.JLabel();
+        updateTaskIdTextField = new javax.swing.JTextField();
         mainPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         loginForm = new javax.swing.JPanel();
@@ -97,10 +108,11 @@ public class Menu extends javax.swing.JFrame {
         admTasksButton = new javax.swing.JButton();
         admNoticesButton = new javax.swing.JButton();
         admCompletedTasksButton = new javax.swing.JButton();
-        orgCompletedTasksButton1 = new javax.swing.JButton();
-        orgCompletedTasksButton2 = new javax.swing.JButton();
-        orgCompletedTasksButton3 = new javax.swing.JButton();
-        orgCompletedTasksButton5 = new javax.swing.JButton();
+        admCompletedTasksButton1 = new javax.swing.JButton();
+        admAddNoticesButton = new javax.swing.JButton();
+        admAddTasksButton = new javax.swing.JButton();
+        admAddUsersButton = new javax.swing.JButton();
+        admLogOutButton = new javax.swing.JButton();
         adminCards = new javax.swing.JPanel();
         adminHome = new javax.swing.JPanel();
         adminOrganizationCard = new javax.swing.JPanel();
@@ -148,7 +160,7 @@ public class Menu extends javax.swing.JFrame {
         jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
-        adminNoticeTask = new javax.swing.JPanel();
+        adminNoticeCard = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         adminOrgTable4 = new javax.swing.JTable();
@@ -188,20 +200,53 @@ public class Menu extends javax.swing.JFrame {
         civilianRadioButton1 = new javax.swing.JRadioButton();
         rfPasswordLabel1 = new javax.swing.JLabel();
         rfPasswordField1 = new javax.swing.JPasswordField();
-        adminHome3 = new javax.swing.JPanel();
-        adminHome4 = new javax.swing.JPanel();
-        adminHome1 = new javax.swing.JPanel();
+        adminAddTaskCard = new javax.swing.JPanel();
+        addTaskForm = new javax.swing.JPanel();
+        rfRegisterButton3 = new javax.swing.JButton();
+        rePhoneLabel3 = new javax.swing.JLabel();
+        rfRegisterLabel3 = new javax.swing.JLabel();
+        rfNameLabel4 = new javax.swing.JLabel();
+        addtaskTitleTextField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        addTaskDescriptionTextArea = new javax.swing.JTextArea();
+        adminAddNoticeCard = new javax.swing.JPanel();
+        addNoticeForm = new javax.swing.JPanel();
+        rfRegisterButton4 = new javax.swing.JButton();
+        rePhoneLabel4 = new javax.swing.JLabel();
+        rfRegisterLabel4 = new javax.swing.JLabel();
+        rfNameLabel5 = new javax.swing.JLabel();
+        rfNameTextField3 = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        adminTasksInProgressCard = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        adminOrgTable7 = new javax.swing.JTable();
+        jPanel22 = new javax.swing.JPanel();
+        jTextField8 = new javax.swing.JTextField();
+        jButton45 = new javax.swing.JButton();
         orgPanel = new javax.swing.JPanel();
         orgMenuPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         orgCards = new javax.swing.JPanel();
-        adminDashboard1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        orgHome = new javax.swing.JPanel();
+        orgNoticeCard = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        adminOrgTable6 = new javax.swing.JTable();
+        jPanel19 = new javax.swing.JPanel();
+        jTextField7 = new javax.swing.JTextField();
+        jButton40 = new javax.swing.JButton();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox10 = new javax.swing.JComboBox<>();
+        jButton41 = new javax.swing.JButton();
         civilianPanel = new javax.swing.JPanel();
 
         updateUserPanel.setBackground(new java.awt.Color(102, 153, 255));
@@ -357,6 +402,119 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(100, 150, 40, 150);
         updateUserPanel.add(updateUserForm, gridBagConstraints);
+
+        UpdateTaskForm.setBackground(new java.awt.Color(38, 50, 56));
+        UpdateTaskForm.setPreferredSize(new java.awt.Dimension(500, 360));
+        UpdateTaskForm.setLayout(new java.awt.GridBagLayout());
+
+        rfRegisterButton5.setBackground(new java.awt.Color(102, 153, 255));
+        rfRegisterButton5.setText("Update");
+        rfRegisterButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rfRegisterButton5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
+        UpdateTaskForm.add(rfRegisterButton5, gridBagConstraints);
+
+        rePhoneLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel5.setText("Description");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        UpdateTaskForm.add(rePhoneLabel5, gridBagConstraints);
+
+        rfRegisterLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRegisterLabel5.setForeground(new java.awt.Color(102, 153, 225));
+        rfRegisterLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rfRegisterLabel5.setText("Update Task");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 150, 0, 150);
+        UpdateTaskForm.add(rfRegisterLabel5, gridBagConstraints);
+
+        rfNameLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel6.setText("Title");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        UpdateTaskForm.add(rfNameLabel6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        UpdateTaskForm.add(updateTaskTitleTextField, gridBagConstraints);
+
+        jScrollPane10.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane10.setAutoscrolls(true);
+        jScrollPane10.setMinimumSize(new java.awt.Dimension(64, 22));
+        jScrollPane10.setPreferredSize(new java.awt.Dimension(234, 100));
+
+        updateTaskDescriptionTextArea.setColumns(20);
+        updateTaskDescriptionTextArea.setRows(5);
+        updateTaskDescriptionTextArea.setMinimumSize(new java.awt.Dimension(64, 50));
+        jScrollPane10.setViewportView(updateTaskDescriptionTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 20, 70);
+        UpdateTaskForm.add(jScrollPane10, gridBagConstraints);
+
+        rePhoneLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel6.setText("TaskId");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        UpdateTaskForm.add(rePhoneLabel6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        UpdateTaskForm.add(updateTaskIdTextField, gridBagConstraints);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CityWatch");
@@ -789,56 +947,70 @@ public class Menu extends javax.swing.JFrame {
         });
         adminMenuPanel.add(admCompletedTasksButton);
 
-        orgCompletedTasksButton1.setBackground(new java.awt.Color(102, 153, 255));
-        orgCompletedTasksButton1.setText("Add Users");
-        orgCompletedTasksButton1.setBorder(null);
-        orgCompletedTasksButton1.setBorderPainted(false);
-        orgCompletedTasksButton1.setMargin(new java.awt.Insets(10, 0, 0, 0));
-        orgCompletedTasksButton1.setMinimumSize(new java.awt.Dimension(80, 20));
-        orgCompletedTasksButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        orgCompletedTasksButton1.addActionListener(new java.awt.event.ActionListener() {
+        admCompletedTasksButton1.setBackground(new java.awt.Color(102, 153, 255));
+        admCompletedTasksButton1.setText("Task In Progress");
+        admCompletedTasksButton1.setBorder(null);
+        admCompletedTasksButton1.setBorderPainted(false);
+        admCompletedTasksButton1.setMargin(new java.awt.Insets(10, 0, 0, 0));
+        admCompletedTasksButton1.setMinimumSize(new java.awt.Dimension(80, 20));
+        admCompletedTasksButton1.setPreferredSize(new java.awt.Dimension(100, 30));
+        admCompletedTasksButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orgCompletedTasksButton1ActionPerformed(evt);
+                admCompletedTasksButton1ActionPerformed(evt);
             }
         });
-        adminMenuPanel.add(orgCompletedTasksButton1);
+        adminMenuPanel.add(admCompletedTasksButton1);
 
-        orgCompletedTasksButton2.setBackground(new java.awt.Color(102, 153, 255));
-        orgCompletedTasksButton2.setText("Add Tasks");
-        orgCompletedTasksButton2.setBorder(null);
-        orgCompletedTasksButton2.setBorderPainted(false);
-        orgCompletedTasksButton2.setMargin(new java.awt.Insets(10, 0, 0, 0));
-        orgCompletedTasksButton2.setMinimumSize(new java.awt.Dimension(80, 20));
-        orgCompletedTasksButton2.setPreferredSize(new java.awt.Dimension(100, 30));
-        orgCompletedTasksButton2.addActionListener(new java.awt.event.ActionListener() {
+        admAddNoticesButton.setBackground(new java.awt.Color(102, 153, 255));
+        admAddNoticesButton.setText("Add Notices");
+        admAddNoticesButton.setBorder(null);
+        admAddNoticesButton.setBorderPainted(false);
+        admAddNoticesButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
+        admAddNoticesButton.setMinimumSize(new java.awt.Dimension(80, 20));
+        admAddNoticesButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admAddNoticesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orgCompletedTasksButton2ActionPerformed(evt);
+                admAddNoticesButtonActionPerformed(evt);
             }
         });
-        adminMenuPanel.add(orgCompletedTasksButton2);
+        adminMenuPanel.add(admAddNoticesButton);
 
-        orgCompletedTasksButton3.setBackground(new java.awt.Color(102, 153, 255));
-        orgCompletedTasksButton3.setText("Add Notices");
-        orgCompletedTasksButton3.setBorder(null);
-        orgCompletedTasksButton3.setBorderPainted(false);
-        orgCompletedTasksButton3.setMargin(new java.awt.Insets(10, 0, 0, 0));
-        orgCompletedTasksButton3.setMinimumSize(new java.awt.Dimension(80, 20));
-        orgCompletedTasksButton3.setPreferredSize(new java.awt.Dimension(100, 30));
-        orgCompletedTasksButton3.addActionListener(new java.awt.event.ActionListener() {
+        admAddTasksButton.setBackground(new java.awt.Color(102, 153, 255));
+        admAddTasksButton.setText("Add Tasks");
+        admAddTasksButton.setBorder(null);
+        admAddTasksButton.setBorderPainted(false);
+        admAddTasksButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
+        admAddTasksButton.setMinimumSize(new java.awt.Dimension(80, 20));
+        admAddTasksButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admAddTasksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orgCompletedTasksButton3ActionPerformed(evt);
+                admAddTasksButtonActionPerformed(evt);
             }
         });
-        adminMenuPanel.add(orgCompletedTasksButton3);
+        adminMenuPanel.add(admAddTasksButton);
 
-        orgCompletedTasksButton5.setBackground(new java.awt.Color(102, 153, 255));
-        orgCompletedTasksButton5.setText("Log Out");
-        orgCompletedTasksButton5.setBorder(null);
-        orgCompletedTasksButton5.setBorderPainted(false);
-        orgCompletedTasksButton5.setMargin(new java.awt.Insets(10, 0, 0, 0));
-        orgCompletedTasksButton5.setMinimumSize(new java.awt.Dimension(80, 20));
-        orgCompletedTasksButton5.setPreferredSize(new java.awt.Dimension(100, 30));
-        adminMenuPanel.add(orgCompletedTasksButton5);
+        admAddUsersButton.setBackground(new java.awt.Color(102, 153, 255));
+        admAddUsersButton.setText("Add Users");
+        admAddUsersButton.setBorder(null);
+        admAddUsersButton.setBorderPainted(false);
+        admAddUsersButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
+        admAddUsersButton.setMinimumSize(new java.awt.Dimension(80, 20));
+        admAddUsersButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        admAddUsersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admAddUsersButtonActionPerformed(evt);
+            }
+        });
+        adminMenuPanel.add(admAddUsersButton);
+
+        admLogOutButton.setBackground(new java.awt.Color(102, 153, 255));
+        admLogOutButton.setText("Log Out");
+        admLogOutButton.setBorder(null);
+        admLogOutButton.setBorderPainted(false);
+        admLogOutButton.setMargin(new java.awt.Insets(10, 0, 0, 0));
+        admLogOutButton.setMinimumSize(new java.awt.Dimension(80, 20));
+        admLogOutButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        adminMenuPanel.add(admLogOutButton);
 
         adminPanel.add(adminMenuPanel, java.awt.BorderLayout.WEST);
 
@@ -1134,6 +1306,9 @@ public class Menu extends javax.swing.JFrame {
         adminOrgTable3.setColumnSelectionAllowed(true);
         jScrollPane4.setViewportView(adminOrgTable3);
         adminOrgTable3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (adminOrgTable3.getColumnModel().getColumnCount() > 0) {
+            adminOrgTable3.getColumnModel().getColumn(4).setHeaderValue("IssuedBy");
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1202,6 +1377,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel14.add(jButton32);
 
         jButton33.setText("Remove Task");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
         jPanel14.add(jButton33);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1213,8 +1393,8 @@ public class Menu extends javax.swing.JFrame {
 
         adminCards.add(adminTasksCard, "ataskcard");
 
-        adminNoticeTask.setBackground(new java.awt.Color(102, 153, 255));
-        adminNoticeTask.setLayout(new java.awt.GridBagLayout());
+        adminNoticeCard.setBackground(new java.awt.Color(102, 153, 255));
+        adminNoticeCard.setLayout(new java.awt.GridBagLayout());
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -1223,7 +1403,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
-        adminNoticeTask.add(jLabel11, gridBagConstraints);
+        adminNoticeCard.add(jLabel11, gridBagConstraints);
 
         jScrollPane5.setPreferredSize(new java.awt.Dimension(600, 200));
 
@@ -1235,7 +1415,7 @@ public class Menu extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "NoticeId", "Title", "Content", "IssueDate"
+                "NoticeId", "Title", "Content", "Issue Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1246,6 +1426,7 @@ public class Menu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        adminOrgTable4.setColumnSelectionAllowed(true);
         jScrollPane5.setViewportView(adminOrgTable4);
         adminOrgTable4.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -1254,7 +1435,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
-        adminNoticeTask.add(jScrollPane5, gridBagConstraints);
+        adminNoticeCard.add(jScrollPane5, gridBagConstraints);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setOpaque(false);
@@ -1272,7 +1453,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
-        adminNoticeTask.add(jPanel15, gridBagConstraints);
+        adminNoticeCard.add(jPanel15, gridBagConstraints);
 
         jPanel16.setOpaque(false);
         jPanel16.setPreferredSize(new java.awt.Dimension(500, 40));
@@ -1297,7 +1478,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
-        adminNoticeTask.add(jPanel16, gridBagConstraints);
+        adminNoticeCard.add(jPanel16, gridBagConstraints);
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setMinimumSize(new java.awt.Dimension(694, 80));
@@ -1323,9 +1504,9 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
-        adminNoticeTask.add(jPanel17, gridBagConstraints);
+        adminNoticeCard.add(jPanel17, gridBagConstraints);
 
-        adminCards.add(adminNoticeTask, "anoticecard");
+        adminCards.add(adminNoticeCard, "anoticecard");
 
         adminCompletedTasksCard.setBackground(new java.awt.Color(102, 153, 255));
         adminCompletedTasksCard.setLayout(new java.awt.GridBagLayout());
@@ -1349,7 +1530,7 @@ public class Menu extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "TaskId", "Title", "IssuedBy", "CompletedBy"
+                "TaskId", "Title", "Description", "CompletedBy"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1360,6 +1541,7 @@ public class Menu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        adminOrgTable5.setColumnSelectionAllowed(true);
         jScrollPane6.setViewportView(adminOrgTable5);
         adminOrgTable5.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -1587,18 +1769,274 @@ public class Menu extends javax.swing.JFrame {
 
         adminCards.add(adminAddUserCard, "aadducard");
 
-        adminHome3.setBackground(new java.awt.Color(102, 153, 255));
-        adminHome3.setLayout(new java.awt.GridBagLayout());
+        adminAddTaskCard.setBackground(new java.awt.Color(102, 153, 255));
+        adminAddTaskCard.setLayout(new java.awt.GridBagLayout());
 
-        adminHome4.setBackground(new java.awt.Color(102, 153, 255));
-        adminHome4.setLayout(new java.awt.GridBagLayout());
-        adminHome3.add(adminHome4, new java.awt.GridBagConstraints());
+        addTaskForm.setBackground(new java.awt.Color(38, 50, 56));
+        addTaskForm.setPreferredSize(new java.awt.Dimension(500, 360));
+        addTaskForm.setLayout(new java.awt.GridBagLayout());
 
-        adminCards.add(adminHome3, "aaddtcard");
+        rfRegisterButton3.setBackground(new java.awt.Color(102, 153, 255));
+        rfRegisterButton3.setText("Add Task");
+        rfRegisterButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rfRegisterButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
+        addTaskForm.add(rfRegisterButton3, gridBagConstraints);
 
-        adminHome1.setBackground(new java.awt.Color(102, 153, 255));
-        adminHome1.setLayout(new java.awt.GridBagLayout());
-        adminCards.add(adminHome1, "aaddncard");
+        rePhoneLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel3.setText("Description");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        addTaskForm.add(rePhoneLabel3, gridBagConstraints);
+
+        rfRegisterLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRegisterLabel3.setForeground(new java.awt.Color(102, 153, 225));
+        rfRegisterLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rfRegisterLabel3.setText("Add Task");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 150, 0, 150);
+        addTaskForm.add(rfRegisterLabel3, gridBagConstraints);
+
+        rfNameLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel4.setText("Title");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        addTaskForm.add(rfNameLabel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        addTaskForm.add(addtaskTitleTextField, gridBagConstraints);
+
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setAutoscrolls(true);
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(64, 22));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(234, 100));
+
+        addTaskDescriptionTextArea.setColumns(20);
+        addTaskDescriptionTextArea.setRows(5);
+        addTaskDescriptionTextArea.setMinimumSize(new java.awt.Dimension(64, 50));
+        jScrollPane2.setViewportView(addTaskDescriptionTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 20, 70);
+        addTaskForm.add(jScrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(100, 150, 40, 150);
+        adminAddTaskCard.add(addTaskForm, gridBagConstraints);
+
+        adminCards.add(adminAddTaskCard, "aaddtcard");
+
+        adminAddNoticeCard.setBackground(new java.awt.Color(102, 153, 255));
+        adminAddNoticeCard.setLayout(new java.awt.GridBagLayout());
+
+        addNoticeForm.setBackground(new java.awt.Color(38, 50, 56));
+        addNoticeForm.setPreferredSize(new java.awt.Dimension(500, 360));
+        addNoticeForm.setLayout(new java.awt.GridBagLayout());
+
+        rfRegisterButton4.setBackground(new java.awt.Color(102, 153, 255));
+        rfRegisterButton4.setText("Add Notice");
+        rfRegisterButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rfRegisterButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
+        addNoticeForm.add(rfRegisterButton4, gridBagConstraints);
+
+        rePhoneLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rePhoneLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        rePhoneLabel4.setText("Description");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        addNoticeForm.add(rePhoneLabel4, gridBagConstraints);
+
+        rfRegisterLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfRegisterLabel4.setForeground(new java.awt.Color(102, 153, 225));
+        rfRegisterLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rfRegisterLabel4.setText("Add Notice");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 150, 0, 150);
+        addNoticeForm.add(rfRegisterLabel4, gridBagConstraints);
+
+        rfNameLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rfNameLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        rfNameLabel5.setText("Title");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 10);
+        addNoticeForm.add(rfNameLabel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
+        addNoticeForm.add(rfNameTextField3, gridBagConstraints);
+
+        jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane9.setAutoscrolls(true);
+        jScrollPane9.setMinimumSize(new java.awt.Dimension(64, 22));
+        jScrollPane9.setPreferredSize(new java.awt.Dimension(234, 100));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setMinimumSize(new java.awt.Dimension(64, 50));
+        jScrollPane9.setViewportView(jTextArea2);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 20, 70);
+        addNoticeForm.add(jScrollPane9, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(100, 150, 40, 150);
+        adminAddNoticeCard.add(addNoticeForm, gridBagConstraints);
+
+        adminCards.add(adminAddNoticeCard, "aaddncard");
+
+        adminTasksInProgressCard.setBackground(new java.awt.Color(102, 153, 255));
+        adminTasksInProgressCard.setLayout(new java.awt.GridBagLayout());
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Task In Progress");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        adminTasksInProgressCard.add(jLabel16, gridBagConstraints);
+
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(600, 200));
+
+        adminOrgTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "TaskId", "Title", "Description", "Assigned To"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(adminOrgTable7);
+        adminOrgTable7.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        adminTasksInProgressCard.add(jScrollPane8, gridBagConstraints);
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel22.setOpaque(false);
+        jPanel22.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField8.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel22.add(jTextField8);
+
+        jButton45.setText("Search");
+        jPanel22.add(jButton45);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        adminTasksInProgressCard.add(jPanel22, gridBagConstraints);
+
+        adminCards.add(adminTasksInProgressCard, "acomtaskcard");
 
         adminPanel.add(adminCards, java.awt.BorderLayout.CENTER);
 
@@ -1610,6 +2048,7 @@ public class Menu extends javax.swing.JFrame {
         orgMenuPanel.setForeground(new java.awt.Color(255, 255, 255));
         orgMenuPanel.setMinimumSize(new java.awt.Dimension(100, 500));
         orgMenuPanel.setPreferredSize(new java.awt.Dimension(150, 500));
+        orgMenuPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 2, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1625,8 +2064,8 @@ public class Menu extends javax.swing.JFrame {
         jButton6.setBorder(null);
         jButton6.setBorderPainted(false);
         jButton6.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jButton6.setMinimumSize(new java.awt.Dimension(80, 20));
-        jButton6.setPreferredSize(new java.awt.Dimension(80, 20));
+        jButton6.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton6.setPreferredSize(new java.awt.Dimension(100, 20));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -1634,64 +2073,146 @@ public class Menu extends javax.swing.JFrame {
         });
         orgMenuPanel.add(jButton6);
 
-        jButton7.setBackground(new java.awt.Color(102, 153, 255));
-        jButton7.setText("Organizations");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jButton7.setMinimumSize(new java.awt.Dimension(80, 20));
-        jButton7.setPreferredSize(new java.awt.Dimension(80, 20));
-        orgMenuPanel.add(jButton7);
-
-        jButton8.setBackground(new java.awt.Color(102, 153, 255));
-        jButton8.setText("Civilians");
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jButton8.setMinimumSize(new java.awt.Dimension(80, 20));
-        jButton8.setPreferredSize(new java.awt.Dimension(80, 20));
-        orgMenuPanel.add(jButton8);
+        jButton10.setBackground(new java.awt.Color(102, 153, 255));
+        jButton10.setText("Notices");
+        jButton10.setBorder(null);
+        jButton10.setBorderPainted(false);
+        jButton10.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jButton10.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton10.setPreferredSize(new java.awt.Dimension(100, 20));
+        orgMenuPanel.add(jButton10);
 
         jButton9.setBackground(new java.awt.Color(102, 153, 255));
         jButton9.setText("Tasks");
         jButton9.setBorder(null);
         jButton9.setBorderPainted(false);
         jButton9.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jButton9.setMinimumSize(new java.awt.Dimension(80, 20));
-        jButton9.setPreferredSize(new java.awt.Dimension(80, 20));
+        jButton9.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton9.setPreferredSize(new java.awt.Dimension(100, 20));
         orgMenuPanel.add(jButton9);
 
-        jButton10.setBackground(new java.awt.Color(102, 153, 255));
-        jButton10.setText("Notices");
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jButton10.setMinimumSize(new java.awt.Dimension(80, 20));
-        jButton10.setPreferredSize(new java.awt.Dimension(80, 20));
-        orgMenuPanel.add(jButton10);
+        jButton7.setBackground(new java.awt.Color(102, 153, 255));
+        jButton7.setText("Tasks Taken");
+        jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        jButton7.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jButton7.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton7.setPreferredSize(new java.awt.Dimension(100, 20));
+        orgMenuPanel.add(jButton7);
+
+        jButton8.setBackground(new java.awt.Color(102, 153, 255));
+        jButton8.setText("Tasks Completed");
+        jButton8.setBorder(null);
+        jButton8.setBorderPainted(false);
+        jButton8.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jButton8.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton8.setPreferredSize(new java.awt.Dimension(100, 20));
+        orgMenuPanel.add(jButton8);
+
+        jButton16.setBackground(new java.awt.Color(102, 153, 255));
+        jButton16.setText("Log Out");
+        jButton16.setBorder(null);
+        jButton16.setBorderPainted(false);
+        jButton16.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jButton16.setMinimumSize(new java.awt.Dimension(100, 20));
+        jButton16.setPreferredSize(new java.awt.Dimension(100, 20));
+        orgMenuPanel.add(jButton16);
 
         orgPanel.add(orgMenuPanel, java.awt.BorderLayout.WEST);
 
         orgCards.setLayout(new java.awt.CardLayout());
 
-        adminDashboard1.setBackground(new java.awt.Color(102, 153, 255));
-        adminDashboard1.setLayout(new java.awt.GridBagLayout());
-        orgCards.add(adminDashboard1, "card2");
+        orgHome.setBackground(new java.awt.Color(102, 153, 255));
+        orgHome.setLayout(new java.awt.GridBagLayout());
+        orgCards.add(orgHome, "card2");
 
-        jPanel3.setBackground(new java.awt.Color(102, 153, 255));
+        orgNoticeCard.setBackground(new java.awt.Color(102, 153, 255));
+        orgNoticeCard.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        jLabel14.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Notice");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        orgNoticeCard.add(jLabel14, gridBagConstraints);
 
-        orgCards.add(jPanel3, "card3");
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(600, 200));
+
+        adminOrgTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NoticeId", "Title", "Content", "Issue Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(adminOrgTable6);
+        adminOrgTable6.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        orgNoticeCard.add(jScrollPane7, gridBagConstraints);
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setOpaque(false);
+        jPanel19.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField7.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel19.add(jTextField7);
+
+        jButton40.setText("Search");
+        jPanel19.add(jButton40);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        orgNoticeCard.add(jPanel19, gridBagConstraints);
+
+        jPanel20.setOpaque(false);
+        jPanel20.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.TRAILING, 5, 10));
+
+        jLabel15.setText("Sort By:");
+        jPanel20.add(jLabel15);
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel20.add(jComboBox10);
+
+        jButton41.setText("Sort");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+        jPanel20.add(jButton41);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        orgNoticeCard.add(jPanel20, gridBagConstraints);
+
+        orgCards.add(orgNoticeCard, "anoticecard");
 
         orgPanel.add(orgCards, java.awt.BorderLayout.CENTER);
 
@@ -1731,18 +2252,18 @@ public class Menu extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         String prefix = username.substring(0,3);
         if (prefix.equals("ADM") &&  Controller.LoginAndRegistrationController.adminAuthenticate(username, password) ){
-            //if( Controller.LoginAndRegistrationController.adminAuthenticate(username, password)){
-            sessionUser = username;    
+            
+               
             cl.show(mainPanel, "adminPanelCard");
-            //}
+            
         }
         else if(prefix.equals("ORG") && Controller.LoginAndRegistrationController.orgAuthenticate(username, password)){
-            sessionUser = username;    
+               
             cl.show(mainPanel,"orgPanelCard");
                 
         }
         else if(prefix.equals("CIV") && Controller.LoginAndRegistrationController.civAuthenticate(username, password)){
-            sessionUser = username;
+            
             cl.show(mainPanel,"civPanelCard");
         }
         else{
@@ -1842,6 +2363,28 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
+        String taskId = JOptionPane.showInputDialog(mainPanel,"Enter Task Id", "Update Task", JOptionPane.PLAIN_MESSAGE);
+        try{
+            if(taskId.isBlank()){
+                throw new Exception("Fill the Field Properly");
+            }
+            for(Task tsk: TaskController.getTaskQueue()){
+                if(tsk.getTaskId().equalsIgnoreCase(taskId)){
+                    
+                    updateTaskIdTextField.setText(tsk.getTaskId());
+                    updateTaskIdTextField.setEditable(false);
+                    updateTaskTitleTextField.setText(tsk.getTitle());
+                    updateTaskDescriptionTextArea.setText(tsk.getDescription());
+                    JOptionPane.showMessageDialog(mainPanel, UpdateTaskForm);
+                    return;
+                }
+            }
+            throw new Exception("No Task Id found");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
@@ -1890,20 +2433,20 @@ public class Menu extends javax.swing.JFrame {
         adcLayout.show(adminCards,"acomtaskcard");
     }//GEN-LAST:event_admCompletedTasksButtonActionPerformed
 
-    private void orgCompletedTasksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton1ActionPerformed
+    private void admAddUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddUsersButtonActionPerformed
         // TODO add your handling code here:
         adcLayout.show(adminCards,"aadducard");
-    }//GEN-LAST:event_orgCompletedTasksButton1ActionPerformed
+    }//GEN-LAST:event_admAddUsersButtonActionPerformed
 
-    private void orgCompletedTasksButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton2ActionPerformed
+    private void admAddTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddTasksButtonActionPerformed
         // TODO add your handling code here:
         adcLayout.show(adminCards,"aaddtcard");
-    }//GEN-LAST:event_orgCompletedTasksButton2ActionPerformed
+    }//GEN-LAST:event_admAddTasksButtonActionPerformed
 
-    private void orgCompletedTasksButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksButton3ActionPerformed
+    private void admAddNoticesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddNoticesButtonActionPerformed
         // TODO add your handling code here:
         adcLayout.show(adminCards,"aaddncard");
-    }//GEN-LAST:event_orgCompletedTasksButton3ActionPerformed
+    }//GEN-LAST:event_admAddNoticesButtonActionPerformed
 
     private void rfRegisterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton1ActionPerformed
         // TODO add your handling code here: 
@@ -2020,6 +2563,7 @@ public class Menu extends javax.swing.JFrame {
             for(Civilian c: civs){
             if(c.getCivId().equals(id)){
                 updateUserNameTextField.setText(c.getName());
+                updateUserIDTextField.setEditable(false);
                 updateUserEmailTextField.setText(c.getEmail());
                 updateUserPhonetextField.setText(c.getPhone());
                 updateUserAddressTextField.setText(c.getAddress());
@@ -2031,6 +2575,7 @@ public class Menu extends javax.swing.JFrame {
             for(Organization o: orgs){
                 if(o.getOrgId().equals(id)){
                 updateUserIDTextField.setText(o.getOrgId());
+                updateUserIDTextField.setEditable(false);
                 updateUserNameTextField.setText(o.getName());
                 updateUserEmailTextField.setText(o.getEmail());
                 updateUserPhonetextField.setText(o.getPhone());
@@ -2060,20 +2605,21 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void removeUser(){
-        String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
-        if (id.length()<4){
-            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
         try{
+        String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
+        if (id.trim().length()<4){
+            throw new Exception("Check if the id is valid");
+            
+        }
+        
         if (id.substring(0,3).equals("CIV")){
-            CiviliansController.removeOrg(id);
+            CiviliansController.removeCiv(id);
         }
         else if(id.substring(0,3).equals("ORG")){  
             OrganizationsController.removeOrg(id);
         }
         else{
-            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
+            throw new Exception("Check if the id is valid");
         }}
         catch(Exception e){
             JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
@@ -2088,6 +2634,81 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         removeUser();
     }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void admCompletedTasksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTasksButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_admCompletedTasksButton1ActionPerformed
+
+    private void rfRegisterButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton3ActionPerformed
+        String title = addtaskTitleTextField.getText();
+        String desc = addTaskDescriptionTextArea.getText();
+        try{
+            if(title.isBlank() || desc.isBlank()){
+                throw new Exception("Make sure all the fields have been fille Properly");
+            }
+            else if(title.trim().length()<5){
+                throw new Exception("Make sure the title is at least 5 chars long");                
+            }
+            else if(desc.trim().length()<5){
+                throw new Exception("Make sure the description is at least 10 chars long");                
+            }
+            else{
+                TaskController.createTask(title, desc);
+                JOptionPane.showMessageDialog(mainPanel, "Task Added Successfully", "Succcess",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_rfRegisterButton3ActionPerformed
+
+    private void rfRegisterButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rfRegisterButton4ActionPerformed
+
+    private void rfRegisterButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton5ActionPerformed
+        // TODO add your handling code here:
+        String taskId = updateTaskIdTextField.getText();
+        String title = updateTaskTitleTextField.getText();
+        String desc = updateTaskDescriptionTextArea.getText();
+        try{
+            if(title.isBlank() || desc.isBlank()){
+                throw new Exception("Title and Description cannot be blank");
+            }
+            else if(title.trim().length()<5){
+                throw new Exception("Make sure the title is at least 5 chars long");                
+            }
+            else if(desc.trim().length()<5){
+                throw new Exception("Make sure the description is at least 10 chars long");                
+            }
+            else{
+                TaskController.updateTaskQueue(taskId, title, desc);
+                
+            }
+        }
+        catch(Exception e){
+        
+    }
+    }//GEN-LAST:event_rfRegisterButton5ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        // TODO add your handling code here:
+        try{
+        String id = JOptionPane.showInputDialog(mainPanel, "Enter task Id");
+        if (id.isBlank()){
+            throw new Exception("Empty Field"); 
+        }
+        TaskController.removeTask(id);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton33ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2115,32 +2736,43 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel UpdateTaskForm;
     private javax.swing.ButtonGroup acTypeButtonGroup;
+    private javax.swing.JPanel addNoticeForm;
+    private javax.swing.JTextArea addTaskDescriptionTextArea;
+    private javax.swing.JPanel addTaskForm;
+    private javax.swing.JTextField addtaskTitleTextField;
+    private javax.swing.JButton admAddNoticesButton;
+    private javax.swing.JButton admAddTasksButton;
+    private javax.swing.JButton admAddUsersButton;
     private javax.swing.JButton admCiviliansButton;
     private javax.swing.JButton admCompletedTasksButton;
+    private javax.swing.JButton admCompletedTasksButton1;
+    private javax.swing.JButton admLogOutButton;
     private javax.swing.JButton admNoticesButton;
     private javax.swing.JButton admOrganizationsButton;
     private javax.swing.JButton admTasksButton;
+    private javax.swing.JPanel adminAddNoticeCard;
+    private javax.swing.JPanel adminAddTaskCard;
     private javax.swing.JPanel adminAddUserCard;
     private javax.swing.JPanel adminCards;
     private javax.swing.JTable adminCivTable;
     private javax.swing.JPanel adminCiviliansCard;
     private javax.swing.JPanel adminCompletedTasksCard;
-    private javax.swing.JPanel adminDashboard1;
     private javax.swing.JPanel adminHome;
-    private javax.swing.JPanel adminHome1;
-    private javax.swing.JPanel adminHome3;
-    private javax.swing.JPanel adminHome4;
     private javax.swing.JButton adminHomeButton;
     private javax.swing.JPanel adminMenuPanel;
-    private javax.swing.JPanel adminNoticeTask;
+    private javax.swing.JPanel adminNoticeCard;
     private javax.swing.JTable adminOrgTable;
     private javax.swing.JTable adminOrgTable3;
     private javax.swing.JTable adminOrgTable4;
     private javax.swing.JTable adminOrgTable5;
+    private javax.swing.JTable adminOrgTable6;
+    private javax.swing.JTable adminOrgTable7;
     private javax.swing.JPanel adminOrganizationCard;
     public javax.swing.JPanel adminPanel;
     private javax.swing.JPanel adminTasksCard;
+    private javax.swing.JPanel adminTasksInProgressCard;
     public javax.swing.JPanel civilianPanel;
     private javax.swing.JRadioButton civilianRadioButton;
     private javax.swing.JRadioButton civilianRadioButton1;
@@ -2150,6 +2782,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
@@ -2166,11 +2799,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox9;
@@ -2179,6 +2816,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2194,21 +2834,31 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JButton lfLoginButton;
     private javax.swing.JLabel lfLoginLabel;
     private javax.swing.JPasswordField lfPassword;
@@ -2222,17 +2872,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton ngoRadioButton;
     private javax.swing.JRadioButton ngoRadioButton1;
     private javax.swing.JPanel orgCards;
-    private javax.swing.JButton orgCompletedTasksButton1;
-    private javax.swing.JButton orgCompletedTasksButton2;
-    private javax.swing.JButton orgCompletedTasksButton3;
-    private javax.swing.JButton orgCompletedTasksButton5;
+    private javax.swing.JPanel orgHome;
     private javax.swing.JPanel orgMenuPanel;
+    private javax.swing.JPanel orgNoticeCard;
     public javax.swing.JPanel orgPanel;
     private javax.swing.JPanel radioButtonsPanel;
     private javax.swing.JPanel radioButtonsPanel1;
     private javax.swing.JLabel rePhoneLabel;
     private javax.swing.JLabel rePhoneLabel1;
     private javax.swing.JLabel rePhoneLabel2;
+    private javax.swing.JLabel rePhoneLabel3;
+    private javax.swing.JLabel rePhoneLabel4;
+    private javax.swing.JLabel rePhoneLabel5;
+    private javax.swing.JLabel rePhoneLabel6;
     private javax.swing.JPanel registerForm;
     private javax.swing.JPanel registerForm1;
     private javax.swing.JPanel registerPanel;
@@ -2251,8 +2903,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel rfNameLabel1;
     private javax.swing.JLabel rfNameLabel2;
     private javax.swing.JLabel rfNameLabel3;
+    private javax.swing.JLabel rfNameLabel4;
+    private javax.swing.JLabel rfNameLabel5;
+    private javax.swing.JLabel rfNameLabel6;
     private javax.swing.JTextField rfNameTextField;
     private javax.swing.JTextField rfNameTextField1;
+    private javax.swing.JTextField rfNameTextField3;
     private javax.swing.JPasswordField rfPasswordField;
     private javax.swing.JPasswordField rfPasswordField1;
     private javax.swing.JLabel rfPasswordLabel;
@@ -2262,11 +2918,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton rfRegisterButton;
     private javax.swing.JButton rfRegisterButton1;
     private javax.swing.JButton rfRegisterButton2;
+    private javax.swing.JButton rfRegisterButton3;
+    private javax.swing.JButton rfRegisterButton4;
+    private javax.swing.JButton rfRegisterButton5;
     private javax.swing.JLabel rfRegisterLabel;
     private javax.swing.JLabel rfRegisterLabel1;
     private javax.swing.JLabel rfRegisterLabel2;
+    private javax.swing.JLabel rfRegisterLabel3;
+    private javax.swing.JLabel rfRegisterLabel4;
+    private javax.swing.JLabel rfRegisterLabel5;
     private javax.swing.JLabel rfRoleLabel;
     private javax.swing.JLabel rfRoleLabel1;
+    private javax.swing.JTextArea updateTaskDescriptionTextArea;
+    private javax.swing.JTextField updateTaskIdTextField;
+    private javax.swing.JTextField updateTaskTitleTextField;
     private javax.swing.JTextField updateUserAddressTextField;
     private javax.swing.JTextField updateUserEmailTextField;
     private javax.swing.JPanel updateUserForm;

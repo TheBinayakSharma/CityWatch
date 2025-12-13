@@ -182,6 +182,148 @@
         </Container>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JPanel" name="UpdateTaskForm">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="38" green="32" red="26" type="rgb"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 360]"/>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="rfRegisterButton5">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Update"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rfRegisterButton5ActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="12" gridWidth="3" gridHeight="1" fill="2" ipadX="127" ipadY="0" insetsTop="5" insetsLeft="150" insetsBottom="30" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="rePhoneLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Description"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="2" fill="2" ipadX="66" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="rfRegisterLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e1" green="99" red="66" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Update Task"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="0" gridWidth="3" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="30" insetsLeft="150" insetsBottom="0" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="rfNameLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Title"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="2" fill="2" ipadX="70" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="updateTaskTitleTextField">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="1" gridY="2" gridWidth="2" gridHeight="1" fill="2" ipadX="150" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="0" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+          <Properties>
+            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[64, 22]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[234, 100]"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="1" gridY="3" gridWidth="2" gridHeight="4" fill="2" ipadX="150" ipadY="100" insetsTop="10" insetsLeft="20" insetsBottom="20" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="updateTaskDescriptionTextArea">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[64, 50]"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="rePhoneLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="TaskId"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="2" fill="2" ipadX="66" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="updateTaskIdTextField">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="1" gridY="1" gridWidth="2" gridHeight="1" fill="2" ipadX="150" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="0" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -832,12 +974,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="admCompletedTasksButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="orgCompletedTasksButton1">
+                <Component class="javax.swing.JButton" name="admCompletedTasksButton1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Add Users"/>
+                    <Property name="text" type="java.lang.String" value="Task In Progress"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -853,34 +995,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orgCompletedTasksButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="admCompletedTasksButton1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="orgCompletedTasksButton2">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="99" red="66" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Add Tasks"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[10, 0, 0, 0]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
-                    </Property>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[100, 30]"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orgCompletedTasksButton2ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="orgCompletedTasksButton3">
+                <Component class="javax.swing.JButton" name="admAddNoticesButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -901,10 +1019,58 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orgCompletedTasksButton3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="admAddNoticesButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="orgCompletedTasksButton5">
+                <Component class="javax.swing.JButton" name="admAddTasksButton">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Add Tasks"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[10, 0, 0, 0]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[80, 20]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 30]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="admAddTasksButtonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="admAddUsersButton">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Add Users"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[10, 0, 0, 0]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[80, 20]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 30]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="admAddUsersButtonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="admLogOutButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -1473,7 +1639,7 @@
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="IssuedBy"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
@@ -1605,12 +1771,15 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Remove Task"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton33ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="adminNoticeTask">
+                <Container class="javax.swing.JPanel" name="adminNoticeCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -1664,7 +1833,7 @@
                                 <Column editable="false" title="NoticeId" type="java.lang.Object"/>
                                 <Column editable="false" title="Title" type="java.lang.Object"/>
                                 <Column editable="false" title="Content" type="java.lang.Object"/>
-                                <Column editable="false" title="IssueDate" type="java.lang.Object"/>
+                                <Column editable="false" title="Issue Date" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1691,6 +1860,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1874,7 +2044,7 @@
                               <Table columnCount="4" rowCount="4">
                                 <Column editable="false" title="TaskId" type="java.lang.Object"/>
                                 <Column editable="false" title="Title" type="java.lang.Object"/>
-                                <Column editable="false" title="IssuedBy" type="java.lang.Object"/>
+                                <Column editable="false" title="Description" type="java.lang.Object"/>
                                 <Column editable="false" title="CompletedBy" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -1902,6 +2072,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -2188,7 +2359,7 @@
                     </Container>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="adminHome3">
+                <Container class="javax.swing.JPanel" name="adminAddTaskCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -2202,23 +2373,133 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="adminHome4">
+                    <Container class="javax.swing.JPanel" name="addTaskForm">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="99" red="66" type="rgb"/>
+                          <Color blue="38" green="32" red="26" type="rgb"/>
+                        </Property>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[500, 360]"/>
                         </Property>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="100" insetsLeft="150" insetsBottom="40" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
                         </Constraint>
                       </Constraints>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="rfRegisterButton3">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="99" red="66" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Add Task"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rfRegisterButton3ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="12" gridWidth="3" gridHeight="1" fill="2" ipadX="127" ipadY="0" insetsTop="5" insetsLeft="150" insetsBottom="30" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rePhoneLabel3">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Description"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="2" fill="2" ipadX="66" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rfRegisterLabel3">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e1" green="99" red="66" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="Add Task"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="0" gridWidth="3" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="30" insetsLeft="150" insetsBottom="0" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rfNameLabel4">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Title"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="2" fill="2" ipadX="70" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="addtaskTitleTextField">
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="1" gridY="1" gridWidth="2" gridHeight="1" fill="2" ipadX="150" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="0" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                          <Properties>
+                            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                            <Property name="autoscrolls" type="boolean" value="true"/>
+                            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[64, 22]"/>
+                            </Property>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[234, 100]"/>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="1" gridY="3" gridWidth="2" gridHeight="4" fill="2" ipadX="150" ipadY="100" insetsTop="10" insetsLeft="20" insetsBottom="20" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="addTaskDescriptionTextArea">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="rows" type="int" value="5"/>
+                                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[64, 50]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
                     </Container>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="adminHome1">
+                <Container class="javax.swing.JPanel" name="adminAddNoticeCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -2231,6 +2512,256 @@
                   </Constraints>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="addNoticeForm">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="38" green="32" red="26" type="rgb"/>
+                        </Property>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[500, 360]"/>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="100" insetsLeft="150" insetsBottom="40" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="rfRegisterButton4">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="99" red="66" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Add Notice"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rfRegisterButton4ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="12" gridWidth="3" gridHeight="1" fill="2" ipadX="127" ipadY="0" insetsTop="5" insetsLeft="150" insetsBottom="30" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rePhoneLabel4">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Description"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="2" fill="2" ipadX="66" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rfRegisterLabel4">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e1" green="99" red="66" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="Add Notice"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="0" gridWidth="3" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="30" insetsLeft="150" insetsBottom="0" insetsRight="150" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="rfNameLabel5">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Title"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="2" fill="2" ipadX="70" ipadY="0" insetsTop="10" insetsLeft="70" insetsBottom="0" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="rfNameTextField3">
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="1" gridY="1" gridWidth="2" gridHeight="1" fill="2" ipadX="150" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="0" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+                          <Properties>
+                            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                            <Property name="autoscrolls" type="boolean" value="true"/>
+                            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[64, 22]"/>
+                            </Property>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[234, 100]"/>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="1" gridY="3" gridWidth="2" gridHeight="4" fill="2" ipadX="150" ipadY="100" insetsTop="10" insetsLeft="20" insetsBottom="20" insetsRight="70" anchor="18" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="jTextArea2">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="rows" type="int" value="5"/>
+                                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[64, 50]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="adminTasksInProgressCard">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                    </Property>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="acomtaskcard"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel16">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI Black" size="18" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Task In Progress"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="20" insetsLeft="100" insetsBottom="10" insetsRight="100" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                      <Properties>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[600, 200]"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="10" insetsRight="20" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="adminOrgTable7">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="false" title="TaskId" type="java.lang.Object"/>
+                                <Column editable="false" title="Title" type="java.lang.Object"/>
+                                <Column editable="false" title="Description" type="java.lang.Object"/>
+                                <Column editable="false" title="Assigned To" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="1">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel22">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[500, 40]"/>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="20" insetsBottom="0" insetsRight="20" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="2"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextField" name="jTextField8">
+                          <Properties>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[100, 22]"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jButton45">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Search"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
@@ -2269,7 +2800,10 @@
                 </Constraint>
               </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                <Property name="horizontalGap" type="int" value="2"/>
+                <Property name="verticalGap" type="int" value="20"/>
+              </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
@@ -2306,22 +2840,22 @@
                       <Insets value="[10, 10, 10, 10]"/>
                     </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton7">
+                <Component class="javax.swing.JButton" name="jButton10">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Organizations"/>
+                    <Property name="text" type="java.lang.String" value="Notices"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -2330,31 +2864,10 @@
                       <Insets value="[10, 10, 10, 10]"/>
                     </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton8">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="99" red="66" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Civilians"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[10, 10, 10, 10]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
-                    </Property>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -2372,19 +2885,19 @@
                       <Insets value="[10, 10, 10, 10]"/>
                     </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton10">
+                <Component class="javax.swing.JButton" name="jButton7">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Notices"/>
+                    <Property name="text" type="java.lang.String" value="Tasks Taken"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -2393,10 +2906,52 @@
                       <Insets value="[10, 10, 10, 10]"/>
                     </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 20]"/>
+                      <Dimension value="[100, 20]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton8">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Tasks Completed"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[10, 10, 10, 10]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 20]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 20]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton16">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Log Out"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[10, 10, 10, 10]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 20]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 20]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -2411,7 +2966,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="adminDashboard1">
+                <Container class="javax.swing.JPanel" name="orgHome">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -2425,7 +2980,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel3">
+                <Container class="javax.swing.JPanel" name="orgNoticeCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -2433,22 +2988,167 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="card3"/>
+                      <CardConstraints cardName="anoticecard"/>
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="798" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="500" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel14">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI Black" size="18" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Notice"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="20" insetsLeft="100" insetsBottom="10" insetsRight="100" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                      <Properties>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[600, 200]"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="20" insetsBottom="10" insetsRight="20" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="adminOrgTable6">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="4">
+                                <Column editable="false" title="NoticeId" type="java.lang.Object"/>
+                                <Column editable="false" title="Title" type="java.lang.Object"/>
+                                <Column editable="false" title="Content" type="java.lang.Object"/>
+                                <Column editable="false" title="Issue Date" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="1">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel19">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[500, 40]"/>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="20" insetsBottom="0" insetsRight="20" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="2"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextField" name="jTextField7">
+                          <Properties>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[100, 22]"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jButton40">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Search"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel20">
+                      <Properties>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[500, 40]"/>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="20" insetsBottom="0" insetsRight="20" anchor="10" weightX="0.0" weightY="0.0"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="4"/>
+                        <Property name="verticalGap" type="int" value="10"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="jLabel15">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Sort By:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="jComboBox10">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="2">
+                                <StringItem index="0" value="IssueDate"/>
+                                <StringItem index="1" value="Title"/>
+                              </StringArray>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jButton41">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Sort"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton41ActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
