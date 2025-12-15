@@ -75,13 +75,8 @@ public class Organization {
         this.address = address;
     }
     
-    public void setTaskAssigned(ArrayList<Task> taskAssigned) {
-        this.taskAssigned = taskAssigned;
-    }
     
-    public void setTaskCompleted(ArrayList<Task> taskCompleted) {
-        this.taskCompleted = taskCompleted;
-    }
+    
     
     public String createOrgId(String name, String phone){
         return "ORG-"+name.substring(0,3)+ phone;

@@ -4,8 +4,10 @@
  */
 package Controller;
 
+import Model.Organization;
 import Model.StructuralStorage;
 import Model.Task;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Queue;
 
@@ -48,5 +50,32 @@ public class TaskController {
         }
        
        throw new Exception("Invalid task ID");
+    }
+    
+    public static ArrayList<Task> getTaskAL(){
+        return new ArrayList(StructuralStorage.taskQueue);
+    }
+    
+    public static ArrayList<Model.Task> getComTaskAL(){
+        return StructuralStorage.tasksCompletedArrayList;
+    }
+    
+    public static ArrayList<Task> getTaskIPAL(){
+        return  StructuralStorage.tasksInProgressArrayList;
+    }
+    
+    public static void takeTask(){
+        Organization org = null;
+        for(Organization o: StructuralStorage.organizationArrayList){
+            if(o.getOrgId().equalsIgnoreCase(LoginAndRegistrationController.sessionUser)){
+                org = o;
+                break;
+            }
+        }
+        
+        Task taskTaken = StructuralStorage.taskQueue.poll();
+        taskTaken.setAssignedTo(LoginAndRegistrationController.sessionUser);
+        org.getTaskAssigned().add(taskTaken);
+        StructuralStorage.tasksInProgressArrayList.add(taskTaken);
     }
 }

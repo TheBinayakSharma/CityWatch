@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -13,17 +13,15 @@ import java.util.UUID;
 public class Notice {
     private final String noticeId;
     private String title;
-    private String content;
-    private final String issuedBy;
-    private final LocalDateTime issueDate;
+    private String description;
+    private final LocalDate issueDate;
     
     // Constructor
-    public Notice(String title, String content, String issuedBy) {
+    public Notice(String title, String description) {
         this.noticeId = "N" + UUID.randomUUID().toString().substring(0, 4).toUpperCase();
         this.title = title;
-        this.content = content;
-        this.issueDate = LocalDateTime.now(); 
-        this.issuedBy = issuedBy;
+        this.description = description;
+        this.issueDate = LocalDate.now(); 
     }
 
     // Getters
@@ -35,15 +33,12 @@ public class Notice {
         return title;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
     
-    public String getissuedBy(){
-        return this.issuedBy;
-    }
 
-    public LocalDateTime getIssueDate() {
+    public LocalDate getIssueDate() {
         return issueDate;
     }
 
@@ -52,8 +47,8 @@ public class Notice {
         this.title = title;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
 }

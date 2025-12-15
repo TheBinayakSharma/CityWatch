@@ -12,4 +12,10 @@ import java.util.HashMap;
 public class LoginCredentials {
     public static HashMap<String,String> civLoginCred = new HashMap<>();
     public static HashMap<String,String> orgLoginCred = new HashMap<>();
+    
+    public LoginCredentials(){
+        civLoginCred.put("CIV-binsha", "binsha");
+        orgLoginCred.put("CIV-binsha", "binsha");
+    }
+          
 }

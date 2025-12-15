@@ -58,4 +58,9 @@ public class CiviliansController {
         }
         throw new Exception("Invalid User Id");
     }
+    
+    public static void removeRecentlyAdded(){
+        StructuralStorage.civilianStack.pop();
+        StructuralStorage.updateCivilianArrayList();
+    }
 }

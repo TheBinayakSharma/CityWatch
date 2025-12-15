@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import Model.Organization;
 import Model.StructuralStorage;
+import Model.Task;
 import java.util.Iterator;
 
 /**
@@ -30,7 +31,7 @@ public class OrganizationsController {
         return "ORG-"+name.substring(0,3)+phone;
     }
     
-    public static ArrayList getOrganizationAL(){
+    public static ArrayList<Organization> getOrganizationAL(){
         return Model.StructuralStorage.organizationArrayList;
     } 
     
@@ -58,5 +59,36 @@ public class OrganizationsController {
         }
        
        throw new Exception("Invalid User ID");
+    }
+    
+    public static void removeRecentlyAdded(){
+        StructuralStorage.organizationStack.pop();
+        StructuralStorage.updateOrganizationArrayList();
+    }
+    
+    public static ArrayList<Task> getOrgTIPList(String sessionUser){
+        for(Organization o: StructuralStorage.organizationStack){
+            if(o.getOrgId().equalsIgnoreCase(sessionUser)){
+                return o.getTaskAssigned();
+            }
+        }
+        return new ArrayList();
+    }
+    
+    public static ArrayList<Task> getOrgComTaskList(String sessionUser){
+        for(Organization o: StructuralStorage.organizationStack){
+            if(o.getOrgId().equalsIgnoreCase(sessionUser)){
+                return o.getTaskCompleted();
+            }
+        }
+        return new ArrayList();
+    }
+    
+    public static void markTaskComplete(Organization o, Task t){
+        t.setCompletedBy(LoginAndRegistrationController.sessionUser);
+        o.getTaskAssigned().remove(t);
+        o.getTaskCompleted().add(t);
+        TaskController.getTaskIPAL().remove(t);
+        TaskController.getComTaskAL().add(t);
     }
 }

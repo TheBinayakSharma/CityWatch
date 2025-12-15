@@ -4,7 +4,7 @@
  */
 package Model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 /**
  *
@@ -16,16 +16,16 @@ public class Task {
     private String assignedTo;    
     private String completedBy;   
     private String description;
-    private final Date issueDate;
+    private final LocalDate issueDate;
 
     // Constructor
     public Task(String title, String description) {
-        this.taskId = "T" + UUID.randomUUID().toString(); 
+        this.taskId = "T" + UUID.randomUUID().toString().substring(0, 4); 
         this.title = title;
         this.description = description;
         this.assignedTo = null;
         this.completedBy = null;
-        this.issueDate = new Date(); 
+        this.issueDate = LocalDate.now();
     }
 
     public String getTaskId() {
@@ -66,7 +66,7 @@ public class Task {
         this.description = description;
     }
 
-    public Date getIssueDate() {
+    public LocalDate getIssueDate() {
         return issueDate;
     }
 
