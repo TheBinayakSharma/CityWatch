@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package citywatch;
-
+import View.UserInterface;
 /**
  *
  * @author binay
@@ -14,6 +14,8 @@ public class CityWatch {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code application logic here        
+        UserInterface.main(args);
+        
     }
 }

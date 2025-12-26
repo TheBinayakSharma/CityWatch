@@ -20,30 +20,32 @@ public class LoginAndRegistrationController {
     
     
     
-    public static boolean adminAuthenticate(String username, String password){
+    public static boolean adminAuthenticate(String username, String password) throws Exception{
         Admin a = new Admin();
         if(username.equals(a.getUsername()) && password.equals(a.getPassword())){
             sessionUser = username;
             return true;
         }
-        return false;
+        throw new Exception("Incorrect Username or Password");
     }
     
     
-    public static boolean orgAuthenticate(String username, String password){
+    public static boolean orgAuthenticate(String username, String password) throws Exception{
         if((getOrgLoginCred(username)).equals(password)){
             sessionUser = username;
-          return true;  
+            return true;  
         }
-        return false;  
+        throw new Exception("Incorrect Username or Password");
+         
     }
     
-    public static boolean civAuthenticate(String username, String password){
+    public static boolean civAuthenticate(String username, String password) throws Exception{
         if((getCivLoginCred(username)).equals(password)){
             sessionUser = username;
-          return true;  
+            return true;  
         }
-        return false;
+        throw new Exception("Incorrect Username or Password");
+        
     }
     
     public static void addCivLoginCred(String username, String password){

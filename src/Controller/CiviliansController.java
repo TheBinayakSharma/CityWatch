@@ -7,6 +7,7 @@ import Model.Civilian;
 import Model.StructuralStorage;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.UUID;
 
 /**
  *
@@ -26,8 +27,8 @@ public class CiviliansController {
             LoginAndRegistrationController.addCivLoginCred(civId, password);   
     }
     
-    public String setCivId(String name, String phone){
-        return "CIV-"+name.substring(0,3)+phone;
+    public String setCivId(String name){
+        return "CIV-"+name.substring(0,3)+UUID.randomUUID().toString().substring(0, 4).toUpperCase();
     }
     
     public static ArrayList<Civilian> getCivilianAL(){
@@ -51,7 +52,7 @@ public class CiviliansController {
         while(iter.hasNext()) {
             Civilian c = iter.next();
             if(c.getCivId().equals(id)) {
-                iter.remove(); // safe removal
+                iter.remove();
                 StructuralStorage.updateCivilianArrayList();
                 return;
             }

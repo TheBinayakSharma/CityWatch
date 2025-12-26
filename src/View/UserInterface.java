@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import Controller.CiviliansController;
@@ -13,7 +14,6 @@ import Controller.TaskController;
 import Model.Civilian;
 import Model.Notice;
 import Model.Organization;
-import Model.StructuralStorage;
 import Model.Task;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -24,23 +24,25 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author binay
  */
-public class Menu extends javax.swing.JFrame {
+public class UserInterface extends javax.swing.JFrame {
+
     public CardLayout mpLayout;
     public CardLayout adcLayout;
     public CardLayout orgcLayout;
-    
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
+    public CardLayout civLayout;
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UserInterface.class.getName());
 
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public UserInterface() {
         initComponents();
         Controller.SampleData.loadSampleData();
         mpLayout = (CardLayout) mainPanel.getLayout();
         adcLayout = (CardLayout) adminCards.getLayout();
         orgcLayout = (CardLayout) orgCards.getLayout();
+        civLayout = (CardLayout) civCards.getLayout();
     }
 
     /**
@@ -56,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
         acTypeButtonGroup = new javax.swing.ButtonGroup();
         updateUserPanel = new javax.swing.JPanel();
         updateUserForm = new javax.swing.JPanel();
-        rfRegisterButton2 = new javax.swing.JButton();
+        updateUserButtonDB = new javax.swing.JButton();
         rePhoneLabel2 = new javax.swing.JLabel();
         rfRegisterLabel2 = new javax.swing.JLabel();
         rfAddressLabel2 = new javax.swing.JLabel();
@@ -69,7 +71,7 @@ public class Menu extends javax.swing.JFrame {
         updateUserIDTextField = new javax.swing.JTextField();
         rfNameLabel3 = new javax.swing.JLabel();
         updateTaskForm = new javax.swing.JPanel();
-        rfRegisterButton5 = new javax.swing.JButton();
+        updateTaskButtonDB = new javax.swing.JButton();
         rePhoneLabel5 = new javax.swing.JLabel();
         rfRegisterLabel5 = new javax.swing.JLabel();
         rfNameLabel6 = new javax.swing.JLabel();
@@ -79,7 +81,7 @@ public class Menu extends javax.swing.JFrame {
         rePhoneLabel6 = new javax.swing.JLabel();
         updateTaskIdTextField = new javax.swing.JTextField();
         updateNoticeForm = new javax.swing.JPanel();
-        rfRegisterButton6 = new javax.swing.JButton();
+        updateNoticeButtonDB = new javax.swing.JButton();
         rePhoneLabel7 = new javax.swing.JLabel();
         rfRegisterLabel6 = new javax.swing.JLabel();
         rfNameLabel7 = new javax.swing.JLabel();
@@ -138,83 +140,83 @@ public class Menu extends javax.swing.JFrame {
         adminOrgTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        admOrgSearchButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton12 = new javax.swing.JButton();
+        admSortByComboBoxOrg = new javax.swing.JComboBox<>();
+        admSortOrderComboBoxOrg = new javax.swing.JComboBox<>();
+        admOrgSortButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        addNewOrgButton = new javax.swing.JButton();
+        updateOrgButton = new javax.swing.JButton();
+        removeOrgButton = new javax.swing.JButton();
+        removeRecentlyAddedOrgButton = new javax.swing.JButton();
         adminCiviliansCard = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         adminCivTable = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
-        jButton23 = new javax.swing.JButton();
+        admCivSearchButton = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton24 = new javax.swing.JButton();
+        admSortByComboBoxCiv = new javax.swing.JComboBox<>();
+        admSortOrderComboBoxCiv = new javax.swing.JComboBox<>();
+        admCivSortButton = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        addNewCivBUtton = new javax.swing.JButton();
+        updateCivButton = new javax.swing.JButton();
+        removeCivButton = new javax.swing.JButton();
+        removeRecentlyAddedCivButton = new javax.swing.JButton();
         adminTasksCard = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         adminTaskTable = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
-        jButton29 = new javax.swing.JButton();
+        admTaskSearchButton = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton30 = new javax.swing.JButton();
+        admSortByComboBoxTasks = new javax.swing.JComboBox<>();
+        admSortOrderComboBoxTasks = new javax.swing.JComboBox<>();
+        admTasksSortButton = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
+        addNewTaskButton = new javax.swing.JButton();
+        updatetaskButton = new javax.swing.JButton();
+        removeTaskButton = new javax.swing.JButton();
         adminNoticeCard = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         adminNoticeTable = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
-        jButton34 = new javax.swing.JButton();
+        admNoticeSearchButton = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jButton35 = new javax.swing.JButton();
+        admSortByComboBoxNotice = new javax.swing.JComboBox<>();
+        admSortOrderComboBoxNotice = new javax.swing.JComboBox<>();
+        admNoticeSortButton = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
+        addNewNoticeButton = new javax.swing.JButton();
+        updateNoticeButton = new javax.swing.JButton();
+        removeNoticeButton = new javax.swing.JButton();
         adminTasksInProgressCard = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         adminTaskIPTable = new javax.swing.JTable();
         jPanel22 = new javax.swing.JPanel();
         jTextField8 = new javax.swing.JTextField();
-        jButton45 = new javax.swing.JButton();
+        admTIPSearchButton = new javax.swing.JButton();
         adminCompletedTasksCard = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         adminComTaskTable = new javax.swing.JTable();
         jPanel18 = new javax.swing.JPanel();
         jTextField6 = new javax.swing.JTextField();
-        jButton39 = new javax.swing.JButton();
+        admCompletedTaskSearchButton = new javax.swing.JButton();
         adminAddUserCard = new javax.swing.JPanel();
         registerForm1 = new javax.swing.JPanel();
-        rfRegisterButton1 = new javax.swing.JButton();
+        registerUserButton = new javax.swing.JButton();
         rePhoneLabel1 = new javax.swing.JLabel();
         rfRegisterLabel1 = new javax.swing.JLabel();
         rfAddressLabel1 = new javax.swing.JLabel();
@@ -232,7 +234,7 @@ public class Menu extends javax.swing.JFrame {
         rfPasswordField1 = new javax.swing.JPasswordField();
         adminAddTaskCard = new javax.swing.JPanel();
         addTaskForm = new javax.swing.JPanel();
-        rfRegisterButton3 = new javax.swing.JButton();
+        addTaskPanelButton = new javax.swing.JButton();
         rePhoneLabel3 = new javax.swing.JLabel();
         rfRegisterLabel3 = new javax.swing.JLabel();
         rfNameLabel4 = new javax.swing.JLabel();
@@ -241,13 +243,13 @@ public class Menu extends javax.swing.JFrame {
         addTaskDescriptionTextArea = new javax.swing.JTextArea();
         adminAddNoticeCard = new javax.swing.JPanel();
         addNoticeForm = new javax.swing.JPanel();
-        rfRegisterButton4 = new javax.swing.JButton();
+        addNoticePanelButton = new javax.swing.JButton();
         rePhoneLabel4 = new javax.swing.JLabel();
         rfRegisterLabel4 = new javax.swing.JLabel();
         rfNameLabel5 = new javax.swing.JLabel();
-        rfNameTextField3 = new javax.swing.JTextField();
+        addNoticeTitleTextField = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        addNoticeDescriptionTextArea = new javax.swing.JTextArea();
         adminHome = new javax.swing.JPanel();
         admHomeLogo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -269,12 +271,12 @@ public class Menu extends javax.swing.JFrame {
         orgPanel = new javax.swing.JPanel();
         orgMenuPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        orgHomeButton = new javax.swing.JButton();
+        orgNoticeButton = new javax.swing.JButton();
+        orgTasksButton = new javax.swing.JButton();
+        orgTaskAssignedButton = new javax.swing.JButton();
+        orgTaskCompletedButton = new javax.swing.JButton();
+        orgLogOutButton = new javax.swing.JButton();
         orgCards = new javax.swing.JPanel();
         orgHomeCard = new javax.swing.JPanel();
         orgHomeLogo = new javax.swing.JLabel();
@@ -300,42 +302,108 @@ public class Menu extends javax.swing.JFrame {
         orgNoticeTable = new javax.swing.JTable();
         jPanel19 = new javax.swing.JPanel();
         jTextField7 = new javax.swing.JTextField();
-        jButton40 = new javax.swing.JButton();
+        orgNoticeSearchButton = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jComboBox12 = new javax.swing.JComboBox<>();
-        jButton41 = new javax.swing.JButton();
+        orgNoticeSortByComboBox = new javax.swing.JComboBox<>();
+        orgNoticeSortOrderComboBox = new javax.swing.JComboBox<>();
+        orgNoticeSortButton = new javax.swing.JButton();
         orgTasksCard = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         orgTaskTable = new javax.swing.JTable();
         jPanel21 = new javax.swing.JPanel();
         jTextField10 = new javax.swing.JTextField();
-        jButton42 = new javax.swing.JButton();
+        orgTasksSearchButton = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        orgTasksSortByComboBox = new javax.swing.JComboBox<>();
         jComboBox11 = new javax.swing.JComboBox<>();
-        jButton43 = new javax.swing.JButton();
+        orgSortTasksButton = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
-        jButton44 = new javax.swing.JButton();
+        orgTakeATaskButton = new javax.swing.JButton();
         orgCompletedTasksCard = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         orgComTaskTable = new javax.swing.JTable();
         jPanel26 = new javax.swing.JPanel();
         jTextField11 = new javax.swing.JTextField();
-        jButton49 = new javax.swing.JButton();
+        orgCompletedTasksSearchButton = new javax.swing.JButton();
         orgTasksInProgressCard = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         orgTIPTable = new javax.swing.JTable();
         jPanel23 = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
-        jButton46 = new javax.swing.JButton();
+        orgSearchTaskAssignedButton = new javax.swing.JButton();
         markTaskCompButton = new javax.swing.JButton();
         civilianPanel = new javax.swing.JPanel();
+        civMenuPanel = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        civHomeButton = new javax.swing.JButton();
+        civNoticesButton = new javax.swing.JButton();
+        civTasksButton = new javax.swing.JButton();
+        civTaskIPButton = new javax.swing.JButton();
+        civTasksCompletedButton = new javax.swing.JButton();
+        civLogOutButton = new javax.swing.JButton();
+        civCards = new javax.swing.JPanel();
+        civHomeCard = new javax.swing.JPanel();
+        civHomeLogo = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        civRecentNoticeTable = new javax.swing.JTable();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        cRegCivCount = new javax.swing.JTextField();
+        cRegOrgCount = new javax.swing.JTextField();
+        cTasksCount = new javax.swing.JTextField();
+        cTIPCount = new javax.swing.JTextField();
+        cComTaskCount = new javax.swing.JTextField();
+        civNoticeCard = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        civNoticeTable = new javax.swing.JTable();
+        jPanel27 = new javax.swing.JPanel();
+        jTextField12 = new javax.swing.JTextField();
+        civNoticeSearchButton = new javax.swing.JButton();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel48 = new javax.swing.JLabel();
+        civNoticeSortByComboBox = new javax.swing.JComboBox<>();
+        civNoticeSortOrderComboBox = new javax.swing.JComboBox<>();
+        civSortNoticeButton = new javax.swing.JButton();
+        civTasksCard = new javax.swing.JPanel();
+        jLabel49 = new javax.swing.JLabel();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        civTaskTable = new javax.swing.JTable();
+        jPanel29 = new javax.swing.JPanel();
+        jTextField13 = new javax.swing.JTextField();
+        civSearchTaskButton = new javax.swing.JButton();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        civTaskSortByComboBox = new javax.swing.JComboBox<>();
+        civTaskSortOrderComboBox = new javax.swing.JComboBox<>();
+        civSortTaskButton = new javax.swing.JButton();
+        jPanel31 = new javax.swing.JPanel();
+        civCompletedTaskCard = new javax.swing.JPanel();
+        jLabel51 = new javax.swing.JLabel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        civComTaskTable = new javax.swing.JTable();
+        jPanel32 = new javax.swing.JPanel();
+        jTextField14 = new javax.swing.JTextField();
+        civSearchCompletedTasksButton = new javax.swing.JButton();
+        civTaskInProgressCard = new javax.swing.JPanel();
+        jLabel52 = new javax.swing.JLabel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        civTIPTable = new javax.swing.JTable();
+        jPanel33 = new javax.swing.JPanel();
+        jTextField15 = new javax.swing.JTextField();
+        civSearchTIPButton = new javax.swing.JButton();
 
         updateUserPanel.setBackground(new java.awt.Color(102, 153, 255));
         updateUserPanel.setLayout(new java.awt.GridBagLayout());
@@ -344,11 +412,11 @@ public class Menu extends javax.swing.JFrame {
         updateUserForm.setPreferredSize(new java.awt.Dimension(500, 360));
         updateUserForm.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton2.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton2.setText("Update");
-        rfRegisterButton2.addActionListener(new java.awt.event.ActionListener() {
+        updateUserButtonDB.setBackground(new java.awt.Color(102, 153, 255));
+        updateUserButtonDB.setText("Update");
+        updateUserButtonDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton2ActionPerformed(evt);
+                updateUserButtonDBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -359,7 +427,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 0, 150);
-        updateUserForm.add(rfRegisterButton2, gridBagConstraints);
+        updateUserForm.add(updateUserButtonDB, gridBagConstraints);
 
         rePhoneLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -495,11 +563,11 @@ public class Menu extends javax.swing.JFrame {
         updateTaskForm.setPreferredSize(new java.awt.Dimension(500, 360));
         updateTaskForm.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton5.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton5.setText("Update");
-        rfRegisterButton5.addActionListener(new java.awt.event.ActionListener() {
+        updateTaskButtonDB.setBackground(new java.awt.Color(102, 153, 255));
+        updateTaskButtonDB.setText("Update");
+        updateTaskButtonDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton5ActionPerformed(evt);
+                updateTaskButtonDBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -510,7 +578,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
-        updateTaskForm.add(rfRegisterButton5, gridBagConstraints);
+        updateTaskForm.add(updateTaskButtonDB, gridBagConstraints);
 
         rePhoneLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -608,11 +676,11 @@ public class Menu extends javax.swing.JFrame {
         updateNoticeForm.setPreferredSize(new java.awt.Dimension(500, 360));
         updateNoticeForm.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton6.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton6.setText("Update");
-        rfRegisterButton6.addActionListener(new java.awt.event.ActionListener() {
+        updateNoticeButtonDB.setBackground(new java.awt.Color(102, 153, 255));
+        updateNoticeButtonDB.setText("Update");
+        updateNoticeButtonDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton6ActionPerformed(evt);
+                updateNoticeButtonDBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -623,7 +691,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
-        updateNoticeForm.add(rfRegisterButton6, gridBagConstraints);
+        updateNoticeForm.add(updateNoticeButtonDB, gridBagConstraints);
 
         rePhoneLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -719,9 +787,10 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CityWatch");
-        setMaximumSize(new java.awt.Dimension(800, 500));
-        setMinimumSize(new java.awt.Dimension(800, 550));
-        setSize(new java.awt.Dimension(1300, 500));
+        setMaximumSize(new java.awt.Dimension(1700, 800));
+        setMinimumSize(new java.awt.Dimension(1700, 800));
+        setPreferredSize(new java.awt.Dimension(1700, 800));
+        setSize(new java.awt.Dimension(1700, 800));
 
         mainPanel.setPreferredSize(new java.awt.Dimension(1000, 500));
         mainPanel.setLayout(new java.awt.CardLayout());
@@ -1234,7 +1303,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         adminOrganizationCard.add(jLabel3, gridBagConstraints);
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminOrgTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1274,8 +1344,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField1.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel2.add(jTextField1);
 
-        jButton11.setText("Search");
-        jPanel2.add(jButton11);
+        admOrgSearchButton.setText("Search");
+        jPanel2.add(admOrgSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1291,19 +1361,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setText("Sort By:");
         jPanel4.add(jLabel4);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OrgId", "Name" }));
-        jPanel4.add(jComboBox1);
+        admSortByComboBoxOrg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OrgId", "Name" }));
+        jPanel4.add(admSortByComboBoxOrg);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
-        jPanel4.add(jComboBox3);
+        admSortOrderComboBoxOrg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel4.add(admSortOrderComboBoxOrg);
 
-        jButton12.setText("Sort");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        admOrgSortButton.setText("Sort");
+        admOrgSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                admOrgSortButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton12);
+        jPanel4.add(admOrgSortButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1317,37 +1387,37 @@ public class Menu extends javax.swing.JFrame {
         jPanel6.setOpaque(false);
         jPanel6.setPreferredSize(new java.awt.Dimension(500, 80));
 
-        jButton13.setText("Add New Organization");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        addNewOrgButton.setText("Add New Organization");
+        addNewOrgButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                addNewOrgButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton13);
+        jPanel6.add(addNewOrgButton);
 
-        jButton14.setText("Update Organization Info");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        updateOrgButton.setText("Update Organization Info");
+        updateOrgButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                updateOrgButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton14);
+        jPanel6.add(updateOrgButton);
 
-        jButton15.setText("Remove Organization");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        removeOrgButton.setText("Remove Organization");
+        removeOrgButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                removeOrgButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton15);
+        jPanel6.add(removeOrgButton);
 
-        jButton1.setText("Remove Recently Added Org");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeRecentlyAddedOrgButton.setText("Remove Recently Added Org");
+        removeRecentlyAddedOrgButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removeRecentlyAddedOrgButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton1);
+        jPanel6.add(removeRecentlyAddedOrgButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1371,7 +1441,8 @@ public class Menu extends javax.swing.JFrame {
         adminCiviliansCard.add(jLabel7, gridBagConstraints);
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane3.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane3.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminCivTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1412,8 +1483,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField3.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel9.add(jTextField3);
 
-        jButton23.setText("Search");
-        jPanel9.add(jButton23);
+        admCivSearchButton.setText("Search");
+        jPanel9.add(admCivSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1429,19 +1500,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setText("Sort By:");
         jPanel10.add(jLabel8);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CivId", "Name" }));
-        jPanel10.add(jComboBox5);
+        admSortByComboBoxCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CivId", "Name" }));
+        jPanel10.add(admSortByComboBoxCiv);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
-        jPanel10.add(jComboBox4);
+        admSortOrderComboBoxCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel10.add(admSortOrderComboBoxCiv);
 
-        jButton24.setText("Sort");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        admCivSortButton.setText("Sort");
+        admCivSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                admCivSortButtonActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton24);
+        jPanel10.add(admCivSortButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1455,37 +1526,37 @@ public class Menu extends javax.swing.JFrame {
         jPanel11.setOpaque(false);
         jPanel11.setPreferredSize(new java.awt.Dimension(500, 80));
 
-        jButton25.setText("Add New Civilian");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        addNewCivBUtton.setText("Add New Civilian");
+        addNewCivBUtton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                addNewCivBUttonActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton25);
+        jPanel11.add(addNewCivBUtton);
 
-        jButton26.setText("Update Civilian Info");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        updateCivButton.setText("Update Civilian Info");
+        updateCivButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                updateCivButtonActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton26);
+        jPanel11.add(updateCivButton);
 
-        jButton27.setText("Remove Civilian");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        removeCivButton.setText("Remove Civilian");
+        removeCivButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                removeCivButtonActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton27);
+        jPanel11.add(removeCivButton);
 
-        jButton2.setText("Remove Recently Added Civ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        removeRecentlyAddedCivButton.setText("Remove Recently Added Civ");
+        removeRecentlyAddedCivButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                removeRecentlyAddedCivButtonActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton2);
+        jPanel11.add(removeRecentlyAddedCivButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1508,7 +1579,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         adminTasksCard.add(jLabel9, gridBagConstraints);
 
-        jScrollPane4.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane4.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminTaskTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1548,8 +1620,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField4.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel12.add(jTextField4);
 
-        jButton29.setText("Search");
-        jPanel12.add(jButton29);
+        admTaskSearchButton.setText("Search");
+        jPanel12.add(admTaskSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1565,19 +1637,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setText("Sort By:");
         jPanel13.add(jLabel10);
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
-        jPanel13.add(jComboBox7);
+        admSortByComboBoxTasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel13.add(admSortByComboBoxTasks);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
-        jPanel13.add(jComboBox2);
+        admSortOrderComboBoxTasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel13.add(admSortOrderComboBoxTasks);
 
-        jButton30.setText("Sort");
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
+        admTasksSortButton.setText("Sort");
+        admTasksSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
+                admTasksSortButtonActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton30);
+        jPanel13.add(admTasksSortButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1591,29 +1663,29 @@ public class Menu extends javax.swing.JFrame {
         jPanel14.setOpaque(false);
         jPanel14.setPreferredSize(new java.awt.Dimension(500, 80));
 
-        jButton31.setText("Add New Task");
-        jButton31.addActionListener(new java.awt.event.ActionListener() {
+        addNewTaskButton.setText("Add New Task");
+        addNewTaskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton31ActionPerformed(evt);
+                addNewTaskButtonActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton31);
+        jPanel14.add(addNewTaskButton);
 
-        jButton32.setText("Update Task");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        updatetaskButton.setText("Update Task");
+        updatetaskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                updatetaskButtonActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton32);
+        jPanel14.add(updatetaskButton);
 
-        jButton33.setText("Remove Task");
-        jButton33.addActionListener(new java.awt.event.ActionListener() {
+        removeTaskButton.setText("Remove Task");
+        removeTaskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton33ActionPerformed(evt);
+                removeTaskButtonActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton33);
+        jPanel14.add(removeTaskButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1636,7 +1708,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         adminNoticeCard.add(jLabel11, gridBagConstraints);
 
-        jScrollPane5.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane5.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane5.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1676,8 +1749,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField5.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel15.add(jTextField5);
 
-        jButton34.setText("Search");
-        jPanel15.add(jButton34);
+        admNoticeSearchButton.setText("Search");
+        jPanel15.add(admNoticeSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1693,19 +1766,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel12.setText("Sort By:");
         jPanel16.add(jLabel12);
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
-        jPanel16.add(jComboBox9);
+        admSortByComboBoxNotice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel16.add(admSortByComboBoxNotice);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
-        jPanel16.add(jComboBox6);
+        admSortOrderComboBoxNotice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel16.add(admSortOrderComboBoxNotice);
 
-        jButton35.setText("Sort");
-        jButton35.addActionListener(new java.awt.event.ActionListener() {
+        admNoticeSortButton.setText("Sort");
+        admNoticeSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton35ActionPerformed(evt);
+                admNoticeSortButtonActionPerformed(evt);
             }
         });
-        jPanel16.add(jButton35);
+        jPanel16.add(admNoticeSortButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1719,29 +1792,29 @@ public class Menu extends javax.swing.JFrame {
         jPanel17.setOpaque(false);
         jPanel17.setPreferredSize(new java.awt.Dimension(500, 80));
 
-        jButton36.setText("Add New Notice");
-        jButton36.addActionListener(new java.awt.event.ActionListener() {
+        addNewNoticeButton.setText("Add New Notice");
+        addNewNoticeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton36ActionPerformed(evt);
+                addNewNoticeButtonActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton36);
+        jPanel17.add(addNewNoticeButton);
 
-        jButton37.setText("Update Notice");
-        jButton37.addActionListener(new java.awt.event.ActionListener() {
+        updateNoticeButton.setText("Update Notice");
+        updateNoticeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton37ActionPerformed(evt);
+                updateNoticeButtonActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton37);
+        jPanel17.add(updateNoticeButton);
 
-        jButton38.setText("Remove Notice");
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
+        removeNoticeButton.setText("Remove Notice");
+        removeNoticeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
+                removeNoticeButtonActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton38);
+        jPanel17.add(removeNoticeButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1764,7 +1837,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         adminTasksInProgressCard.add(jLabel16, gridBagConstraints);
 
-        jScrollPane8.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane8.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminTaskIPTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1804,8 +1878,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField8.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel22.add(jTextField8);
 
-        jButton45.setText("Search");
-        jPanel22.add(jButton45);
+        admTIPSearchButton.setText("Search");
+        jPanel22.add(admTIPSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1828,7 +1902,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         adminCompletedTasksCard.add(jLabel13, gridBagConstraints);
 
-        jScrollPane6.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane6.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane6.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         adminComTaskTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1869,8 +1944,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField6.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel18.add(jTextField6);
 
-        jButton39.setText("Search");
-        jPanel18.add(jButton39);
+        admCompletedTaskSearchButton.setText("Search");
+        jPanel18.add(admCompletedTaskSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1888,11 +1963,11 @@ public class Menu extends javax.swing.JFrame {
         registerForm1.setPreferredSize(new java.awt.Dimension(500, 360));
         registerForm1.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton1.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton1.setText("Register");
-        rfRegisterButton1.addActionListener(new java.awt.event.ActionListener() {
+        registerUserButton.setBackground(new java.awt.Color(102, 153, 255));
+        registerUserButton.setText("Register");
+        registerUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton1ActionPerformed(evt);
+                registerUserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1903,7 +1978,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
-        registerForm1.add(rfRegisterButton1, gridBagConstraints);
+        registerForm1.add(registerUserButton, gridBagConstraints);
 
         rePhoneLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -2085,11 +2160,11 @@ public class Menu extends javax.swing.JFrame {
         addTaskForm.setPreferredSize(new java.awt.Dimension(500, 360));
         addTaskForm.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton3.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton3.setText("Add Task");
-        rfRegisterButton3.addActionListener(new java.awt.event.ActionListener() {
+        addTaskPanelButton.setBackground(new java.awt.Color(102, 153, 255));
+        addTaskPanelButton.setText("Add Task");
+        addTaskPanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton3ActionPerformed(evt);
+                addTaskPanelButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2100,7 +2175,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
-        addTaskForm.add(rfRegisterButton3, gridBagConstraints);
+        addTaskForm.add(addTaskPanelButton, gridBagConstraints);
 
         rePhoneLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -2188,11 +2263,11 @@ public class Menu extends javax.swing.JFrame {
         addNoticeForm.setPreferredSize(new java.awt.Dimension(500, 360));
         addNoticeForm.setLayout(new java.awt.GridBagLayout());
 
-        rfRegisterButton4.setBackground(new java.awt.Color(102, 153, 255));
-        rfRegisterButton4.setText("Add Notice");
-        rfRegisterButton4.addActionListener(new java.awt.event.ActionListener() {
+        addNoticePanelButton.setBackground(new java.awt.Color(102, 153, 255));
+        addNoticePanelButton.setText("Add Notice");
+        addNoticePanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfRegisterButton4ActionPerformed(evt);
+                addNoticePanelButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2203,7 +2278,7 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 127;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 150, 30, 150);
-        addNoticeForm.add(rfRegisterButton4, gridBagConstraints);
+        addNoticeForm.add(addNoticePanelButton, gridBagConstraints);
 
         rePhoneLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rePhoneLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -2251,17 +2326,17 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 150;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 70);
-        addNoticeForm.add(rfNameTextField3, gridBagConstraints);
+        addNoticeForm.add(addNoticeTitleTextField, gridBagConstraints);
 
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane9.setAutoscrolls(true);
         jScrollPane9.setMinimumSize(new java.awt.Dimension(64, 22));
         jScrollPane9.setPreferredSize(new java.awt.Dimension(234, 100));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setMinimumSize(new java.awt.Dimension(64, 50));
-        jScrollPane9.setViewportView(jTextArea2);
+        addNoticeDescriptionTextArea.setColumns(20);
+        addNoticeDescriptionTextArea.setRows(5);
+        addNoticeDescriptionTextArea.setMinimumSize(new java.awt.Dimension(64, 50));
+        jScrollPane9.setViewportView(addNoticeDescriptionTextArea);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2286,9 +2361,23 @@ public class Menu extends javax.swing.JFrame {
 
         adminHome.setBackground(new java.awt.Color(102, 153, 255));
         adminHome.setLayout(new java.awt.GridBagLayout());
+
+        java.net.URL imgURL = getClass().getResource("/View/citywatch.jpg");
+        if (imgURL != null) {
+            ImageIcon icon = new ImageIcon(imgURL);
+            Image img = icon.getImage();
+            Image scaled = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            admHomeLogo.setIcon(new ImageIcon(scaled));
+        } else {
+            System.err.println("Couldn't find citywatch.jpg");
+        }
+        admHomeLogo.setMaximumSize(new java.awt.Dimension(150, 150));
+        admHomeLogo.setMinimumSize(new java.awt.Dimension(100, 100));
+        admHomeLogo.setPreferredSize(new java.awt.Dimension(100, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         adminHome.add(admHomeLogo, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -2300,7 +2389,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         adminHome.add(jLabel5, gridBagConstraints);
 
-        jScrollPane15.setPreferredSize(new java.awt.Dimension(452, 130));
+        jScrollPane15.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane15.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         admRecentNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2312,8 +2402,21 @@ public class Menu extends javax.swing.JFrame {
             new String [] {
                 "Notice Id", "Title", "Description", "Issue Date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane15.setViewportView(admRecentNoticeTable);
+        if (admRecentNoticeTable.getColumnModel().getColumnCount() > 0) {
+            admRecentNoticeTable.getColumnModel().getColumn(0).setResizable(false);
+            admRecentNoticeTable.getColumnModel().getColumn(1).setResizable(false);
+            admRecentNoticeTable.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2422,9 +2525,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome.add(jLabel27, gridBagConstraints);
 
         aRegCivCount.setEditable(false);
+        aRegCivCount.setBackground(new java.awt.Color(255, 255, 255));
         aRegCivCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aRegCivCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         aRegCivCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aRegCivCount.setOpaque(true);
         aRegCivCount.setPreferredSize(new java.awt.Dimension(80, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2435,9 +2540,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome.add(aRegCivCount, gridBagConstraints);
 
         aRegOrgCount.setEditable(false);
+        aRegOrgCount.setBackground(new java.awt.Color(255, 255, 255));
         aRegOrgCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aRegOrgCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         aRegOrgCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aRegOrgCount.setOpaque(true);
         aRegOrgCount.setPreferredSize(new java.awt.Dimension(80, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2448,9 +2555,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome.add(aRegOrgCount, gridBagConstraints);
 
         aTasksCount.setEditable(false);
+        aTasksCount.setBackground(new java.awt.Color(255, 255, 255));
         aTasksCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aTasksCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         aTasksCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aTasksCount.setOpaque(true);
         aTasksCount.setPreferredSize(new java.awt.Dimension(80, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2461,9 +2570,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome.add(aTasksCount, gridBagConstraints);
 
         aTIPCount.setEditable(false);
+        aTIPCount.setBackground(new java.awt.Color(255, 255, 255));
         aTIPCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aTIPCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         aTIPCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aTIPCount.setOpaque(true);
         aTIPCount.setPreferredSize(new java.awt.Dimension(80, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2474,9 +2585,11 @@ public class Menu extends javax.swing.JFrame {
         adminHome.add(aTIPCount, gridBagConstraints);
 
         aComTaskCount.setEditable(false);
+        aComTaskCount.setBackground(new java.awt.Color(255, 255, 255));
         aComTaskCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aComTaskCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         aComTaskCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aComTaskCount.setOpaque(true);
         aComTaskCount.setPreferredSize(new java.awt.Dimension(80, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -2509,89 +2622,89 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(140, 25));
         orgMenuPanel.add(jLabel2);
 
-        jButton6.setBackground(new java.awt.Color(102, 153, 255));
-        jButton6.setText("Home");
-        jButton6.setBorderPainted(false);
-        jButton6.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton6.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton6.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton6.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        orgHomeButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgHomeButton.setText("Home");
+        orgHomeButton.setBorderPainted(false);
+        orgHomeButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgHomeButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgHomeButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgHomeButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgHomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                orgHomeButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton6);
+        orgMenuPanel.add(orgHomeButton);
 
-        jButton10.setBackground(new java.awt.Color(102, 153, 255));
-        jButton10.setText("Notices");
-        jButton10.setBorderPainted(false);
-        jButton10.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton10.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton10.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton10.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        orgNoticeButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgNoticeButton.setText("Notices");
+        orgNoticeButton.setBorderPainted(false);
+        orgNoticeButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgNoticeButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgNoticeButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgNoticeButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgNoticeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                orgNoticeButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton10);
+        orgMenuPanel.add(orgNoticeButton);
 
-        jButton9.setBackground(new java.awt.Color(102, 153, 255));
-        jButton9.setText("Tasks");
-        jButton9.setBorderPainted(false);
-        jButton9.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton9.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton9.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton9.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        orgTasksButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgTasksButton.setText("Tasks");
+        orgTasksButton.setBorderPainted(false);
+        orgTasksButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgTasksButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgTasksButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgTasksButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgTasksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                orgTasksButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton9);
+        orgMenuPanel.add(orgTasksButton);
 
-        jButton7.setBackground(new java.awt.Color(102, 153, 255));
-        jButton7.setText("Tasks Assigned");
-        jButton7.setBorderPainted(false);
-        jButton7.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton7.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton7.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton7.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        orgTaskAssignedButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgTaskAssignedButton.setText("Tasks Assigned");
+        orgTaskAssignedButton.setBorderPainted(false);
+        orgTaskAssignedButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgTaskAssignedButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgTaskAssignedButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgTaskAssignedButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgTaskAssignedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                orgTaskAssignedButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton7);
+        orgMenuPanel.add(orgTaskAssignedButton);
 
-        jButton8.setBackground(new java.awt.Color(102, 153, 255));
-        jButton8.setText("Tasks Completed");
-        jButton8.setBorderPainted(false);
-        jButton8.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton8.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton8.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton8.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        orgTaskCompletedButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgTaskCompletedButton.setText("Tasks Completed");
+        orgTaskCompletedButton.setBorderPainted(false);
+        orgTaskCompletedButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgTaskCompletedButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgTaskCompletedButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgTaskCompletedButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgTaskCompletedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                orgTaskCompletedButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton8);
+        orgMenuPanel.add(orgTaskCompletedButton);
 
-        jButton16.setBackground(new java.awt.Color(102, 153, 255));
-        jButton16.setText("Log Out");
-        jButton16.setBorderPainted(false);
-        jButton16.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton16.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton16.setMinimumSize(new java.awt.Dimension(100, 30));
-        jButton16.setPreferredSize(new java.awt.Dimension(130, 30));
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        orgLogOutButton.setBackground(new java.awt.Color(102, 153, 255));
+        orgLogOutButton.setText("Log Out");
+        orgLogOutButton.setBorderPainted(false);
+        orgLogOutButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        orgLogOutButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        orgLogOutButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        orgLogOutButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        orgLogOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                orgLogOutButtonActionPerformed(evt);
             }
         });
-        orgMenuPanel.add(jButton16);
+        orgMenuPanel.add(orgLogOutButton);
 
         orgPanel.add(orgMenuPanel, java.awt.BorderLayout.WEST);
 
@@ -2599,9 +2712,20 @@ public class Menu extends javax.swing.JFrame {
 
         orgHomeCard.setBackground(new java.awt.Color(102, 153, 255));
         orgHomeCard.setLayout(new java.awt.GridBagLayout());
+
+        java.net.URL imgURLOrg = getClass().getResource("/View/citywatch.jpg");
+        if (imgURLOrg != null) {
+            ImageIcon iconOrg= new ImageIcon(imgURLOrg);
+            Image imgOrg = iconOrg.getImage();
+            Image scaledOrg = imgOrg.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            orgHomeLogo.setIcon(new ImageIcon(scaledOrg));
+        } else {
+            System.err.println("Couldn't find citywatch.jpg");
+        }
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         orgHomeCard.add(orgHomeLogo, gridBagConstraints);
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -2613,7 +2737,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         orgHomeCard.add(jLabel28, gridBagConstraints);
 
-        jScrollPane16.setPreferredSize(new java.awt.Dimension(452, 130));
+        jScrollPane16.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane16.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         orgRecentNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2813,7 +2938,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         orgNoticeCard.add(jLabel14, gridBagConstraints);
 
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane7.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         orgNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2852,8 +2978,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField7.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel19.add(jTextField7);
 
-        jButton40.setText("Search");
-        jPanel19.add(jButton40);
+        orgNoticeSearchButton.setText("Search");
+        jPanel19.add(orgNoticeSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2869,19 +2995,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel15.setText("Sort By:");
         jPanel20.add(jLabel15);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
-        jPanel20.add(jComboBox10);
+        orgNoticeSortByComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel20.add(orgNoticeSortByComboBox);
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
-        jPanel20.add(jComboBox12);
+        orgNoticeSortOrderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel20.add(orgNoticeSortOrderComboBox);
 
-        jButton41.setText("Sort");
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
+        orgNoticeSortButton.setText("Sort");
+        orgNoticeSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
+                orgNoticeSortButtonActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton41);
+        jPanel20.add(orgNoticeSortButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2904,7 +3030,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         orgTasksCard.add(jLabel18, gridBagConstraints);
 
-        jScrollPane13.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane13.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane13.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         orgTaskTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2944,8 +3071,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField10.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel21.add(jTextField10);
 
-        jButton42.setText("Search");
-        jPanel21.add(jButton42);
+        orgTasksSearchButton.setText("Search");
+        jPanel21.add(orgTasksSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2961,19 +3088,19 @@ public class Menu extends javax.swing.JFrame {
         jLabel19.setText("Sort By:");
         jPanel24.add(jLabel19);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
-        jPanel24.add(jComboBox8);
+        orgTasksSortByComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel24.add(orgTasksSortByComboBox);
 
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
         jPanel24.add(jComboBox11);
 
-        jButton43.setText("Sort");
-        jButton43.addActionListener(new java.awt.event.ActionListener() {
+        orgSortTasksButton.setText("Sort");
+        orgSortTasksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton43ActionPerformed(evt);
+                orgSortTasksButtonActionPerformed(evt);
             }
         });
-        jPanel24.add(jButton43);
+        jPanel24.add(orgSortTasksButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2987,13 +3114,13 @@ public class Menu extends javax.swing.JFrame {
         jPanel25.setOpaque(false);
         jPanel25.setPreferredSize(new java.awt.Dimension(500, 80));
 
-        jButton44.setText("Take A Task");
-        jButton44.addActionListener(new java.awt.event.ActionListener() {
+        orgTakeATaskButton.setText("Take A Task");
+        orgTakeATaskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton44ActionPerformed(evt);
+                orgTakeATaskButtonActionPerformed(evt);
             }
         });
-        jPanel25.add(jButton44);
+        jPanel25.add(orgTakeATaskButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3016,7 +3143,8 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         orgCompletedTasksCard.add(jLabel20, gridBagConstraints);
 
-        jScrollPane14.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane14.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane14.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         orgComTaskTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -3056,8 +3184,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField11.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel26.add(jTextField11);
 
-        jButton49.setText("Search");
-        jPanel26.add(jButton49);
+        orgCompletedTasksSearchButton.setText("Search");
+        jPanel26.add(orgCompletedTasksSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3073,14 +3201,15 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Task In Progress");
+        jLabel17.setText("Tasks Assigned");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
         orgTasksInProgressCard.add(jLabel17, gridBagConstraints);
 
-        jScrollPane12.setPreferredSize(new java.awt.Dimension(600, 200));
+        jScrollPane12.setMinimumSize(new java.awt.Dimension(1000, 200));
+        jScrollPane12.setPreferredSize(new java.awt.Dimension(1000, 200));
 
         orgTIPTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -3120,8 +3249,8 @@ public class Menu extends javax.swing.JFrame {
         jTextField9.setPreferredSize(new java.awt.Dimension(100, 22));
         jPanel23.add(jTextField9);
 
-        jButton46.setText("Search");
-        jPanel23.add(jButton46);
+        orgSearchTaskAssignedButton.setText("Search");
+        jPanel23.add(orgSearchTaskAssignedButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3147,18 +3276,648 @@ public class Menu extends javax.swing.JFrame {
 
         mainPanel.add(orgPanel, "orgPanelCard");
 
-        javax.swing.GroupLayout civilianPanelLayout = new javax.swing.GroupLayout(civilianPanel);
-        civilianPanel.setLayout(civilianPanelLayout);
-        civilianPanelLayout.setHorizontalGroup(
-            civilianPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-        );
-        civilianPanelLayout.setVerticalGroup(
-            civilianPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        civilianPanel.setLayout(new java.awt.BorderLayout());
 
-        mainPanel.add(civilianPanel, "civPanelcard");
+        civMenuPanel.setBackground(new java.awt.Color(25, 118, 210));
+        civMenuPanel.setForeground(new java.awt.Color(255, 255, 255));
+        civMenuPanel.setMinimumSize(new java.awt.Dimension(100, 500));
+        civMenuPanel.setPreferredSize(new java.awt.Dimension(150, 500));
+        civMenuPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 2, 20));
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("CityWatch");
+        jLabel37.setMaximumSize(new java.awt.Dimension(200, 50));
+        jLabel37.setMinimumSize(new java.awt.Dimension(140, 25));
+        jLabel37.setPreferredSize(new java.awt.Dimension(140, 25));
+        civMenuPanel.add(jLabel37);
+
+        civHomeButton.setBackground(new java.awt.Color(102, 153, 255));
+        civHomeButton.setText("Home");
+        civHomeButton.setBorderPainted(false);
+        civHomeButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civHomeButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civHomeButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civHomeButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civHomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civHomeButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civHomeButton);
+
+        civNoticesButton.setBackground(new java.awt.Color(102, 153, 255));
+        civNoticesButton.setText("Notices");
+        civNoticesButton.setBorderPainted(false);
+        civNoticesButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civNoticesButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civNoticesButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civNoticesButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civNoticesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civNoticesButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civNoticesButton);
+
+        civTasksButton.setBackground(new java.awt.Color(102, 153, 255));
+        civTasksButton.setText("Tasks");
+        civTasksButton.setBorderPainted(false);
+        civTasksButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civTasksButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civTasksButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civTasksButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civTasksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civTasksButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civTasksButton);
+
+        civTaskIPButton.setBackground(new java.awt.Color(102, 153, 255));
+        civTaskIPButton.setText("Tasks In Progress");
+        civTaskIPButton.setBorderPainted(false);
+        civTaskIPButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civTaskIPButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civTaskIPButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civTaskIPButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civTaskIPButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civTaskIPButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civTaskIPButton);
+
+        civTasksCompletedButton.setBackground(new java.awt.Color(102, 153, 255));
+        civTasksCompletedButton.setText("Tasks Completed");
+        civTasksCompletedButton.setBorderPainted(false);
+        civTasksCompletedButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civTasksCompletedButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civTasksCompletedButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civTasksCompletedButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civTasksCompletedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civTasksCompletedButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civTasksCompletedButton);
+
+        civLogOutButton.setBackground(new java.awt.Color(102, 153, 255));
+        civLogOutButton.setText("Log Out");
+        civLogOutButton.setBorderPainted(false);
+        civLogOutButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        civLogOutButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        civLogOutButton.setMinimumSize(new java.awt.Dimension(100, 30));
+        civLogOutButton.setPreferredSize(new java.awt.Dimension(130, 30));
+        civLogOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civLogOutButtonActionPerformed(evt);
+            }
+        });
+        civMenuPanel.add(civLogOutButton);
+
+        civilianPanel.add(civMenuPanel, java.awt.BorderLayout.WEST);
+
+        civCards.setLayout(new java.awt.CardLayout());
+
+        civHomeCard.setBackground(new java.awt.Color(102, 153, 255));
+        civHomeCard.setLayout(new java.awt.GridBagLayout());
+
+        java.net.URL imgURLCiv = getClass().getResource("/View/citywatch.jpg");
+        if (imgURLCiv != null) {
+            ImageIcon iconCiv = new ImageIcon(imgURLCiv);
+            Image img = iconCiv.getImage();
+            Image scaledCiv = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            civHomeLogo.setIcon(new ImageIcon(scaledCiv));
+        } else {
+            System.err.println("Couldn't find citywatch.jpg");
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        civHomeCard.add(civHomeLogo, gridBagConstraints);
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel38.setText("Take a Look at The Newest Notices");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        civHomeCard.add(jLabel38, gridBagConstraints);
+
+        jScrollPane17.setPreferredSize(new java.awt.Dimension(1000, 200));
+
+        civRecentNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Notice Id", "Title", "Description", "Issue Date"
+            }
+        ));
+        jScrollPane17.setViewportView(civRecentNoticeTable);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        civHomeCard.add(jScrollPane17, gridBagConstraints);
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("Welcome to CityWatch.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        civHomeCard.add(jLabel39, gridBagConstraints);
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("CityWatch works as a bridge between Government, Organizations, and Civilians.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        civHomeCard.add(jLabel40, gridBagConstraints);
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("Current Stats");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        civHomeCard.add(jLabel41, gridBagConstraints);
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel42.setText("Registered Civilians");
+        jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel42.setPreferredSize(new java.awt.Dimension(200, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(jLabel42, gridBagConstraints);
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setText("Registered Organizations");
+        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel43.setMaximumSize(new java.awt.Dimension(133, 22));
+        jLabel43.setMinimumSize(new java.awt.Dimension(133, 22));
+        jLabel43.setPreferredSize(new java.awt.Dimension(200, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(jLabel43, gridBagConstraints);
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel44.setText("Tasks Available");
+        jLabel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel44.setMaximumSize(new java.awt.Dimension(133, 22));
+        jLabel44.setMinimumSize(new java.awt.Dimension(133, 22));
+        jLabel44.setPreferredSize(new java.awt.Dimension(200, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(jLabel44, gridBagConstraints);
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel45.setText("Tasks Assigned ");
+        jLabel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel45.setMaximumSize(new java.awt.Dimension(133, 22));
+        jLabel45.setMinimumSize(new java.awt.Dimension(133, 22));
+        jLabel45.setPreferredSize(new java.awt.Dimension(200, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(jLabel45, gridBagConstraints);
+
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel46.setText("Tasks Completed");
+        jLabel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel46.setMaximumSize(new java.awt.Dimension(133, 22));
+        jLabel46.setMinimumSize(new java.awt.Dimension(133, 22));
+        jLabel46.setPreferredSize(new java.awt.Dimension(200, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(jLabel46, gridBagConstraints);
+
+        cRegCivCount.setEditable(false);
+        cRegCivCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cRegCivCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cRegCivCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cRegCivCount.setPreferredSize(new java.awt.Dimension(80, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(cRegCivCount, gridBagConstraints);
+
+        cRegOrgCount.setEditable(false);
+        cRegOrgCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cRegOrgCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cRegOrgCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cRegOrgCount.setPreferredSize(new java.awt.Dimension(80, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(cRegOrgCount, gridBagConstraints);
+
+        cTasksCount.setEditable(false);
+        cTasksCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cTasksCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cTasksCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cTasksCount.setPreferredSize(new java.awt.Dimension(80, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(cTasksCount, gridBagConstraints);
+
+        cTIPCount.setEditable(false);
+        cTIPCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cTIPCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cTIPCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cTIPCount.setPreferredSize(new java.awt.Dimension(80, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(cTIPCount, gridBagConstraints);
+
+        cComTaskCount.setEditable(false);
+        cComTaskCount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cComTaskCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cComTaskCount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cComTaskCount.setPreferredSize(new java.awt.Dimension(80, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        civHomeCard.add(cComTaskCount, gridBagConstraints);
+
+        civCards.add(civHomeCard, "civHomeCard");
+
+        civNoticeCard.setBackground(new java.awt.Color(102, 153, 255));
+        civNoticeCard.setLayout(new java.awt.GridBagLayout());
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("Notice");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        civNoticeCard.add(jLabel47, gridBagConstraints);
+
+        jScrollPane18.setPreferredSize(new java.awt.Dimension(1000, 200));
+
+        civNoticeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NoticeId", "Title", "Content", "Issue Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane18.setViewportView(civNoticeTable);
+        civNoticeTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        civNoticeCard.add(jScrollPane18, gridBagConstraints);
+
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel27.setOpaque(false);
+        jPanel27.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel27.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField12.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel27.add(jTextField12);
+
+        civNoticeSearchButton.setText("Search");
+        jPanel27.add(civNoticeSearchButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civNoticeCard.add(jPanel27, gridBagConstraints);
+
+        jPanel28.setOpaque(false);
+        jPanel28.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel28.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.TRAILING, 5, 10));
+
+        jLabel48.setText("Sort By:");
+        jPanel28.add(jLabel48);
+
+        civNoticeSortByComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel28.add(civNoticeSortByComboBox);
+
+        civNoticeSortOrderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel28.add(civNoticeSortOrderComboBox);
+
+        civSortNoticeButton.setText("Sort");
+        civSortNoticeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civSortNoticeButtonActionPerformed(evt);
+            }
+        });
+        jPanel28.add(civSortNoticeButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civNoticeCard.add(jPanel28, gridBagConstraints);
+
+        civCards.add(civNoticeCard, "civNoticeCard");
+
+        civTasksCard.setBackground(new java.awt.Color(102, 153, 255));
+        civTasksCard.setLayout(new java.awt.GridBagLayout());
+
+        jLabel49.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel49.setText("Tasks");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        civTasksCard.add(jLabel49, gridBagConstraints);
+
+        jScrollPane19.setPreferredSize(new java.awt.Dimension(1000, 200));
+
+        civTaskTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "TaskId", "Title", "Description", "IssueDate", "Assigned To", "Completed By"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane19.setViewportView(civTaskTable);
+        civTaskTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        civTasksCard.add(jScrollPane19, gridBagConstraints);
+
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel29.setOpaque(false);
+        jPanel29.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel29.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField13.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel29.add(jTextField13);
+
+        civSearchTaskButton.setText("Search");
+        jPanel29.add(civSearchTaskButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civTasksCard.add(jPanel29, gridBagConstraints);
+
+        jPanel30.setOpaque(false);
+        jPanel30.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel30.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.TRAILING, 5, 10));
+
+        jLabel50.setText("Sort By:");
+        jPanel30.add(jLabel50);
+
+        civTaskSortByComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IssueDate", "Title" }));
+        jPanel30.add(civTaskSortByComboBox);
+
+        civTaskSortOrderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+        jPanel30.add(civTaskSortOrderComboBox);
+
+        civSortTaskButton.setText("Sort");
+        civSortTaskButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civSortTaskButtonActionPerformed(evt);
+            }
+        });
+        jPanel30.add(civSortTaskButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civTasksCard.add(jPanel30, gridBagConstraints);
+
+        jPanel31.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel31.setMinimumSize(new java.awt.Dimension(694, 80));
+        jPanel31.setOpaque(false);
+        jPanel31.setPreferredSize(new java.awt.Dimension(500, 80));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civTasksCard.add(jPanel31, gridBagConstraints);
+
+        civCards.add(civTasksCard, "civTasksCard");
+
+        civCompletedTaskCard.setBackground(new java.awt.Color(102, 153, 255));
+        civCompletedTaskCard.setLayout(new java.awt.GridBagLayout());
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("Completed Tasks");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        civCompletedTaskCard.add(jLabel51, gridBagConstraints);
+
+        jScrollPane20.setPreferredSize(new java.awt.Dimension(1000, 200));
+
+        civComTaskTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "TaskId", "Title", "Description", "CompletedBy", "Assigned To", "Completed By"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane20.setViewportView(civComTaskTable);
+        civComTaskTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        civCompletedTaskCard.add(jScrollPane20, gridBagConstraints);
+
+        jPanel32.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel32.setOpaque(false);
+        jPanel32.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel32.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField14.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel32.add(jTextField14);
+
+        civSearchCompletedTasksButton.setText("Search");
+        jPanel32.add(civSearchCompletedTasksButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civCompletedTaskCard.add(jPanel32, gridBagConstraints);
+
+        civCards.add(civCompletedTaskCard, "civCompletedTasksCard");
+
+        civTaskInProgressCard.setBackground(new java.awt.Color(102, 153, 255));
+        civTaskInProgressCard.setLayout(new java.awt.GridBagLayout());
+
+        jLabel52.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setText("Task In Progress");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 100, 10, 100);
+        civTaskInProgressCard.add(jLabel52, gridBagConstraints);
+
+        jScrollPane21.setPreferredSize(new java.awt.Dimension(1000, 200));
+
+        civTIPTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "TaskId", "Title", "Description", "Issue Date", "Assigned To", "Completed By"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane21.setViewportView(civTIPTable);
+        civTIPTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        civTaskInProgressCard.add(jScrollPane21, gridBagConstraints);
+
+        jPanel33.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel33.setOpaque(false);
+        jPanel33.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel33.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jTextField15.setPreferredSize(new java.awt.Dimension(100, 22));
+        jPanel33.add(jTextField15);
+
+        civSearchTIPButton.setText("Search");
+        jPanel33.add(civSearchTIPButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 20);
+        civTaskInProgressCard.add(jPanel33, gridBagConstraints);
+
+        civCards.add(civTaskInProgressCard, "civTaskInProgressCard");
+
+        civilianPanel.add(civCards, java.awt.BorderLayout.CENTER);
+
+        mainPanel.add(civilianPanel, "civPanelCard");
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
@@ -3171,100 +3930,96 @@ public class Menu extends javax.swing.JFrame {
 
     private void lfLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lfLoginButtonActionPerformed
         // TODO add your handling code here:
-        String username = lfUsername.getText();
-        String password = new String(lfPassword.getPassword());
-        if(username.trim().isEmpty() || password.trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Make sure both username and password are filled correctly", "Empty Input Fields", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        CardLayout cl = (CardLayout) mainPanel.getLayout();
-        String prefix = username.substring(0,3);
-        if (prefix.equals("ADM") &&  Controller.LoginAndRegistrationController.adminAuthenticate(username, password) ){
-            
-               
-            cl.show(mainPanel, "adminPanelCard");
-            loadAdminHome();
-            
-        }
-        else if(prefix.equals("ORG") && Controller.LoginAndRegistrationController.orgAuthenticate(username, password)){
-               
-            cl.show(mainPanel,"orgPanelCard");
-            loadOrgHome();
-                
-        }
-        else if(prefix.equals("CIV") && Controller.LoginAndRegistrationController.civAuthenticate(username, password)){
-            
-            cl.show(mainPanel,"civPanelCard");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
-        }
-          
+        try {
+            String username = lfUsername.getText();
+            String password = new String(lfPassword.getPassword());
+            lfUsername.setText(null);
+            lfPassword.setText(null);
+            if (username.trim().isEmpty() || password.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Make sure both username and password are filled correctly", "Empty Input Fields", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-        
-        
-        
-        
+            CardLayout cl = (CardLayout) mainPanel.getLayout();
+            String prefix = username.substring(0, 3);
+            if (prefix.equals("ADM") && Controller.LoginAndRegistrationController.adminAuthenticate(username, password)) {
+                cl.show(mainPanel, "adminPanelCard");
+                loadAdminHome();
+            } else if (prefix.equals("ORG") && Controller.LoginAndRegistrationController.orgAuthenticate(username, password)) {
+
+                cl.show(mainPanel, "orgPanelCard");
+                loadOrgHome();
+
+            } else if (prefix.equals("CIV") && Controller.LoginAndRegistrationController.civAuthenticate(username, password)) {
+                cl.show(mainPanel, "civPanelCard");
+                loadCivHome();
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect Username or Password", "Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(mainPanel, "User Doesn't Exist", "Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_lfLoginButtonActionPerformed
 
-    private void registerFunction(String name,String phone,String email,String address, String role,String password){
-        try{
-        if(name.trim().isEmpty() || phone.trim().isEmpty()|| email.trim().isEmpty()
-                || address.trim().isEmpty() || role == null || password.trim().isEmpty()){
-            throw new Exception("Make Sure the form is filled");
+    private void registerFunction(String name, String phone, String email, String address, String password) {
+        try {
+            if (name.trim().isEmpty() || phone.trim().isEmpty() || email.trim().isEmpty()
+                    || address.trim().isEmpty() || password.trim().isEmpty()) {
+                throw new Exception("Make Sure the form is filled");
+            }
+
+            boolean civilianSelected = civilianRadioButton.isSelected() || civilianRadioButton1.isSelected();
+            boolean ngoSelected = ngoRadioButton.isSelected() || ngoRadioButton1.isSelected();
+
+            if (!civilianSelected && !ngoSelected) {
+                throw new Exception("Select a role");
+            }
+
+            if (name.trim().length() <= 4) {
+                throw new Exception("Name length must be greater than 4");
+            }
+
+            if (!phone.matches("\\d{10}")) {
+                throw new Exception("Phone number must have 10 numbers");
+            }
+
+            if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                throw new Exception("Enter valid email");
+            }
+
+            if (address.trim().length() < 10) {
+                throw new Exception("Address length must be greater than 9");
+            }
+
+            if (password.length() != password.trim().length()) {
+                throw new Exception("Password Cannot Contail Spaces");
+            }
+
+            if (civilianSelected) {
+                CiviliansController addCiv = new CiviliansController();
+                String civId = addCiv.setCivId(name);
+                addCiv.registerCivilian(civId, name, phone, email, address, password);
+                JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully. Your Username is: " + civId, "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+            if (ngoSelected) {
+                OrganizationsController addOrg = new OrganizationsController();
+                String orgId = addOrg.setOrgId(name);
+                addOrg.registerOrganization(orgId, name, phone, email, address, password);
+                JOptionPane.showMessageDialog(mainPanel, "Organization Added Successfully. Your Username is: " + orgId, "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
         }
-        
-        Long phonenum = Long.valueOf(phone);
-        
-        if(name.trim().length() <= 4){
-            throw new Exception("Name length must be greater than 4");
-        }
-        
-        if(phone.trim().length() != 10){
-            throw new Exception("Phone Number length must be 10");
-        }
-        
-        if(email.trim().length() < 10){
-            throw new Exception("Email length must be greater than 9");
-        }
-        
-        if(address.trim().length() < 10){
-            throw new Exception("Address length must be greater than 9");
-        }
-        
-        if(password.length() != password.trim().length()){
-            throw new Exception("Password Cannot Contail Spaces");
-        }
-        
-        if(civilianRadioButton.isSelected() || civilianRadioButton1.isSelected()){
-            CiviliansController addCiv = new CiviliansController();
-            String civId = addCiv.setCivId(name,phone);
-            addCiv.registerCivilian(civId, name, phone, email, address, password);
-            JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully. Your Username is: "+ civId, "Success",JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-        if(ngoRadioButton.isSelected() || ngoRadioButton1.isSelected()){
-            OrganizationsController addOrg = new OrganizationsController();
-            String orgId = addOrg.setOrgId(name,phone);
-            addOrg.registerOrganization(orgId, name, phone, email, address, password);
-            JOptionPane.showMessageDialog(mainPanel, "Organization Added Successfully. Your Username is: "+ orgId, "Success",JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-        
-    
-    }
-    catch(NumberFormatException e){
-        JOptionPane.showMessageDialog(mainPanel, "Use Numbers Only for Phone", "Error",JOptionPane.ERROR_MESSAGE);
-    }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        
-    }
     }
     private void lfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lfRegisterButtonActionPerformed
         // TODO add your handling code here:
-        mpLayout.show(mainPanel,"regPanelCard");
+        mpLayout.show(mainPanel, "regPanelCard");
     }//GEN-LAST:event_lfRegisterButtonActionPerformed
 
     private void lfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lfUsernameActionPerformed
@@ -3276,8 +4031,8 @@ public class Menu extends javax.swing.JFrame {
         loadAdminHome();
     }//GEN-LAST:event_adminHomeButtonActionPerformed
 
-    public void loadAdminHome(){
-        adcLayout.show(adminCards,"ahomecard");
+    public void loadAdminHome() {
+        adcLayout.show(adminCards, "ahomecard");
         loadNoticeTable(NoticeController.getRecentNoticesAl(), (DefaultTableModel) admRecentNoticeTable.getModel());
         aRegCivCount.setText(String.valueOf(CiviliansController.getCivilianAL().size()));
         aRegOrgCount.setText(String.valueOf(OrganizationsController.getOrganizationAL().size()));
@@ -3285,12 +4040,12 @@ public class Menu extends javax.swing.JFrame {
         aTIPCount.setText(String.valueOf(TaskController.getTaskIPAL().size()));
         aComTaskCount.setText(String.valueOf(TaskController.getComTaskAL().size()));
     }
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void orgHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgHomeButtonActionPerformed
         // TODO add your handling code here:
         loadOrgHome();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_orgHomeButtonActionPerformed
 
-    private void loadOrgHome(){
+    private void loadOrgHome() {
         orgcLayout.show(orgCards, "orgHomeCard");
         loadNoticeTable(NoticeController.getRecentNoticesAl(), (DefaultTableModel) orgRecentNoticeTable.getModel());
         oRegCivCount.setText(String.valueOf(CiviliansController.getCivilianAL().size()));
@@ -3299,60 +4054,68 @@ public class Menu extends javax.swing.JFrame {
         oTIPCount.setText(String.valueOf(TaskController.getTaskIPAL().size()));
         oComTaskCount.setText(String.valueOf(TaskController.getComTaskAL().size()));
     }
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void admOrgSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admOrgSortButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_admOrgSortButtonActionPerformed
 
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    private void admCivSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCivSortButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton24ActionPerformed
+    }//GEN-LAST:event_admCivSortButtonActionPerformed
 
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+    private void admTasksSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTasksSortButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
+    }//GEN-LAST:event_admTasksSortButtonActionPerformed
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    private void updatetaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatetaskButtonActionPerformed
         // TODO add your handling code here:
-        String taskId = JOptionPane.showInputDialog(mainPanel,"Enter Task Id", "Update Task", JOptionPane.PLAIN_MESSAGE);
-        try{
-            if(taskId.isBlank()){
+        String taskId = JOptionPane.showInputDialog(mainPanel, "Enter Task Id", "Update Task", JOptionPane.PLAIN_MESSAGE);
+        try {
+            if (taskId == null) { // when the user presses cancel
+                return;
+            }
+            taskId = taskId.trim();
+
+            if (taskId.isBlank()) {
                 throw new Exception("Fill the Field Properly");
             }
-            for(Task tsk: TaskController.getTaskQueue()){
-                if(tsk.getTaskId().equalsIgnoreCase(taskId)){
-                    
+            for (Task tsk : TaskController.getTaskQueue()) {
+                if (tsk.getTaskId().equalsIgnoreCase(taskId)) {
+
                     updateTaskIdTextField.setText(tsk.getTaskId());
                     updateTaskIdTextField.setEditable(false);
                     updateTaskTitleTextField.setText(tsk.getTitle());
                     updateTaskDescriptionTextArea.setText(tsk.getDescription());
                     JOptionPane.showMessageDialog(mainPanel, updateTaskForm);
-                    loadTaskTable(TaskController.getTaskAL(),(DefaultTableModel) adminTaskTable.getModel());
+                    loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) adminTaskTable.getModel());
                     return;
                 }
             }
             throw new Exception("No Task Id found");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-    }//GEN-LAST:event_jButton32ActionPerformed
 
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton35ActionPerformed
 
-    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+    }//GEN-LAST:event_updatetaskButtonActionPerformed
+
+    private void admNoticeSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admNoticeSortButtonActionPerformed
         // TODO add your handling code here:
-        String noticeId = JOptionPane.showInputDialog(mainPanel,"Enter Notice Id", "Update Notice", JOptionPane.PLAIN_MESSAGE);
-        try{
-            if(noticeId.isBlank()){
+    }//GEN-LAST:event_admNoticeSortButtonActionPerformed
+
+    private void updateNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNoticeButtonActionPerformed
+        // TODO add your handling code here:
+        String noticeId = JOptionPane.showInputDialog(mainPanel, "Enter Notice Id", "Update Notice", JOptionPane.PLAIN_MESSAGE);
+        try {
+            if (noticeId == null) { // when the user presses cancel
+                return;
+            }
+            noticeId = noticeId.trim();
+            if (noticeId.isBlank()) {
                 throw new Exception("Fill the Field Properly");
             }
-            for(Notice not: NoticeController.getNoticeLinkedList()){
-                if(not.getNoticeId().equalsIgnoreCase(noticeId)){
-                    
+            for (Notice not : NoticeController.getNoticeLinkedList()) {
+                if (not.getNoticeId().equalsIgnoreCase(noticeId)) {
+
                     updateNoticeIdTextField.setText(not.getNoticeId());
                     updateNoticeIdTextField.setEditable(false);
                     updateNoticeTitleTextField.setText(not.getTitle());
@@ -3363,68 +4126,66 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
             throw new Exception("No Notice Id found");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButton37ActionPerformed
+    }//GEN-LAST:event_updateNoticeButtonActionPerformed
 
     private void admOrganizationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admOrganizationsButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aorgcard");
-        loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel()); 
+        adcLayout.show(adminCards, "aorgcard");
+        loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel());
     }//GEN-LAST:event_admOrganizationsButtonActionPerformed
 
     private void admCiviliansButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCiviliansButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"acivcard");
+        adcLayout.show(adminCards, "acivcard");
         loadCivTable(Controller.CiviliansController.getCivilianAL(), (DefaultTableModel) adminCivTable.getModel());
     }//GEN-LAST:event_admCiviliansButtonActionPerformed
 
     private void admTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTasksButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"ataskcard");
-        loadTaskTable(TaskController.getTaskAL(),(DefaultTableModel) adminTaskTable.getModel());
+        adcLayout.show(adminCards, "ataskcard");
+        loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) adminTaskTable.getModel());
     }//GEN-LAST:event_admTasksButtonActionPerformed
 
     private void admNoticesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admNoticesButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"anoticecard");
+        adcLayout.show(adminCards, "anoticecard");
         loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) adminNoticeTable.getModel());
-        
+
     }//GEN-LAST:event_admNoticesButtonActionPerformed
 
     private void admCompletedTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTasksButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"acomtaskcard");
-        loadTaskTable(TaskController.getComTaskAL(),(DefaultTableModel) adminComTaskTable.getModel());
+        adcLayout.show(adminCards, "acomtaskcard");
+        loadTaskTable(TaskController.getComTaskAL(), (DefaultTableModel) adminComTaskTable.getModel());
     }//GEN-LAST:event_admCompletedTasksButtonActionPerformed
 
     private void admAddUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddUsersButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aadducard");
+        adcLayout.show(adminCards, "aadducard");
     }//GEN-LAST:event_admAddUsersButtonActionPerformed
 
     private void admAddTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddTasksButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aaddtcard");
+        adcLayout.show(adminCards, "aaddtcard");
     }//GEN-LAST:event_admAddTasksButtonActionPerformed
 
     private void admAddNoticesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAddNoticesButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aaddncard");
+        adcLayout.show(adminCards, "aaddncard");
     }//GEN-LAST:event_admAddNoticesButtonActionPerformed
 
-    private void rfRegisterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton1ActionPerformed
+    private void registerUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerUserButtonActionPerformed
         // TODO add your handling code here: 
         String name = rfNameTextField1.getText();
-        String phone = rfPhonetextField1.getText();        
+        String phone = rfPhonetextField1.getText();
         String email = rfEmailTextField1.getText();
         String address = rfAddressTextField1.getText();
-        String role = String.valueOf(acTypeButtonGroup.getSelection());
         String password = new String(rfPasswordField1.getPassword());
-        registerFunction(name,phone,email,address,role,password);
-    }//GEN-LAST:event_rfRegisterButton1ActionPerformed
+        registerFunction(name, phone, email, address, password);
+    }//GEN-LAST:event_registerUserButtonActionPerformed
 
     private void ngoRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -3434,10 +4195,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_civilianRadioButton1ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void addNewOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewOrgButtonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aadducard");
-    }//GEN-LAST:event_jButton13ActionPerformed
+        adcLayout.show(adminCards, "aadducard");
+    }//GEN-LAST:event_addNewOrgButtonActionPerformed
 
     private void civilianRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civilianRadioButtonActionPerformed
         // TODO add your handling code here:
@@ -3448,318 +4209,337 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ngoRadioButtonActionPerformed
 
     private void rfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButtonActionPerformed
-        try{String name = rfNameTextField.getText();
+        try {
+            String name = rfNameTextField.getText();
             String phone = rfPhonetextField.getText();
             String email = rfEmailTextField.getText();
             String address = rfAddressTextField.getText();
-            String role = String.valueOf(acTypeButtonGroup.getSelection());
             String password = new String(rfPasswordField.getPassword());
-            registerFunction(name,phone,email,address,role,password);}
-        catch(Exception e){
-            
-            JOptionPane.showMessageDialog(mainPanel, "An Unexpected Error Occured", "Error",JOptionPane.ERROR_MESSAGE);
+            registerFunction(name, phone, email, address, password);
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(mainPanel, "An Unexpected Error Occured", "Error", JOptionPane.ERROR_MESSAGE);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_rfRegisterButtonActionPerformed
 
     private void rfLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfLoginButtonActionPerformed
         // TODO add your handling code here:
-        mpLayout.show(mainPanel,"loginPanelCard");
+        mpLayout.show(mainPanel, "loginPanelCard");
     }//GEN-LAST:event_rfLoginButtonActionPerformed
 
-    private void rfRegisterButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton2ActionPerformed
+    private void updateUserButtonDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserButtonDBActionPerformed
         // TODO add your handling code here:
-        try{
-        String id = updateUserIDTextField.getText();
-        String name = updateUserNameTextField.getText();
-        String email= updateUserEmailTextField.getText();
-        String phone = updateUserPhonetextField.getText();
-        String address = updateUserAddressTextField.getText(); 
-        if(name.trim().isEmpty() || phone.trim().isEmpty()|| email.trim().isEmpty()
-                || address.trim().isEmpty()){
-            throw new Exception("Make Sure the form is filled");
+        try {
+            String id = updateUserIDTextField.getText();
+            String name = updateUserNameTextField.getText();
+            String email = updateUserEmailTextField.getText();
+            String phone = updateUserPhonetextField.getText();
+            String address = updateUserAddressTextField.getText();
+            if (name.trim().isEmpty() || phone.trim().isEmpty() || email.trim().isEmpty()
+                    || address.trim().isEmpty()) {
+                throw new Exception("Make Sure the form is filled");
+            }
+
+            if (name.trim().length() <= 4) {
+                throw new Exception("Name length must be greater than 4");
+            }
+
+            if ((!phone.matches("\\d{10}"))) {
+                throw new Exception("Phone Number must be 10 numbers");
+            }
+
+            if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                throw new Exception("Enter a valid email address");
+            }
+
+            if (address.trim().length() < 10) {
+                throw new Exception("Address length must be greater than 9");
+            }
+            if (updateUserIDTextField.getText().substring(0, 3).equals("CIV")) {
+                CiviliansController.updateCivs(id, name, email, phone, address);
+            } else if (updateUserIDTextField.getText().substring(0, 3).equals("ORG")) {
+                OrganizationsController.updateOrgs(id, name, email, phone, address);
+            } else {
+                throw new Exception("Check if the ID is correct");
+            }
+            JOptionPane.showMessageDialog(mainPanel, "User Details Updated Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        Long phonenum = Long.valueOf(phone);
-        
-        if(name.trim().length() <= 4){
-            throw new Exception("Name length must be greater than 4");
-        }
-        
-        if(phone.trim().length() != 10){
-            throw new Exception("Phone Number length must be 10");
-        }
-        
-        if(email.trim().length() < 10){
-            throw new Exception("Email length must be greater than 9");
-        }
-        
-        if(address.trim().length() < 10){
-            throw new Exception("Address length must be greater than 9");
-        }
-        if(updateUserIDTextField.getText().substring(0, 3).equals("CIV")){
-            CiviliansController.updateCivs(id,name,email,phone,address);
-        }
-        else if(updateUserIDTextField.getText().substring(0, 3).equals("ORG")){
-            OrganizationsController.updateOrgs(id, name, email, phone, address);
-        }
-        else{
-            throw new Exception("Check if the ID is correct");
-        }
-        JOptionPane.showMessageDialog(mainPanel, "User Details Updated Successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(mainPanel, "Use Numbers Only for Phone", "Error",JOptionPane.ERROR_MESSAGE);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-    }//GEN-LAST:event_rfRegisterButton2ActionPerformed
-    
-    private void updateUsers(){
+    }//GEN-LAST:event_updateUserButtonDBActionPerformed
+
+    private void updateUsers() {
         String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
-        if (id.length()<4){
-            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error",JOptionPane.ERROR_MESSAGE);
+        if (id.length() < 4) {
+            JOptionPane.showMessageDialog(mainPanel, "Check if the id is valid", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if (id == null) {
+            return;
+        }
+
+        id = id.trim();
         ArrayList<Civilian> civs = Controller.CiviliansController.getCivilianAL();
         ArrayList<Organization> orgs = Controller.OrganizationsController.getOrganizationAL();
-        if (id.substring(0,3).equals("CIV")){
-            for(Civilian c: civs){
-            if(c.getCivId().equals(id)){
-                updateUserNameTextField.setText(c.getName());
-                updateUserIDTextField.setEditable(false);
-                updateUserEmailTextField.setText(c.getEmail());
-                updateUserPhonetextField.setText(c.getPhone());
-                updateUserAddressTextField.setText(c.getAddress());
-                updateUserIDTextField.setText(c.getCivId());
-                JOptionPane.showMessageDialog(mainPanel,updateUserPanel);
-                return;
-            }
-        }}
-        else{  
-            for(Organization o: orgs){
-                if(o.getOrgId().equals(id)){
-                updateUserIDTextField.setText(o.getOrgId());
-                updateUserIDTextField.setEditable(false);
-                updateUserNameTextField.setText(o.getName());
-                updateUserEmailTextField.setText(o.getEmail());
-                updateUserPhonetextField.setText(o.getPhone());
-                updateUserAddressTextField.setText(o.getAddress());
-                JOptionPane.showMessageDialog(mainPanel,updateUserPanel);
-                return;
+        if (id.substring(0, 3).equals("CIV")) {
+            for (Civilian c : civs) {
+                if (c.getCivId().equals(id)) {
+                    updateUserNameTextField.setText(c.getName());
+                    updateUserIDTextField.setEditable(false);
+                    updateUserEmailTextField.setText(c.getEmail());
+                    updateUserPhonetextField.setText(c.getPhone());
+                    updateUserAddressTextField.setText(c.getAddress());
+                    updateUserIDTextField.setText(c.getCivId());
+                    JOptionPane.showMessageDialog(mainPanel, updateUserPanel);
+                    return;
                 }
-                
+            }
+        } else {
+            for (Organization o : orgs) {
+                if (o.getOrgId().equals(id)) {
+                    updateUserIDTextField.setText(o.getOrgId());
+                    updateUserIDTextField.setEditable(false);
+                    updateUserNameTextField.setText(o.getName());
+                    updateUserEmailTextField.setText(o.getEmail());
+                    updateUserPhonetextField.setText(o.getPhone());
+                    updateUserAddressTextField.setText(o.getAddress());
+                    JOptionPane.showMessageDialog(mainPanel, updateUserPanel);
+                    return;
+                }
+
             }
         }
-        JOptionPane.showMessageDialog(mainPanel, "Invalid User Id", "Error",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(mainPanel, "Invalid User Id", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void updateCivButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCivButtonActionPerformed
         // TODO add your handling code here:
         updateUsers();
         loadCivTable(Controller.CiviliansController.getCivilianAL(), (DefaultTableModel) adminCivTable.getModel());
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_updateCivButtonActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void updateOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateOrgButtonActionPerformed
         // TODO add your handling code here:
         updateUsers();
-        loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel()); 
-    }//GEN-LAST:event_jButton14ActionPerformed
+        loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel());
+    }//GEN-LAST:event_updateOrgButtonActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void addNewCivBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewCivBUttonActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aadducard");
-    }//GEN-LAST:event_jButton25ActionPerformed
+        adcLayout.show(adminCards, "aadducard");
+    }//GEN-LAST:event_addNewCivBUttonActionPerformed
 
-    private void removeUser(){
-        try{
-        String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
-        if (id.trim().length()<4){
-            throw new Exception("Check if the id is valid");
-            
-        }
-        
-        if (id.substring(0,3).equals("CIV")){
-            CiviliansController.removeCiv(id);
-        }
-        else if(id.substring(0,3).equals("ORG")){  
-            OrganizationsController.removeOrg(id);
-            JOptionPane.showMessageDialog(mainPanel, "Org Removed. Refresh Page to see changes.", "Removed",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            throw new Exception("Check if the id is valid");
-        }}
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+    private void removeUser() {
+        try {
+            String id = JOptionPane.showInputDialog(mainPanel, "Enter User Id", "USERID");
+            if (id == null) { // when the user clicks cancel
+                return;
+            }
+
+            id = id.trim();
+            if (id.length() < 4) {
+                throw new Exception("Check if the id is valid");
+
+            }
+
+            if (id.substring(0, 3).equals("CIV")) {
+                CiviliansController.removeCiv(id);
+                JOptionPane.showMessageDialog(mainPanel, "Civilian Removed", "Removed", JOptionPane.INFORMATION_MESSAGE);
+            } else if (id.substring(0, 3).equals("ORG")) {
+                OrganizationsController.removeOrg(id);
+                JOptionPane.showMessageDialog(mainPanel, "Org Removed", "Removed", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                throw new Exception("Check if the id is valid");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void removeOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeOrgButtonActionPerformed
         // TODO add your handling code here:
         removeUser();
         loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel());
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_removeOrgButtonActionPerformed
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void removeCivButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCivButtonActionPerformed
         // TODO add your handling code here:
         removeUser();
         loadCivTable(Controller.CiviliansController.getCivilianAL(), (DefaultTableModel) adminCivTable.getModel());
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_removeCivButtonActionPerformed
 
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+    private void orgNoticeSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgNoticeSortButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton41ActionPerformed
+    }//GEN-LAST:event_orgNoticeSortButtonActionPerformed
 
     private void admCompletedTasksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTasksButton1ActionPerformed
         // TODO add your handling code here:
-        adcLayout.show(adminCards,"aTaskInPCard");
-        loadTaskTable(TaskController.getTaskIPAL(),(DefaultTableModel) adminTaskIPTable.getModel());
+        adcLayout.show(adminCards, "aTaskInPCard");
+        loadTaskTable(TaskController.getTaskIPAL(), (DefaultTableModel) adminTaskIPTable.getModel());
     }//GEN-LAST:event_admCompletedTasksButton1ActionPerformed
 
-    private void rfRegisterButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton3ActionPerformed
-        String title = addtaskTitleTextField.getText();
-        String desc = addTaskDescriptionTextArea.getText();
-        try{
-            if(title.isBlank() || desc.isBlank()){
-                throw new Exception("Make sure all the fields have been fille Properly");
+    private void addTaskPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTaskPanelButtonActionPerformed
+        String title = addtaskTitleTextField.getText().trim();
+        String desc = addTaskDescriptionTextArea.getText().trim();
+        try {
+            if (title.isBlank() || desc.isBlank()) {
+                throw new Exception("Make sure all the fields have been filled Properly");
             }
-            else if(title.trim().length()<5){
-                throw new Exception("Make sure the title is at least 5 chars long");                
+            if (title.length() < 5) {
+                throw new Exception("Make sure the title is at least 5 chars long");
             }
-            else if(desc.trim().length()<5){
-                throw new Exception("Make sure the description is at least 10 chars long");                
+            if (desc.length() < 10) {
+                throw new Exception("Make sure the description is at least 10 chars long");
             }
-            else{
-                TaskController.createTask(title, desc);
-                JOptionPane.showMessageDialog(mainPanel, "Task Added Successfully", "Succcess",JOptionPane.INFORMATION_MESSAGE);
-            }
-            
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_rfRegisterButton3ActionPerformed
 
-    private void rfRegisterButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton4ActionPerformed
+            TaskController.createTask(title, desc);
+            JOptionPane.showMessageDialog(mainPanel, "Task Added Successfully", "Succcess", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_addTaskPanelButtonActionPerformed
+
+    private void addNoticePanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNoticePanelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rfRegisterButton4ActionPerformed
+        try {
+            String title = addNoticeTitleTextField.getText().trim();
+            String desc = addNoticeDescriptionTextArea.getText().trim();
 
-    private void rfRegisterButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton5ActionPerformed
+            if (title.isBlank() || desc.isBlank()) {
+                throw new Exception("Make sure all the fields have been filled Properly");
+            }
+
+            if (title.length() < 5) {
+                throw new Exception("Make sure the title is at least 5 chars long");
+            }
+            if (desc.length() < 10) {
+                throw new Exception("Make sure the description is at least 10 chars long");
+            }
+
+            NoticeController.createNotice(title, desc);
+
+            JOptionPane.showMessageDialog(mainPanel, "Notice Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_addNoticePanelButtonActionPerformed
+
+    private void updateTaskButtonDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateTaskButtonDBActionPerformed
         // TODO add your handling code here:
         String taskId = updateTaskIdTextField.getText();
         String title = updateTaskTitleTextField.getText();
         String desc = updateTaskDescriptionTextArea.getText();
-        try{
-            if(title.isBlank() || desc.isBlank()){
+        try {
+            if (title.isBlank() || desc.isBlank()) {
                 throw new Exception("Title and Description cannot be blank");
-            }
-            else if(title.trim().length()<5){
-                throw new Exception("Make sure the title is at least 5 chars long");                
-            }
-            else if(desc.trim().length()<5){
-                throw new Exception("Make sure the description is at least 10 chars long");                
-            }
-            else{
+            } else if (title.trim().length() < 5) {
+                throw new Exception("Make sure the title is at least 5 chars long");
+            } else if (desc.trim().length() < 10) {
+                throw new Exception("Make sure the description is at least 10 chars long");
+            } else {
                 TaskController.updateTaskQueue(taskId, title, desc);
-                JOptionPane.showMessageDialog(mainPanel, "Task Updated", "Task Updated",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(mainPanel, "Task Updated", "Task Updated", JOptionPane.INFORMATION_MESSAGE);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-        JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_rfRegisterButton5ActionPerformed
+    }//GEN-LAST:event_updateTaskButtonDBActionPerformed
 
-    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+    private void removeTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeTaskButtonActionPerformed
         // TODO add your handling code here:
-        try{
-        String id = JOptionPane.showInputDialog(mainPanel, "Enter task Id");
-        if (id.isBlank()){
-            throw new Exception("Empty Field"); 
+        try {
+            String id = JOptionPane.showInputDialog(mainPanel, "Enter task Id");
+            if (id == null) {
+                return;
+            }
+            id = id.trim();
+            if (id.isBlank()) {
+                throw new Exception("Empty Field");
+            }
+            id = id.trim();
+            TaskController.removeTask(id);
+            JOptionPane.showMessageDialog(mainPanel, "Task Removed", "Task Removed", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        TaskController.removeTask(id);
-        JOptionPane.showMessageDialog(mainPanel, "Task Removed", "Task Removed",JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-        }
-        loadTaskTable(TaskController.getTaskAL(),(DefaultTableModel) adminTaskTable.getModel());
-    }//GEN-LAST:event_jButton33ActionPerformed
+        loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) adminTaskTable.getModel());
+    }//GEN-LAST:event_removeTaskButtonActionPerformed
 
-    private void rfRegisterButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfRegisterButton6ActionPerformed
+    private void updateNoticeButtonDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNoticeButtonDBActionPerformed
         // TODO add your handling code here:
-        String noticeId = updateNoticeIdTextField.getText();
-        String title = updateNoticeTitleTextField.getText();
-        String desc = updateNoticeDescriptionTextArea.getText();
-        try{
-            if(title.isBlank() || desc.isBlank()){
+        String noticeId = updateNoticeIdTextField.getText().trim();
+        String title = updateNoticeTitleTextField.getText().trim();
+        String desc = updateNoticeDescriptionTextArea.getText().trim();
+        try {
+            if (title.isBlank() || desc.isBlank()) {
                 throw new Exception("Title and Description cannot be blank");
-            }
-            else if(title.trim().length()<5){
-                throw new Exception("Make sure the title is at least 5 chars long");                
-            }
-            else if(desc.trim().length()<5){
-                throw new Exception("Make sure the description is at least 10 chars long");                
-            }
-            else{
+            } else if (title.length() < 5) {
+                throw new Exception("Make sure the title is at least 5 chars long");
+            } else if (desc.length() < 10) {
+                throw new Exception("Make sure the description is at least 10 chars long");
+            } else {
                 NoticeController.updateNoticeLinkedList(noticeId, title, desc);
-                JOptionPane.showMessageDialog(mainPanel, "Notice Updated", "Notice Updated",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(mainPanel, "Notice Updated", "Notice Updated", JOptionPane.INFORMATION_MESSAGE);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-        JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_rfRegisterButton6ActionPerformed
+    }//GEN-LAST:event_updateNoticeButtonDBActionPerformed
 
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+    private void removeNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNoticeButtonActionPerformed
         // TODO add your handling code here:
-        try{
-        String id = JOptionPane.showInputDialog(mainPanel, "Enter Notice Id");
-        if (id.isBlank()){
-            throw new Exception("Empty Field"); 
-        }
-        NoticeController.removeNotice(id);
-        JOptionPane.showMessageDialog(mainPanel, "Notice Removed", "Notice Removed",JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        try {
+            String id = JOptionPane.showInputDialog(mainPanel, "Enter Notice Id");
+            if (id == null) {
+                return;
+            }
+            id = id.trim();
+            if (id.isBlank()) {
+                throw new Exception("Empty Field");
+            }
+            id = id.trim();
+            NoticeController.removeNotice(id);
+            JOptionPane.showMessageDialog(mainPanel, "Notice Removed", "Notice Removed", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) adminNoticeTable.getModel());
-    }//GEN-LAST:event_jButton38ActionPerformed
+    }//GEN-LAST:event_removeNoticeButtonActionPerformed
 
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+    private void orgSortTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgSortTasksButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton43ActionPerformed
+    }//GEN-LAST:event_orgSortTasksButtonActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void orgNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgNoticeButtonActionPerformed
         // TODO add your handling code here:
-         orgcLayout.show(orgCards, "orgNoticeCard");
-         loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) orgNoticeTable.getModel());
-    }//GEN-LAST:event_jButton10ActionPerformed
+        orgcLayout.show(orgCards, "orgNoticeCard");
+        loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) orgNoticeTable.getModel());
+    }//GEN-LAST:event_orgNoticeButtonActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void orgTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgTasksButtonActionPerformed
         // TODO add your handling code here:
-         orgcLayout.show(orgCards, "orgTasksCard");
-         loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) orgTaskTable.getModel());
-    }//GEN-LAST:event_jButton9ActionPerformed
+        orgcLayout.show(orgCards, "orgTasksCard");
+        loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) orgTaskTable.getModel());
+    }//GEN-LAST:event_orgTasksButtonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void orgTaskAssignedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgTaskAssignedButtonActionPerformed
         // TODO add your handling code here:
-         orgcLayout.show(orgCards, "orgTaskInProgressCard");
-         loadTaskTable(OrganizationsController.getOrgTIPList(LoginAndRegistrationController.sessionUser), (DefaultTableModel) orgTIPTable.getModel());
-    }//GEN-LAST:event_jButton7ActionPerformed
+        orgcLayout.show(orgCards, "orgTaskInProgressCard");
+        loadTaskTable(OrganizationsController.getOrgTIPList(LoginAndRegistrationController.sessionUser), (DefaultTableModel) orgTIPTable.getModel());
+    }//GEN-LAST:event_orgTaskAssignedButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void orgTaskCompletedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgTaskCompletedButtonActionPerformed
         // TODO add your handling code here:
-         orgcLayout.show(orgCards, "orgCompletedTasksCard");
-         loadTaskTable(OrganizationsController.getOrgComTaskList(LoginAndRegistrationController.sessionUser), (DefaultTableModel) orgComTaskTable.getModel());
-    }//GEN-LAST:event_jButton8ActionPerformed
+        orgcLayout.show(orgCards, "orgCompletedTasksCard");
+        loadTaskTable(OrganizationsController.getOrgComTaskList(LoginAndRegistrationController.sessionUser), (DefaultTableModel) orgComTaskTable.getModel());
+    }//GEN-LAST:event_orgTaskCompletedButtonActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void orgLogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgLogOutButtonActionPerformed
         // TODO add your handling code here:
         mpLayout.show(mainPanel, "loginPanelCard");
         LoginAndRegistrationController.endUserSession();
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_orgLogOutButtonActionPerformed
 
     private void admLogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admLogOutButtonActionPerformed
         // TODO add your handling code here:
@@ -3767,103 +4547,156 @@ public class Menu extends javax.swing.JFrame {
         LoginAndRegistrationController.endUserSession();
     }//GEN-LAST:event_admLogOutButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void removeRecentlyAddedOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRecentlyAddedOrgButtonActionPerformed
         // TODO add your handling code here:
         OrganizationsController.removeRecentlyAdded();
         JOptionPane.showMessageDialog(mainPanel, "Organization Removed Successfully. Refresh to see changes.",
-                "Removed Organization",JOptionPane.INFORMATION_MESSAGE);   
+                "Removed Organization", JOptionPane.INFORMATION_MESSAGE);
         loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_removeRecentlyAddedOrgButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void removeRecentlyAddedCivButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRecentlyAddedCivButtonActionPerformed
         // TODO add your handling code here:
         CiviliansController.removeRecentlyAdded();
         JOptionPane.showMessageDialog(mainPanel, "Civilian Removed Successfully. Refresh to see changes.",
-                "Removed Civilian",JOptionPane.INFORMATION_MESSAGE);
+                "Removed Civilian", JOptionPane.INFORMATION_MESSAGE);
         loadCivTable(Controller.CiviliansController.getCivilianAL(), (DefaultTableModel) adminCivTable.getModel());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_removeRecentlyAddedCivButtonActionPerformed
 
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+    private void addNewTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewTaskButtonActionPerformed
         // TODO add your handling code here:
         adcLayout.show(adminCards, "aaddtcard");
-    }//GEN-LAST:event_jButton31ActionPerformed
+    }//GEN-LAST:event_addNewTaskButtonActionPerformed
 
-    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+    private void addNewNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewNoticeButtonActionPerformed
         // TODO add your handling code here:
         adcLayout.show(adminCards, "aaddncard");
-    }//GEN-LAST:event_jButton36ActionPerformed
+    }//GEN-LAST:event_addNewNoticeButtonActionPerformed
 
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+    private void orgTakeATaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgTakeATaskButtonActionPerformed
         // TODO add your handling code here:
-        if(TaskController.getTaskQueue().size() < 1){
+        if (TaskController.getTaskQueue().size() < 1) {
             JOptionPane.showMessageDialog(mainPanel, "No Task Available", "Task", JOptionPane.ERROR_MESSAGE);
             return;
         }
         TaskController.takeTask();
         JOptionPane.showMessageDialog(mainPanel, "You Have been assigned a task", "Task", JOptionPane.INFORMATION_MESSAGE);
         loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) orgTaskTable.getModel());
-    }//GEN-LAST:event_jButton44ActionPerformed
+    }//GEN-LAST:event_orgTakeATaskButtonActionPerformed
 
     private void markTaskCompButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTaskCompButtonActionPerformed
         // TODO add your handling code here:
-        String taskId = JOptionPane.showInputDialog(mainPanel,"Enter Task Id", "Update Task", JOptionPane.PLAIN_MESSAGE);
-        try{
-            if(taskId.isBlank()){
+        String taskId = JOptionPane.showInputDialog(mainPanel, "Enter Task Id", "Update Task", JOptionPane.PLAIN_MESSAGE);
+        try {
+            if (taskId.isBlank()) {
                 throw new Exception("Fill the Field Properly");
             }
-            for(Organization org: OrganizationsController.getOrganizationAL()){
-                if(org.getOrgId().equalsIgnoreCase(LoginAndRegistrationController.sessionUser)){
-                    
-                    for(Task tsk: org.getTaskAssigned()){
-                        if(tsk.getTaskId().equalsIgnoreCase(taskId)){
+            taskId = taskId.trim();
+            for (Organization org : OrganizationsController.getOrganizationAL()) {
+                if (org.getOrgId().equalsIgnoreCase(LoginAndRegistrationController.sessionUser)) {
+
+                    for (Task tsk : org.getTaskAssigned()) {
+                        if (tsk.getTaskId().equalsIgnoreCase(taskId)) {
                             OrganizationsController.markTaskComplete(org, tsk);
-                            JOptionPane.showMessageDialog(mainPanel, "Task Marked As Completed", "Task", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(mainPanel, "Task Marked As Completed", "Task", JOptionPane.INFORMATION_MESSAGE);
                             loadTaskTable(OrganizationsController.getOrgTIPList(LoginAndRegistrationController.sessionUser), (DefaultTableModel) orgTIPTable.getModel());
                             return;
                         }
                     }
                 }
             }
-            
-            
+
             throw new Exception("No Task Id found");
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_markTaskCompButtonActionPerformed
 
-    public void loadOrgTable(ArrayList<Organization> orgs,DefaultTableModel model) {
+    private void civHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civHomeButtonActionPerformed
+        // TODO add your handling code here:
+        loadCivHome();
+    }//GEN-LAST:event_civHomeButtonActionPerformed
+
+    private void loadCivHome() {
+        civLayout.show(civCards, "civHomeCard");
+        loadNoticeTable(NoticeController.getRecentNoticesAl(), (DefaultTableModel) civRecentNoticeTable.getModel());
+        cRegCivCount.setText(String.valueOf(CiviliansController.getCivilianAL().size()));
+        cRegOrgCount.setText(String.valueOf(OrganizationsController.getOrganizationAL().size()));
+        cTasksCount.setText(String.valueOf(TaskController.getTaskAL().size()));
+        cTIPCount.setText(String.valueOf(TaskController.getTaskIPAL().size()));
+        cComTaskCount.setText(String.valueOf(TaskController.getComTaskAL().size()));
+    }
+
+    private void civNoticesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civNoticesButtonActionPerformed
+        // TODO add your handling code here:
+        civLayout.show(civCards, "civNoticeCard");
+        loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) civNoticeTable.getModel());
+    }//GEN-LAST:event_civNoticesButtonActionPerformed
+
+    private void civTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civTasksButtonActionPerformed
+        // TODO add your handling code here:
+        civLayout.show(civCards, "civTasksCard");
+        loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) civTaskTable.getModel());
+    }//GEN-LAST:event_civTasksButtonActionPerformed
+
+    private void civTaskIPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civTaskIPButtonActionPerformed
+        // TODO add your handling code here:
+        civLayout.show(civCards, "civTaskInProgressCard");
+        loadTaskTable(TaskController.getTaskIPAL(), (DefaultTableModel) civTIPTable.getModel());
+    }//GEN-LAST:event_civTaskIPButtonActionPerformed
+
+    private void civTasksCompletedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civTasksCompletedButtonActionPerformed
+        // TODO add your handling code here:
+        civLayout.show(civCards, "civCompletedTasksCard");
+        loadTaskTable(TaskController.getComTaskAL(), (DefaultTableModel) civComTaskTable.getModel());
+    }//GEN-LAST:event_civTasksCompletedButtonActionPerformed
+
+    private void civLogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civLogOutButtonActionPerformed
+        // TODO add your handling code here:
+        mpLayout.show(mainPanel, "loginPanelCard");
+        LoginAndRegistrationController.endUserSession();
+    }//GEN-LAST:event_civLogOutButtonActionPerformed
+
+    private void civSortNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSortNoticeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_civSortNoticeButtonActionPerformed
+
+    private void civSortTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSortTaskButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_civSortTaskButtonActionPerformed
+
+    public void loadOrgTable(ArrayList<Organization> orgs, DefaultTableModel model) {
         model.setRowCount(0);
-        for (Organization o: orgs){
+        for (Organization o : orgs) {
             Object[] row = {o.getOrgId(), o.getName(), o.getPhone(), o.getEmail(), o.getAddress()};
             model.addRow(row);
         }
     }
-    
-    public void loadCivTable(ArrayList<Civilian> civs, DefaultTableModel model){
+
+    public void loadCivTable(ArrayList<Civilian> civs, DefaultTableModel model) {
         model.setRowCount(0);
-        for (Civilian c: civs){
+        for (Civilian c : civs) {
             Object[] row = {c.getCivId(), c.getName(), c.getAddress(), c.getEmail(), c.getPhone()};
             model.addRow(row);
         }
     }
-    
-    public void loadTaskTable(ArrayList<Task> tasks, DefaultTableModel model){
+
+    public void loadTaskTable(ArrayList<Task> tasks, DefaultTableModel model) {
         model.setRowCount(0);
-        for (Task t: tasks){
-            Object[] row = {t.getTaskId(), t.getTitle(), t.getDescription(), t.getIssueDate(),t.getAssignedTo(), t.getCompletedBy()};
+        for (Task t : tasks) {
+            Object[] row = {t.getTaskId(), t.getTitle(), t.getDescription(), t.getIssueDate(), t.getAssignedTo(), t.getCompletedBy()};
             model.addRow(row);
         }
     }
-    
-    public void loadNoticeTable(ArrayList<Notice> notices, DefaultTableModel model){
+
+    public void loadNoticeTable(ArrayList<Notice> notices, DefaultTableModel model) {
         model.setRowCount(0);
-        for (Notice n: notices){
+        for (Notice n : notices) {
             Object[] row = {n.getNoticeId(), n.getTitle(), n.getDescription(), n.getIssueDate()};
             model.addRow(row);
         }
     }
+
     /*
     public void loadAdmComTasktable(ArrayList<Task> tasks,DefaultTableModel model){
         model.setRowCount(0);
@@ -3888,8 +4721,8 @@ public class Menu extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    */
-    
+     */
+
     /**
      * @param args the command line arguments
      */
@@ -3912,7 +4745,7 @@ public class Menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Menu().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new UserInterface().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3922,22 +4755,48 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField aTIPCount;
     private javax.swing.JTextField aTasksCount;
     private javax.swing.ButtonGroup acTypeButtonGroup;
+    private javax.swing.JButton addNewCivBUtton;
+    private javax.swing.JButton addNewNoticeButton;
+    private javax.swing.JButton addNewOrgButton;
+    private javax.swing.JButton addNewTaskButton;
+    private javax.swing.JTextArea addNoticeDescriptionTextArea;
     private javax.swing.JPanel addNoticeForm;
+    private javax.swing.JButton addNoticePanelButton;
+    private javax.swing.JTextField addNoticeTitleTextField;
     private javax.swing.JTextArea addTaskDescriptionTextArea;
     private javax.swing.JPanel addTaskForm;
+    private javax.swing.JButton addTaskPanelButton;
     private javax.swing.JTextField addtaskTitleTextField;
     private javax.swing.JButton admAddNoticesButton;
     private javax.swing.JButton admAddTasksButton;
     private javax.swing.JButton admAddUsersButton;
+    private javax.swing.JButton admCivSearchButton;
+    private javax.swing.JButton admCivSortButton;
     private javax.swing.JButton admCiviliansButton;
+    private javax.swing.JButton admCompletedTaskSearchButton;
     private javax.swing.JButton admCompletedTasksButton;
     private javax.swing.JButton admCompletedTasksButton1;
     private javax.swing.JLabel admHomeLogo;
     private javax.swing.JButton admLogOutButton;
+    private javax.swing.JButton admNoticeSearchButton;
+    private javax.swing.JButton admNoticeSortButton;
     private javax.swing.JButton admNoticesButton;
+    private javax.swing.JButton admOrgSearchButton;
+    private javax.swing.JButton admOrgSortButton;
     private javax.swing.JButton admOrganizationsButton;
     private javax.swing.JTable admRecentNoticeTable;
+    private javax.swing.JComboBox<String> admSortByComboBoxCiv;
+    private javax.swing.JComboBox<String> admSortByComboBoxNotice;
+    private javax.swing.JComboBox<String> admSortByComboBoxOrg;
+    private javax.swing.JComboBox<String> admSortByComboBoxTasks;
+    private javax.swing.JComboBox<String> admSortOrderComboBoxCiv;
+    private javax.swing.JComboBox<String> admSortOrderComboBoxNotice;
+    private javax.swing.JComboBox<String> admSortOrderComboBoxOrg;
+    private javax.swing.JComboBox<String> admSortOrderComboBoxTasks;
+    private javax.swing.JButton admTIPSearchButton;
+    private javax.swing.JButton admTaskSearchButton;
     private javax.swing.JButton admTasksButton;
+    private javax.swing.JButton admTasksSortButton;
     private javax.swing.JPanel adminAddNoticeCard;
     private javax.swing.JPanel adminAddTaskCard;
     private javax.swing.JPanel adminAddUserCard;
@@ -3958,58 +4817,44 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTable adminTaskTable;
     private javax.swing.JPanel adminTasksCard;
     private javax.swing.JPanel adminTasksInProgressCard;
+    private javax.swing.JTextField cComTaskCount;
+    private javax.swing.JTextField cRegCivCount;
+    private javax.swing.JTextField cRegOrgCount;
+    private javax.swing.JTextField cTIPCount;
+    private javax.swing.JTextField cTasksCount;
+    private javax.swing.JPanel civCards;
+    private javax.swing.JTable civComTaskTable;
+    private javax.swing.JPanel civCompletedTaskCard;
+    private javax.swing.JButton civHomeButton;
+    private javax.swing.JPanel civHomeCard;
+    private javax.swing.JLabel civHomeLogo;
+    private javax.swing.JButton civLogOutButton;
+    private javax.swing.JPanel civMenuPanel;
+    private javax.swing.JPanel civNoticeCard;
+    private javax.swing.JButton civNoticeSearchButton;
+    private javax.swing.JComboBox<String> civNoticeSortByComboBox;
+    private javax.swing.JComboBox<String> civNoticeSortOrderComboBox;
+    private javax.swing.JTable civNoticeTable;
+    private javax.swing.JButton civNoticesButton;
+    private javax.swing.JTable civRecentNoticeTable;
+    private javax.swing.JButton civSearchCompletedTasksButton;
+    private javax.swing.JButton civSearchTIPButton;
+    private javax.swing.JButton civSearchTaskButton;
+    private javax.swing.JButton civSortNoticeButton;
+    private javax.swing.JButton civSortTaskButton;
+    private javax.swing.JTable civTIPTable;
+    private javax.swing.JButton civTaskIPButton;
+    private javax.swing.JPanel civTaskInProgressCard;
+    private javax.swing.JComboBox<String> civTaskSortByComboBox;
+    private javax.swing.JComboBox<String> civTaskSortOrderComboBox;
+    private javax.swing.JTable civTaskTable;
+    private javax.swing.JButton civTasksButton;
+    private javax.swing.JPanel civTasksCard;
+    private javax.swing.JButton civTasksCompletedButton;
     public javax.swing.JPanel civilianPanel;
     private javax.swing.JRadioButton civilianRadioButton;
     private javax.swing.JRadioButton civilianRadioButton1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton49;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4040,8 +4885,24 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4064,6 +4925,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
@@ -4075,7 +4943,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -4083,10 +4956,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -4115,17 +4991,33 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel orgCards;
     private javax.swing.JTable orgComTaskTable;
     private javax.swing.JPanel orgCompletedTasksCard;
+    private javax.swing.JButton orgCompletedTasksSearchButton;
+    private javax.swing.JButton orgHomeButton;
     private javax.swing.JPanel orgHomeCard;
     private javax.swing.JLabel orgHomeLogo;
+    private javax.swing.JButton orgLogOutButton;
     private javax.swing.JPanel orgMenuPanel;
+    private javax.swing.JButton orgNoticeButton;
     private javax.swing.JPanel orgNoticeCard;
+    private javax.swing.JButton orgNoticeSearchButton;
+    private javax.swing.JButton orgNoticeSortButton;
+    private javax.swing.JComboBox<String> orgNoticeSortByComboBox;
+    private javax.swing.JComboBox<String> orgNoticeSortOrderComboBox;
     private javax.swing.JTable orgNoticeTable;
     public javax.swing.JPanel orgPanel;
     private javax.swing.JTable orgRecentNoticeTable;
+    private javax.swing.JButton orgSearchTaskAssignedButton;
+    private javax.swing.JButton orgSortTasksButton;
     private javax.swing.JTable orgTIPTable;
+    private javax.swing.JButton orgTakeATaskButton;
+    private javax.swing.JButton orgTaskAssignedButton;
+    private javax.swing.JButton orgTaskCompletedButton;
     private javax.swing.JTable orgTaskTable;
+    private javax.swing.JButton orgTasksButton;
     private javax.swing.JPanel orgTasksCard;
     private javax.swing.JPanel orgTasksInProgressCard;
+    private javax.swing.JButton orgTasksSearchButton;
+    private javax.swing.JComboBox<String> orgTasksSortByComboBox;
     private javax.swing.JPanel radioButtonsPanel;
     private javax.swing.JPanel radioButtonsPanel1;
     private javax.swing.JLabel rePhoneLabel;
@@ -4140,6 +5032,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel registerForm;
     private javax.swing.JPanel registerForm1;
     private javax.swing.JPanel registerPanel;
+    private javax.swing.JButton registerUserButton;
+    private javax.swing.JButton removeCivButton;
+    private javax.swing.JButton removeNoticeButton;
+    private javax.swing.JButton removeOrgButton;
+    private javax.swing.JButton removeRecentlyAddedCivButton;
+    private javax.swing.JButton removeRecentlyAddedOrgButton;
+    private javax.swing.JButton removeTaskButton;
     private javax.swing.JLabel rfAddressLabel;
     private javax.swing.JLabel rfAddressLabel1;
     private javax.swing.JLabel rfAddressLabel2;
@@ -4161,7 +5060,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel rfNameLabel7;
     private javax.swing.JTextField rfNameTextField;
     private javax.swing.JTextField rfNameTextField1;
-    private javax.swing.JTextField rfNameTextField3;
     private javax.swing.JPasswordField rfPasswordField;
     private javax.swing.JPasswordField rfPasswordField1;
     private javax.swing.JLabel rfPasswordLabel;
@@ -4169,12 +5067,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField rfPhonetextField;
     private javax.swing.JTextField rfPhonetextField1;
     private javax.swing.JButton rfRegisterButton;
-    private javax.swing.JButton rfRegisterButton1;
-    private javax.swing.JButton rfRegisterButton2;
-    private javax.swing.JButton rfRegisterButton3;
-    private javax.swing.JButton rfRegisterButton4;
-    private javax.swing.JButton rfRegisterButton5;
-    private javax.swing.JButton rfRegisterButton6;
     private javax.swing.JLabel rfRegisterLabel;
     private javax.swing.JLabel rfRegisterLabel1;
     private javax.swing.JLabel rfRegisterLabel2;
@@ -4184,20 +5076,27 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel rfRegisterLabel6;
     private javax.swing.JLabel rfRoleLabel;
     private javax.swing.JLabel rfRoleLabel1;
+    private javax.swing.JButton updateCivButton;
+    private javax.swing.JButton updateNoticeButton;
+    private javax.swing.JButton updateNoticeButtonDB;
     private javax.swing.JTextArea updateNoticeDescriptionTextArea;
     private javax.swing.JPanel updateNoticeForm;
     private javax.swing.JTextField updateNoticeIdTextField;
     private javax.swing.JTextField updateNoticeTitleTextField;
+    private javax.swing.JButton updateOrgButton;
+    private javax.swing.JButton updateTaskButtonDB;
     private javax.swing.JTextArea updateTaskDescriptionTextArea;
     private javax.swing.JPanel updateTaskForm;
     private javax.swing.JTextField updateTaskIdTextField;
     private javax.swing.JTextField updateTaskTitleTextField;
     private javax.swing.JTextField updateUserAddressTextField;
+    private javax.swing.JButton updateUserButtonDB;
     private javax.swing.JTextField updateUserEmailTextField;
     private javax.swing.JPanel updateUserForm;
     private javax.swing.JTextField updateUserIDTextField;
     private javax.swing.JTextField updateUserNameTextField;
     private javax.swing.JPanel updateUserPanel;
     private javax.swing.JTextField updateUserPhonetextField;
+    private javax.swing.JButton updatetaskButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,13 +29,13 @@ public class Task {
     }
 
     public String getTaskId() {
-        return taskId;
+        return this.taskId;
     }
 
 
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -51,7 +51,7 @@ public class Task {
     }
 
     public String getCompletedBy() {
-        return completedBy;
+        return this.completedBy;
     }
 
     public void setCompletedBy(String completedBy) {
@@ -59,7 +59,7 @@ public class Task {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -67,7 +67,7 @@ public class Task {
     }
 
     public LocalDate getIssueDate() {
-        return issueDate;
+        return this.issueDate;
     }
 
 

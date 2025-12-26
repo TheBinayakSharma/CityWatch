@@ -11,12 +11,12 @@ import java.util.ArrayList;
  * @author binay
  */
 public class Organization {
-    private String orgId;
+    private final String orgId;
     private String name;
     private String phone;
     private String email;
     private String address;
-    private ArrayList<Task> taskAssigned;
+    private ArrayList<Task> taskAssigned;    
     private ArrayList<Task> taskCompleted;
     
     public Organization(String orgId, String name, String phone, String email,
@@ -74,9 +74,7 @@ public class Organization {
     public void setAddress(String address){
         this.address = address;
     }
-    
-    
-    
+
     
     public String createOrgId(String name, String phone){
         return "ORG-"+name.substring(0,3)+ phone;

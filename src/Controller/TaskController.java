@@ -17,7 +17,12 @@ import java.util.Queue;
  */
 public class TaskController {
     
-    public static void createTask(String title, String desc){
+    public static void createTask(String title, String desc) throws Exception{
+        for(Task t: getTaskQueue()){
+            if(t.getTitle().equalsIgnoreCase(title) && t.getDescription().equalsIgnoreCase(desc)){
+                throw new Exception("Task Already Exists");
+            }
+        }
         Task tsk = new Task(title, desc);
         StructuralStorage.taskQueue.add(tsk);
         StructuralStorage.updateTaskArrayList();
@@ -43,7 +48,7 @@ public class TaskController {
         while(iter.hasNext()) {
             Task t = iter.next();
             if(t.getTaskId().equalsIgnoreCase(id)) {
-                iter.remove(); // safe removal
+                iter.remove();
                 StructuralStorage.updateTaskArrayList();
                 return;
             }
@@ -74,6 +79,7 @@ public class TaskController {
         }
         
         Task taskTaken = StructuralStorage.taskQueue.poll();
+        StructuralStorage.updateTaskArrayList();
         taskTaken.setAssignedTo(LoginAndRegistrationController.sessionUser);
         org.getTaskAssigned().add(taskTaken);
         StructuralStorage.tasksInProgressArrayList.add(taskTaken);

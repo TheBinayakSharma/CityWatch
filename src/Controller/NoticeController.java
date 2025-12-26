@@ -15,10 +15,16 @@ import java.util.LinkedList;
  * @author binay
  */
 public class NoticeController {
-    public static void createTask(String title, String desc){
+    public static void createNotice(String title, String desc) throws Exception{
+        for(Notice n: getNoticeLinkedList()){
+            if (n.getTitle().equalsIgnoreCase(title) && n.getDescription().equalsIgnoreCase(desc)){
+                throw new Exception("Notice Already Exists");
+            }
+        }
         Notice not = new Notice(title, desc);
         StructuralStorage.noticeLinkedList.add(not);
         StructuralStorage.updateNoticesArrayList();
+        StructuralStorage.addRecentNotice(not);
     }
     
     public static LinkedList<Notice> getNoticeLinkedList(){

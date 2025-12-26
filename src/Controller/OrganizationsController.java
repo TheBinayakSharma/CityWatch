@@ -9,6 +9,7 @@ import Model.Organization;
 import Model.StructuralStorage;
 import Model.Task;
 import java.util.Iterator;
+import java.util.UUID;
 
 /**
  *
@@ -27,8 +28,8 @@ public class OrganizationsController {
         LoginAndRegistrationController.addOrgLoginCred(orgId, password);
     }
     
-    public String setOrgId(String name, String phone){
-        return "ORG-"+name.substring(0,3)+phone;
+    public String setOrgId(String name){
+        return "ORG-"+name.substring(0,3)+UUID.randomUUID().toString().substring(0, 4).toUpperCase();
     }
     
     public static ArrayList<Organization> getOrganizationAL(){

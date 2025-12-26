@@ -9,7 +9,7 @@ package Model;
  * @author binay
  */
 public class Civilian {
-    private String civId;
+    private final String civId;
     private String name;
     private String address;
     private String email;
