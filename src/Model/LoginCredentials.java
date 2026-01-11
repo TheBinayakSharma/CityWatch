@@ -9,6 +9,10 @@ import java.util.HashMap;
  *
  * @author binay
  */
+
+/**
+* Stores login credentials for civilians and organizations
+*/
 public class LoginCredentials {
     public static HashMap<String,String> civLoginCred = new HashMap<>();
     public static HashMap<String,String> orgLoginCred = new HashMap<>();             

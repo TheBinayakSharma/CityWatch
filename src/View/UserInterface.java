@@ -10,6 +10,7 @@ import Controller.CiviliansController;
 import Controller.LoginAndRegistrationController;
 import Controller.NoticeController;
 import Controller.OrganizationsController;
+import Controller.SortAndSearchController;
 import Controller.TaskController;
 import Model.Civilian;
 import Model.Notice;
@@ -1345,6 +1346,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
 
         admOrgSearchButton.setText("Search");
+        admOrgSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admOrgSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel2.add(admOrgSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1484,6 +1490,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel9.add(jTextField3);
 
         admCivSearchButton.setText("Search");
+        admCivSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admCivSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel9.add(admCivSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1621,6 +1632,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel12.add(jTextField4);
 
         admTaskSearchButton.setText("Search");
+        admTaskSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admTaskSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel12.add(admTaskSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1750,6 +1766,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel15.add(jTextField5);
 
         admNoticeSearchButton.setText("Search");
+        admNoticeSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admNoticeSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel15.add(admNoticeSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1879,6 +1900,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel22.add(jTextField8);
 
         admTIPSearchButton.setText("Search");
+        admTIPSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admTIPSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel22.add(admTIPSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1945,6 +1971,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel18.add(jTextField6);
 
         admCompletedTaskSearchButton.setText("Search");
+        admCompletedTaskSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admCompletedTaskSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel18.add(admCompletedTaskSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2979,6 +3010,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel19.add(jTextField7);
 
         orgNoticeSearchButton.setText("Search");
+        orgNoticeSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgNoticeSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel19.add(orgNoticeSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3072,6 +3108,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel21.add(jTextField10);
 
         orgTasksSearchButton.setText("Search");
+        orgTasksSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgTasksSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel21.add(orgTasksSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3185,6 +3226,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel26.add(jTextField11);
 
         orgCompletedTasksSearchButton.setText("Search");
+        orgCompletedTasksSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgCompletedTasksSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel26.add(orgCompletedTasksSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3250,6 +3296,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel23.add(jTextField9);
 
         orgSearchTaskAssignedButton.setText("Search");
+        orgSearchTaskAssignedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgSearchTaskAssignedButtonActionPerformed(evt);
+            }
+        });
         jPanel23.add(orgSearchTaskAssignedButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3648,6 +3699,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel27.add(jTextField12);
 
         civNoticeSearchButton.setText("Search");
+        civNoticeSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civNoticeSearchButtonActionPerformed(evt);
+            }
+        });
         jPanel27.add(civNoticeSearchButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3739,6 +3795,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel29.add(jTextField13);
 
         civSearchTaskButton.setText("Search");
+        civSearchTaskButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civSearchTaskButtonActionPerformed(evt);
+            }
+        });
         jPanel29.add(civSearchTaskButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3841,6 +3902,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel32.add(jTextField14);
 
         civSearchCompletedTasksButton.setText("Search");
+        civSearchCompletedTasksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civSearchCompletedTasksButtonActionPerformed(evt);
+            }
+        });
         jPanel32.add(civSearchCompletedTasksButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3904,6 +3970,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel33.add(jTextField15);
 
         civSearchTIPButton.setText("Search");
+        civSearchTIPButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                civSearchTIPButtonActionPerformed(evt);
+            }
+        });
         jPanel33.add(civSearchTIPButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4004,6 +4075,7 @@ public class UserInterface extends javax.swing.JFrame {
                 String civId = addCiv.setCivId(name);
                 addCiv.registerCivilian(civId, name, phone, email, address, password);
                 JOptionPane.showMessageDialog(mainPanel, "Civilian Added Successfully. Your Username is: " + civId, "Success", JOptionPane.INFORMATION_MESSAGE);
+
             }
 
             if (ngoSelected) {
@@ -4011,12 +4083,15 @@ public class UserInterface extends javax.swing.JFrame {
                 String orgId = addOrg.setOrgId(name);
                 addOrg.registerOrganization(orgId, name, phone, email, address, password);
                 JOptionPane.showMessageDialog(mainPanel, "Organization Added Successfully. Your Username is: " + orgId, "Success", JOptionPane.INFORMATION_MESSAGE);
+
             }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-
         }
+
     }
+
     private void lfRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lfRegisterButtonActionPerformed
         // TODO add your handling code here:
         mpLayout.show(mainPanel, "regPanelCard");
@@ -4055,15 +4130,81 @@ public class UserInterface extends javax.swing.JFrame {
         oComTaskCount.setText(String.valueOf(TaskController.getComTaskAL().size()));
     }
     private void admOrgSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admOrgSortButtonActionPerformed
-        // TODO add your handling code here:
+        String sortBy = admSortByComboBoxOrg.getSelectedItem().toString();
+        String order = admSortOrderComboBoxOrg.getSelectedItem().toString();
+
+        ArrayList<Organization> orgList = OrganizationsController.getOrganizationAL();
+
+        if (sortBy.equalsIgnoreCase("OrgId")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.insertionSortOrgIdAsc(orgList);
+            } else {
+                SortAndSearchController.insertionSortOrgIdDesc(orgList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Name")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.mergeSortOrgNameAsc(orgList);
+            } else {
+                SortAndSearchController.mergeSortOrgNameDesc(orgList);
+            }
+        }
+
+        DefaultTableModel model = (DefaultTableModel) adminOrgTable.getModel();
+
+        loadOrgTable(orgList, model);
+
     }//GEN-LAST:event_admOrgSortButtonActionPerformed
 
     private void admCivSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCivSortButtonActionPerformed
-        // TODO add your handling code here:
+        String sortBy = admSortByComboBoxCiv.getSelectedItem().toString();
+        String order = admSortOrderComboBoxCiv.getSelectedItem().toString();
+
+        ArrayList<Civilian> civList = CiviliansController.getCivilianAL();
+
+        if (sortBy.equalsIgnoreCase("CivId")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortCivilianIdAsc(civList);
+            } else {
+                SortAndSearchController.selectionSortCivilianIdDesc(civList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Name")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.insertionSortCivilianNameAsc(civList);
+            } else {
+                SortAndSearchController.insertionSortCivilianNameDesc(civList);
+            }
+        }
+
+        DefaultTableModel model = (DefaultTableModel) adminCivTable.getModel();
+
+        loadCivTable(civList, model);
+
     }//GEN-LAST:event_admCivSortButtonActionPerformed
 
     private void admTasksSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTasksSortButtonActionPerformed
-        // TODO add your handling code here:
+        String sortBy = admSortByComboBoxTasks.getSelectedItem().toString();
+        String order = admSortOrderComboBoxTasks.getSelectedItem().toString();
+
+        ArrayList<Task> taskList = TaskController.getTaskAL();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.mergeSortTaskIssueDateAsc(taskList);
+            } else {
+                SortAndSearchController.mergeSortTaskIssueDateDesc(taskList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortTaskTitleAsc(taskList);
+            } else {
+                SortAndSearchController.selectionSortTaskTitleDesc(taskList);
+            }
+        }
+
+        DefaultTableModel model = (DefaultTableModel) adminTaskTable.getModel();
+
+        loadTaskTable(taskList, model);
+
     }//GEN-LAST:event_admTasksSortButtonActionPerformed
 
     private void updatetaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatetaskButtonActionPerformed
@@ -4099,7 +4240,30 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_updatetaskButtonActionPerformed
 
     private void admNoticeSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admNoticeSortButtonActionPerformed
-        // TODO add your handling code here:
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get sort options from combo boxes
+        String sortBy = admSortByComboBoxNotice.getSelectedItem().toString();
+        String order = admSortOrderComboBoxNotice.getSelectedItem().toString();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortNoticeIssueDateAsc(noticeList);
+            } else {
+                SortAndSearchController.selectionSortNoticeIssueDateDesc(noticeList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.insertionSortNoticeTitleAsc(noticeList);
+            } else {
+                SortAndSearchController.insertionSortNoticeTitleDesc(noticeList);
+            }
+        }
+
+// Load sorted table
+        loadNoticeTable(noticeList, (DefaultTableModel) adminNoticeTable.getModel());
+
     }//GEN-LAST:event_admNoticeSortButtonActionPerformed
 
     private void updateNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNoticeButtonActionPerformed
@@ -4185,6 +4349,14 @@ public class UserInterface extends javax.swing.JFrame {
         String address = rfAddressTextField1.getText();
         String password = new String(rfPasswordField1.getPassword());
         registerFunction(name, phone, email, address, password);
+        if (civilianRadioButton1.isSelected()) {
+            adcLayout.show(adminCards, "acivcard");
+            loadCivTable(Controller.CiviliansController.getCivilianAL(), (DefaultTableModel) adminCivTable.getModel());
+        } else if (ngoRadioButton1.isSelected()) {
+            adcLayout.show(adminCards, "aorgcard");
+            loadOrgTable(Controller.OrganizationsController.getOrganizationAL(), (DefaultTableModel) adminOrgTable.getModel());
+
+        }
     }//GEN-LAST:event_registerUserButtonActionPerformed
 
     private void ngoRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngoRadioButton1ActionPerformed
@@ -4368,7 +4540,30 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_removeCivButtonActionPerformed
 
     private void orgNoticeSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgNoticeSortButtonActionPerformed
-        // TODO add your handling code here:
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get sort options from combo boxes
+        String sortBy = orgNoticeSortByComboBox.getSelectedItem().toString();
+        String order = orgNoticeSortOrderComboBox.getSelectedItem().toString();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortNoticeIssueDateAsc(noticeList);
+            } else {
+                SortAndSearchController.selectionSortNoticeIssueDateDesc(noticeList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.insertionSortNoticeTitleAsc(noticeList);
+            } else {
+                SortAndSearchController.insertionSortNoticeTitleDesc(noticeList);
+            }
+        }
+
+// Load sorted table
+        loadNoticeTable(noticeList, (DefaultTableModel) orgNoticeTable.getModel());
+
     }//GEN-LAST:event_orgNoticeSortButtonActionPerformed
 
     private void admCompletedTasksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTasksButton1ActionPerformed
@@ -4393,7 +4588,8 @@ public class UserInterface extends javax.swing.JFrame {
 
             TaskController.createTask(title, desc);
             JOptionPane.showMessageDialog(mainPanel, "Task Added Successfully", "Succcess", JOptionPane.INFORMATION_MESSAGE);
-
+            adcLayout.show(adminCards, "ataskcard");
+            loadTaskTable(TaskController.getTaskAL(), (DefaultTableModel) adminTaskTable.getModel());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -4419,7 +4615,8 @@ public class UserInterface extends javax.swing.JFrame {
             NoticeController.createNotice(title, desc);
 
             JOptionPane.showMessageDialog(mainPanel, "Notice Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            adcLayout.show(adminCards, "anoticecard");
+            loadNoticeTable(NoticeController.getNoticeAL(), (DefaultTableModel) adminNoticeTable.getModel());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(mainPanel, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -4508,7 +4705,25 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_removeNoticeButtonActionPerformed
 
     private void orgSortTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgSortTasksButtonActionPerformed
-        // TODO add your handling code here:
+        String sortBy = orgTasksSortByComboBox.getSelectedItem().toString();
+        String order = jComboBox11.getSelectedItem().toString();
+        ArrayList<Task> taskListForSort = TaskController.getTaskAL();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.mergeSortTaskIssueDateAsc(taskListForSort);
+            } else {
+                SortAndSearchController.mergeSortTaskIssueDateDesc(taskListForSort);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortTaskTitleAsc(taskListForSort);
+            } else {
+                SortAndSearchController.selectionSortTaskTitleDesc(taskListForSort);
+            }
+        }
+
+        loadTaskTable(taskListForSort, (DefaultTableModel) orgTaskTable.getModel());
     }//GEN-LAST:event_orgSortTasksButtonActionPerformed
 
     private void orgNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgNoticeButtonActionPerformed
@@ -4658,12 +4873,212 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_civLogOutButtonActionPerformed
 
     private void civSortNoticeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSortNoticeButtonActionPerformed
-        // TODO add your handling code here:
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get sort options from combo boxes
+        String sortBy = civNoticeSortByComboBox.getSelectedItem().toString();
+        String order = civNoticeSortOrderComboBox.getSelectedItem().toString();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortNoticeIssueDateAsc(noticeList);
+            } else {
+                SortAndSearchController.selectionSortNoticeIssueDateDesc(noticeList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.insertionSortNoticeTitleAsc(noticeList);
+            } else {
+                SortAndSearchController.insertionSortNoticeTitleDesc(noticeList);
+            }
+        }
+
+// Load sorted table
+        loadNoticeTable(noticeList, (DefaultTableModel) civNoticeTable.getModel());
+
     }//GEN-LAST:event_civSortNoticeButtonActionPerformed
 
     private void civSortTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSortTaskButtonActionPerformed
-        // TODO add your handling code here:
+        // Get the full (or filtered) task list
+        ArrayList<Task> taskList = TaskController.getTaskAL();
+
+// Sort options
+        String sortBy = civTaskSortByComboBox.getSelectedItem().toString();
+        String order = civTaskSortOrderComboBox.getSelectedItem().toString();
+
+        if (sortBy.equalsIgnoreCase("IssueDate")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.mergeSortTaskIssueDateAsc(taskList);
+            } else {
+                SortAndSearchController.mergeSortTaskIssueDateDesc(taskList);
+            }
+        } else if (sortBy.equalsIgnoreCase("Title")) {
+            if (order.equalsIgnoreCase("Asc")) {
+                SortAndSearchController.selectionSortTaskTitleAsc(taskList);
+            } else {
+                SortAndSearchController.selectionSortTaskTitleDesc(taskList);
+            }
+        }
+
+// Load the sorted table
+        loadTaskTable(taskList, (DefaultTableModel) civTaskTable.getModel());
+
     }//GEN-LAST:event_civSortTaskButtonActionPerformed
+
+    private void admOrgSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admOrgSearchButtonActionPerformed
+        String query = jTextField1.getText().trim();
+
+        ArrayList<Organization> orgList = OrganizationsController.getOrganizationAL();
+
+        ArrayList<Organization> result = SortAndSearchController.searchOrganization(orgList, query);
+
+        DefaultTableModel model = (DefaultTableModel) adminOrgTable.getModel();
+
+        loadOrgTable(result, model);
+
+    }//GEN-LAST:event_admOrgSearchButtonActionPerformed
+
+    private void admCivSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCivSearchButtonActionPerformed
+        String query = jTextField3.getText().trim();
+
+        ArrayList<Civilian> civList = CiviliansController.getCivilianAL();
+
+        ArrayList<Civilian> result = SortAndSearchController.searchCivilian(civList, query);
+
+        DefaultTableModel model = (DefaultTableModel) adminCivTable.getModel();
+
+        loadCivTable(result, model);
+
+    }//GEN-LAST:event_admCivSearchButtonActionPerformed
+
+    private void admTaskSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTaskSearchButtonActionPerformed
+        String query = jTextField4.getText().trim();
+
+        ArrayList<Task> taskList = TaskController.getTaskAL();
+
+        ArrayList<Task> result = SortAndSearchController.searchTask(taskList, query);
+
+        DefaultTableModel model = (DefaultTableModel) adminTaskTable.getModel();
+
+        loadTaskTable(result, model);
+
+    }//GEN-LAST:event_admTaskSearchButtonActionPerformed
+
+    private void orgTasksSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgTasksSearchButtonActionPerformed
+        String query = jTextField10.getText().trim();
+        ArrayList<Task> taskList = TaskController.getTaskAL();
+        ArrayList<Task> searchResults = SortAndSearchController.searchTask(taskList, query);
+        loadTaskTable(searchResults, (DefaultTableModel) orgTaskTable.getModel());
+    }//GEN-LAST:event_orgTasksSearchButtonActionPerformed
+
+    private void civSearchTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSearchTaskButtonActionPerformed
+        // Get the full task list
+        ArrayList<Task> taskList = TaskController.getTaskAL();
+
+// Get search query
+        String query = jTextField13.getText().trim();
+        if (!query.isEmpty()) {
+            taskList = SortAndSearchController.searchTask(taskList, query);
+        }
+
+// Load the filtered table
+        loadTaskTable(taskList, (DefaultTableModel) civTaskTable.getModel());
+
+    }//GEN-LAST:event_civSearchTaskButtonActionPerformed
+
+    private void admNoticeSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admNoticeSearchButtonActionPerformed
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get search query from the correct text field
+        String query = jTextField5.getText().trim();
+        if (!query.isEmpty()) {
+            noticeList = SortAndSearchController.searchNotice(noticeList, query);
+        }
+
+// Load filtered table
+        loadNoticeTable(noticeList, (DefaultTableModel) adminNoticeTable.getModel());
+
+    }//GEN-LAST:event_admNoticeSearchButtonActionPerformed
+
+    private void orgNoticeSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgNoticeSearchButtonActionPerformed
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get search query from text field
+        String query = jTextField7.getText().trim();
+        if (!query.isEmpty()) {
+            noticeList = SortAndSearchController.searchNotice(noticeList, query);
+        }
+
+// Load filtered table
+        loadNoticeTable(noticeList, (DefaultTableModel) orgNoticeTable.getModel());
+
+    }//GEN-LAST:event_orgNoticeSearchButtonActionPerformed
+
+    private void civNoticeSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civNoticeSearchButtonActionPerformed
+        // Get full notice list
+        ArrayList<Notice> noticeList = NoticeController.getNoticeAL();
+
+// Get search query from text field
+        String query = jTextField12.getText().trim();
+        if (!query.isEmpty()) {
+            noticeList = SortAndSearchController.searchNotice(noticeList, query);
+        }
+
+// Load filtered table
+        loadNoticeTable(noticeList, (DefaultTableModel) civNoticeTable.getModel());
+
+    }//GEN-LAST:event_civNoticeSearchButtonActionPerformed
+
+    private void civSearchTIPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSearchTIPButtonActionPerformed
+        String query = jTextField15.getText().trim();
+        ArrayList<Task> list = TaskController.getTaskIPAL(); // use controller
+        ArrayList<Task> results = SortAndSearchController.searchTask(list, query);
+        loadTaskTable(results, (DefaultTableModel) civTIPTable.getModel());
+
+    }//GEN-LAST:event_civSearchTIPButtonActionPerformed
+
+    private void admTIPSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admTIPSearchButtonActionPerformed
+        String query = jTextField8.getText().trim();
+        ArrayList<Task> list = TaskController.getTaskIPAL(); // use controller
+        ArrayList<Task> results = SortAndSearchController.searchTask(list, query);
+        loadTaskTable(results, (DefaultTableModel) adminTaskIPTable.getModel());
+
+    }//GEN-LAST:event_admTIPSearchButtonActionPerformed
+
+    private void civSearchCompletedTasksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_civSearchCompletedTasksButtonActionPerformed
+        String query = jTextField14.getText().trim();
+        ArrayList<Task> taskList = TaskController.getComTaskAL(); // same, all completed tasks
+        ArrayList<Task> filteredList = SortAndSearchController.searchTask(taskList, query);
+        loadTaskTable(filteredList, (DefaultTableModel) civComTaskTable.getModel());
+
+    }//GEN-LAST:event_civSearchCompletedTasksButtonActionPerformed
+
+    private void admCompletedTaskSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admCompletedTaskSearchButtonActionPerformed
+        String query = jTextField6.getText().trim();
+        ArrayList<Task> taskList = TaskController.getComTaskAL(); // controller provides model access
+        ArrayList<Task> filteredList = SortAndSearchController.searchTask(taskList, query);
+        loadTaskTable(filteredList, (DefaultTableModel) adminComTaskTable.getModel());
+
+    }//GEN-LAST:event_admCompletedTaskSearchButtonActionPerformed
+
+    private void orgCompletedTasksSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCompletedTasksSearchButtonActionPerformed
+        String query = jTextField11.getText().trim(); // get search input
+        ArrayList<Task> comList = OrganizationsController.getOrgComTaskList(LoginAndRegistrationController.sessionUser); // fetch org's completed tasks
+        ArrayList<Task> filteredList = SortAndSearchController.searchTask(comList, query); // search by TaskId or Title
+        loadTaskTable(filteredList, (DefaultTableModel) orgComTaskTable.getModel()); // update table
+
+    }//GEN-LAST:event_orgCompletedTasksSearchButtonActionPerformed
+
+    private void orgSearchTaskAssignedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgSearchTaskAssignedButtonActionPerformed
+        String query = jTextField9.getText().trim(); // get search input
+        ArrayList<Task> tipList = OrganizationsController.getOrgTIPList(LoginAndRegistrationController.sessionUser); // fetch org's tasks in progress
+        ArrayList<Task> filteredList = SortAndSearchController.searchTask(tipList, query); // search by TaskId or Title
+        loadTaskTable(filteredList, (DefaultTableModel) orgTIPTable.getModel()); // update table
+
+    }//GEN-LAST:event_orgSearchTaskAssignedButtonActionPerformed
 
     public void loadOrgTable(ArrayList<Organization> orgs, DefaultTableModel model) {
         model.setRowCount(0);
@@ -4722,7 +5137,6 @@ public class UserInterface extends javax.swing.JFrame {
         }
     }
      */
-
     /**
      * @param args the command line arguments
      */
