@@ -8,7 +8,6 @@ package Model;
  *
  * @author binay
  */
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -20,9 +19,9 @@ import java.util.Iterator;
  */
 public class CustomStack<ObjType> implements Iterable<ObjType> {
 
-    private ArrayList<ObjType> data; 
-    private int top; 
-    private int maxSize; 
+    private ArrayList<ObjType> data;
+    private int top;
+    private final int maxSize;
 
     /**
      * Constructs a stack with a fixed maximum size.
@@ -46,7 +45,11 @@ public class CustomStack<ObjType> implements Iterable<ObjType> {
             throw new IllegalStateException("Stack overflow");
         }
         top++;
-        data.set(top, element); 
+        if (top < data.size()) {
+            data.set(top, element);
+        } else {
+            data.add(element);
+        }
     }
 
     /**
@@ -55,7 +58,7 @@ public class CustomStack<ObjType> implements Iterable<ObjType> {
      * @return the top element of the stack
      * @throws IllegalStateException if the stack is empty
      */
-    public ObjType pop(){
+    public ObjType pop() {
         if (top == -1) {
             throw new IllegalStateException("Stack underflow");
         }
@@ -70,7 +73,7 @@ public class CustomStack<ObjType> implements Iterable<ObjType> {
      * @param items the collection of elements to add
      * @throws IllegalStateException if adding items exceeds max size
      */
-    public void addAll(Collection<ObjType> items){
+    public void addAll(Collection<ObjType> items) {
         for (ObjType item : items) {
             push(item);
         }
@@ -82,7 +85,7 @@ public class CustomStack<ObjType> implements Iterable<ObjType> {
      * @return an iterator for the stack elements
      */
     @Override
-    public Iterator<ObjType> iterator(){
+    public Iterator<ObjType> iterator() {
         return data.subList(0, top + 1).iterator();
     }
 }

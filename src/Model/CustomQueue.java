@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 /**
  * A custom queue implementation using an ArrayList
+ * @param <ObjType>
  */
 
 public class CustomQueue<ObjType> implements Iterable<ObjType> {

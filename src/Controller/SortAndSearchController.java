@@ -406,8 +406,23 @@ public class SortAndSearchController {
      */
     public static ArrayList<Civilian> searchCivilian(ArrayList<Civilian> list, String query) {
         ArrayList<Civilian> results = new ArrayList<>();
+        selectionSortCivilianIdAsc(list);
+        int left = 0;
+        int right = list.size() - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int res = list.get(mid).getCivId().compareToIgnoreCase(query);
+            if (res == 0) {
+                results.add(list.get(mid));
+                return results;
+            } else if (res < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
         for (Civilian c : list) {
-            if (c.getCivId().equalsIgnoreCase(query) || c.getName().toLowerCase().contains(query.toLowerCase())) {
+            if (c.getName().toLowerCase().contains(query.toLowerCase())) {
                 results.add(c);
             }
         }
@@ -423,8 +438,23 @@ public class SortAndSearchController {
      */
     public static ArrayList<Organization> searchOrganization(ArrayList<Organization> list, String query) {
         ArrayList<Organization> results = new ArrayList<>();
+        insertionSortOrgIdAsc(list);
+        int left = 0;
+        int right = list.size() - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int res = list.get(mid).getOrgId().compareToIgnoreCase(query);
+            if (res == 0) {
+                results.add(list.get(mid));
+                return results;
+            } else if (res < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
         for (Organization o : list) {
-            if (o.getOrgId().equalsIgnoreCase(query) || o.getName().toLowerCase().contains(query.toLowerCase())) {
+            if (o.getName().toLowerCase().contains(query.toLowerCase())) {
                 results.add(o);
             }
         }
@@ -464,4 +494,5 @@ public class SortAndSearchController {
         }
         return results;
     }
+
 }
